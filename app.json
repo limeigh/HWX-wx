@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/repair/main/main",
+    "pages/personal/center/center",
+    "pages/repair/createOrder/createOrder",
+    "pages/repair/faultDetail/faultDetail",
+    "pages/repair/orderDetail/orderDetail",
+    "pages/personal/addAddress/addAddress",
+    "pages/personal/addressList/addressList",
+    "pages/personal/login/login",
+    "pages/personal/myInfo/myInfo",
+    "pages/personal/myOrders/myOrders"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ff5000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText":  "Hi维修",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#686868",
+    "selectedColor": "#ff5000",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/repair/main/main",
+      "iconPath": "images/tab_hi@3x.png",
+      "selectedIconPath": "images/tab_hi_cur@3x.png",
+      "text": "维修"
+    }, {
+      "pagePath": "pages/personal/center/center",
+      "iconPath": "images/tab_gr@3x.png",
+      "selectedIconPath": "images/tab_gr_cur@3x.png",
+      "text": "个人中心"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

@@ -1,0 +1,15 @@
+@import "../../../component/filmList/filmList.wxss";
+@import "../../../component/message/message.wxss";
+
+.banner {
+    width: 750rpx;
+    height: 300rpx;
+    margin-top: 80rpx;
+    background-color: #eee;
+    animation: fadeIn 1.8s;
+}
+
+.banner-item {
+    width: 750rpx;
+    height: 300rpx;
+}

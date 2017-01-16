@@ -1,0 +1,13 @@
+<block wx:if="{{! showLoading}}">
+<swiper class="banner" indicator-dots="true" autoplay="true">
+    <block wx:for="{{bannerList}}" wx:for-item="bannerItem" wx:for-index="bannerIndex" wx:key="banner">
+        <swiper-item data-type="{{bannerItem.type}}" data-id="{{bannerItem.id}}" bindtap="viewBannerDetail">
+            <image src="{{bannerItem.imgUrl}}" class="banner-item"></image>
+        </swiper-item>
+    </block>
+</swiper>
+</block>
+<import src="../../../component/filmList/filmList.wxml"/>
+<template is="filmList" data="{{films: faultList, hasMore: hasMore, showLoading: showLoading}}"/>
+<import src="../../../component/message/message.wxml"/>
+<template is="message" data="{{message: message}}"/>

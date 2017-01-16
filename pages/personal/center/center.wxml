@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="user-info">
+        <view class="user-skin" bindtap="login"></view>
+        <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+        <view class="user-nickname">
+            {{userInfo.nickName}}
+            <block wx:if="{{userInfo.gender == 1}}">
+                <view class="user-sex-male"></view>
+            </block>
+            <block wx:elif="{{userInfo.gender == 2}}">
+                <view class="user-sex-female"></view>
+            </block>
+        </view>
+        <view class="user-location">{{userInfo.province}},{{userInfo.city}}</view>
+    </view>
+
+    <view class="my">
+    <view class="my-item flex-wrp" bindtap="myOrder">
+      <view class="myitem-icon flex-item" >
+        <!--<image src="../../images/eye.png"></image>-->
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的订单</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp" bindtap="addressManage">
+      <view class="myitem-icon flex-item" >
+        <!--<image src="../../images/star.png"></image>-->
+      </view>
+      <view class="myitem-name flex-item">
+        <text>地址管理</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp" bindtap="callPhone">
+      <view class="myitem-icon flex-item" >
+        <!--<image src="../../images/draft.png"></image>-->
+      </view>
+      <view class="myitem-name flex-item">
+        <text>联系电话</text>
+      </view>
+    </view>
+  </view>
+</view>

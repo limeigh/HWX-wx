@@ -1,0 +1,4 @@
+<view class="weapp-about">
+    <button bindtap="addAddress">新增地址</button>
+    
+</view>

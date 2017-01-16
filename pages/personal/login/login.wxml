@@ -1,0 +1,8 @@
+<view class="weapp-about">
+    <input class="input-phone" placeholder="手机号" bindinput="inputPhone" auto-focus/>
+    <button class="button-code" bindtap="sendCode">发送验证码</button>
+    <input class="input-address" placeholder="验证码" bindinput="inputCode" value="{{addressDetail}}" auto-focus/>
+    <button class="submit" bindtap="submit">登录</button>
+
+    <contact-button type="default-light" size="20" session-from="weapp">客服</contact-button>
+</view>

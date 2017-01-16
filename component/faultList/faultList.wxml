@@ -1,0 +1,20 @@
+<template name="faultList">
+<block wx:if="{{showLoading}}">
+    <view class="loading">玩命加载中…</view>
+</block>
+<block wx:else>
+    <view class="fault">
+        <block wx:for="{{faults}}" wx:for-index="faultIndex" wx:for-item="faultItem" wx:key="fault">
+             <view data-id="{{faultItem.Id}}" class="fault-item" catchtap="addOrder">
+                 <image src="{{faultItem.imgurl}}" class="fault-icon"></image>
+                 <!--<view class="fault-name">
+                     <text>{{filmItem.Name}}</text>
+                 </view>
+                 <view class="fault-title">
+                     <text>{{filmItem.title}}</text>
+                 </view>-->
+            </view>
+        </block>
+    </view>
+</block>
+</template>

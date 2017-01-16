@@ -1,0 +1,22 @@
+<view class="weapp-about">
+    <view class="weapp-name">{{mouldName}}</view>
+    <view class="webapp-intro">
+        <view class="webapp-intro-item">
+            <view class="webapp-intro-title">设备数据</view>
+            <view class="webapp-intro-content">{{mouldInfo.ProductId}}</view>
+            <view class="webapp-intro-content">{{mouldInfo.BrandId}}</view>
+            <view class="webapp-intro-content">{{mouldInfo.Colors}}</view>
+            <view class="webapp-intro-content">{{mouldInfo.Pic}}</view>
+            <view class="webapp-intro-content">{{mouldInfo.BrandName}}</view>
+        </view>
+        <view class="webapp-intro-item">
+            <view class="webapp-intro-title" bindtap="selectPlan">维修信息</view>
+            <block wx:for="{{faultDetailList}}" wx:for-item="faultItem">
+                <view class="webapp-intro-content" bindtap="selectPlan">{{faultItem}}</view>
+            </block>
+        </view>
+        <view class="webapp-intro-item">
+           
+        </view>
+    </view>
+</view>
