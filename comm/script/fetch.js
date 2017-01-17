@@ -1,3 +1,8 @@
+/*
+备注
+网络请求userapi
+*/
+
 var config = require('./config.js')
 var message = require('../../component/message/message')
 
@@ -129,7 +134,42 @@ function getDeviceInfo(mould_name, cb, fail_cb){
 }
 
 /**
- *  获取维修方案
+ *  获取某机型+故障对应的颜色
+ *  fault_id：故障id
+ *  mould_id: 机型id
+ *  cb: 成功回调
+ *  fail_cb：失败回调
+ */
+function getColors(fault_id,mould_id,cb,fail_cb){
+  var that = this
+  wx.request({
+    url: config.apiList.getColors,
+    data: {
+      fault_id:fault_id,
+      mould_id:mould_id
+    },
+    method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    header: {
+       "Content-Type": "application/json,application/json"
+     },
+    success: function(res){
+      if(res.data.code == config.apiCode.success){
+        typeof cb == 'function' && cb(res.data.data)
+      }else{
+        typeof fail_cb == 'function' && fail_cb(res.data.mes)
+      }
+    },
+    fail: function() {
+      typeof fail_cb == 'function' && fail_cb(config.strings.requestFail)
+    },
+    complete: function() {
+      // complete
+    }
+  })
+}
+
+/**
+ *  获取维修方案 
  *  moudleid
  *  faulttype
  *  brandid
@@ -150,6 +190,7 @@ function getRepairMsg(moudleid, faulttype, brandid, colorid, productid,type,name
        faulttype:faulttype,
        brandid:brandid,
        colorid:colorid,
+       productid:productid,
        type:type,
        name:name,
        repairprice_colorid:repairprice_colorid
@@ -159,7 +200,7 @@ function getRepairMsg(moudleid, faulttype, brandid, colorid, productid,type,name
        "Content-Type": "application/json,application/json"
      },
      success: function(res){
-       if(res.data.code == config.apiCode.success){
+        if(res.data.code == config.apiCode.success){
            typeof cb == 'function' && cb(res.data.data)
         }else{
            typeof fail_cb == 'function' && fail_cb(res.data.mes)
@@ -177,7 +218,7 @@ function getRepairMsg(moudleid, faulttype, brandid, colorid, productid,type,name
  *  cb: 成功回调
  *  fail_cb：失败回调
  */
-function getComment(faulty_id, type, page, cb, fail_cb){
+function getFaultComment(faulty_id, type, page, cb, fail_cb){
    var that = this
    wx.request({
      url: config.apiList.faultComment,
@@ -191,14 +232,42 @@ function getComment(faulty_id, type, page, cb, fail_cb){
        "Content-Type": "application/json,application/json"
      },
      success: function(res){
-       that.setData({
-         repairMsg:res.data.data,
-         faultDetailList:res.data.data.applies.list
-       })
-       typeof cb == 'function' && cb(res)
+       if(res.data.code == config.apiCode.success){
+           typeof cb == 'function' && cb(res.data.data)
+       }else{
+           typeof fail_cb == 'function' && fail_cb(res.data.mes)
+       }
      },
      fail: function() {
-       typeof fail_cb == 'function' && fail_cb()
+       typeof fail_cb == 'function' && fail_cb(config.strings.requestFail)
+     }
+   })
+}
+
+/**
+ *  获取地址列表
+ */
+function getAddressList(cb,fail_cb){
+   var that = this
+   wx.request({
+     url: config.apiList.addressList,
+     data: {},
+     method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+     header: {
+       "Content-Type": "application/json,application/json"
+     },
+     success: function(res){
+       if(res.data.code == config.apiCode.success){
+           typeof cb == 'function' && cb(res.data.data)
+       }else{
+           typeof fail_cb == 'function' && fail_cb(res.data.mes)
+       }
+     },
+     fail: function() {
+       typeof fail_cb == 'function' && fail_cb(config.strings.requestFail)
+     },
+     complete: function() {
+       // complete
      }
    })
 }
@@ -207,8 +276,10 @@ function getComment(faulty_id, type, page, cb, fail_cb){
 module.exports = {
   getVerifyCode : getVerifyCode,
   doLoginWithPhone : doLoginWithPhone,
-  getComment : getComment,
+  getFaultComment : getFaultComment,
+  getColors: getColors,
   getRepairMsg: getRepairMsg, 
   getDeviceInfo: getDeviceInfo,
   getAllFaults: getAllFaults,
+  getAddressList: getAddressList,
 }

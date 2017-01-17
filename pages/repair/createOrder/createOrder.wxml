@@ -1,3 +1,20 @@
 <view class="weapp-about">
-    
+    <button class="select-address" bindtap="selectAddress">选择服务地址</button>
+    <input class="input-phone" placeholder="手机号" bindinput="inputPhone" value="{{phone}}" auto-focus/>
+    <button class="button-code" bindtap="sendCode">发送验证码</button>
+    <input class="input-code" placeholder="验证码" bindinput="inputCode" value="{{code}}" auto-focus/>
+    <view class="section">
+        <view class="section__title">日期选择器</view>
+        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <view class="picker">当前选择: {{date}}</view>
+        </picker>  
+    </view>
+    <view class="section">
+        <view class="section__title">时间选择器</view>
+        <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+            <view class="picker">当前选择: {{time}}</view>
+        </picker>
+    </view>
+    <input class="input-detail" placeholder="再描述一下设备问题" bindinput="inputDetail" value="{{detail}}" auto-focus/>
+    <button class="submit" bindtap="submit">提交订单</button>
 </view>

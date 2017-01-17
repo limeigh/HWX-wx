@@ -10,9 +10,12 @@ module.exports = {
     apiList: {
         faultList: baseUrl + 'fault/mould-fault',
         deviceInfo: baseUrl + 'moiblemould/getids',
+        getColors: baseUrl + 'colors/get-colors',
         repairMsg: baseUrl + 'repairprice/get-repair-msg',
+        faultComment: baseUrl + 'comment/new-get-y-comments',
         sendCode: baseUrl + 'hiuser/verificate-code',
         doLogin: baseUrl + 'hiuser/login',
+        addressList: baseUrl + 'user/look-address',
     },
     apiCode:{
         success:200,

@@ -1,7 +1,9 @@
-<view class="weapp-about">
+<scroll-view scroll-y="true">
     <view class="weapp-name">{{mouldName}}</view>
     <view class="webapp-intro">
         <view class="webapp-intro-item">
+            <view class="webapp-intro-content">{{markInfo.mark_info}}</view>
+            <image style="background-color: #eeeeee;" mode="aspectFit" src="{{markInfo.img_url}}"></image>
             <view class="webapp-intro-title">设备数据</view>
             <view class="webapp-intro-content">{{mouldInfo.ProductId}}</view>
             <view class="webapp-intro-content">{{mouldInfo.BrandId}}</view>
@@ -9,14 +11,42 @@
             <view class="webapp-intro-content">{{mouldInfo.Pic}}</view>
             <view class="webapp-intro-content">{{mouldInfo.BrandName}}</view>
         </view>
-        <view class="webapp-intro-item">
-            <view class="webapp-intro-title" bindtap="selectPlan">维修信息</view>
-            <block wx:for="{{faultDetailList}}" wx:for-item="faultItem">
-                <view class="webapp-intro-content" bindtap="selectPlan">{{faultItem}}</view>
+        <view class="webapp-intro-title">颜色数据</view>
+        <view class="color">
+            <block wx:for="{{colorList}}" wx:for-index="colorIndex" wx:for-item="colorItem" wx:key="color">
+                <view data-id="{{colorItem.ColorId}}" data-idx="{{colorIndex}}" catchtap="selectColor">
+                    <view class="webapp-intro-content">{{colorItem.ColorName}}</view>
+                </view>
             </block>
         </view>
-        <view class="webapp-intro-item">
-           
+        <view class="webapp-intro-title">维修方案</view>
+        <view class="plan">
+            <block wx:for="{{planList}}" wx:for-index="planIndex" wx:for-item="planItem" wx:key="plan">
+                <view data-id="{{planItem.Id}}" data-idx="{{planIndex}}" catchtap="selectPlan">
+                    <view class="webapp-intro-content">{{planItem.RepairType}}</view>
+                    <view class="webapp-intro-content">{{planItem.faultType}}</view>
+                    <view class="webapp-intro-content">{{planItem.Price}}</view>
+                </view>
+            </block>
+        </view>
+        <view class="flex-wrp" style="flex-direction:row">
+            <view class="flex-item bc_green">维修详情</view>
+            <view class="flex-item bc_red">用户评论</view>
+        </view>
+        <view class="webapp-intro-title">维修详情</view>
+        <view class="webapp-intro-content">{{detailUrl}}</view>
+        <view class="webapp-intro-title">用户评论</view>
+        <view class="comment">
+            <block wx:for="{{commentList}}" wx:for-index="commentIndex" wx:for-item="commentItem" wx:key="comment">
+                <view data-id="{{commentItem.Id}}">
+                    <view class="webapp-intro-content">{{commentItem.UserName}}</view>
+                    <view class="webapp-intro-content">{{commentItem.grade}}星</view>
+                    <view class="webapp-intro-content">{{commentItem.Content}}</view>
+                    <view class="webapp-intro-content">{{commentItem.OrderId}}</view>
+                    <view class="webapp-intro-content">{{commentItem.Tags}}</view>
+                </view>
+            </block>
         </view>
     </view>
-</view>
+    <button class="next" bindtap="createOrder">下一步</button>
+</scroll-view>

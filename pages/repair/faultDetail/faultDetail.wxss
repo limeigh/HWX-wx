@@ -26,7 +26,6 @@ view {
 .webapp-intro {
     box-sizing: border-box;
     padding: 60rpx;
-    height: 900rpx;
 }
 
 .webapp-intro-item {
@@ -42,3 +41,26 @@ view {
 .webapp-intro-content {
     color: #ccc;
 }
+
+.top-tab{
+  width: 750rpx;
+  height: 100rpx;
+  background: #298DE5;
+  color: #8CCEFD;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  box-shadow: 0 2px 2px #bebebe;
+  margin: 0 0 8rpx 0;
+  z-index: 9999;
+}
+
+.toptab.active{
+  color: #ffffff;
+  border-bottom: solid 2px #ffffff;
+}
+
+.flex-wrp{
+    height: 100px;
+    display:flex;
+    background-color: #FFFFFF;
+ }
