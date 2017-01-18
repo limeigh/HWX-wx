@@ -18,7 +18,7 @@ function request(url,data,method,cb,fail_cb){
         "Content-Type": "application/json,application/json",
         "Access-token": jwt.jwtToken()
       }
-    }else{
+    }else{//未登录 
        header = {
          "Content-Type": "application/json,application/json"
        }
@@ -30,8 +30,24 @@ function request(url,data,method,cb,fail_cb){
       header: header,
       success: function(res){
         if(res.data.code == config.apiCode.success){
+          //请求成功，回调数据
            typeof cb == 'function' && cb(res.data.data)
+        }else if(res.data.code == config.apiCode.unauthorized){
+          //无权限，直接跳往登录页面
+           wx.redirectTo({
+             url: '../../pages/personal/login/login',
+             success: function(res){
+               // success
+             },
+             fail: function() {
+               // fail
+             },
+             complete: function() {
+               // complete
+             }
+           })
         }else{
+           //请求失败
            typeof fail_cb == 'function' && fail_cb(res.data.mes)
         }
       },
