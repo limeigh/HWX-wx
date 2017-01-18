@@ -7,6 +7,7 @@ Page({
     phone:"",
     code:""
   },
+
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
   },
@@ -47,12 +48,24 @@ Page({
     var that = this;
     console.log("submit " + that.data.phone + that.data.code);
     httpTool.doLoginWithPhone.call(that,that.data.phone,that.data.code,function(data){
-       app.globalData.hwxUserInfo = data;
+       app.setUserInfo(data);
        wx.showToast({
-        title: '登录成功',
-        icon: 'success',
-        duration: 2000
-      })
+         title: '登录成功',
+         icon: 'success',
+         duration: 2000
+       });
+       wx.navigateBack({
+         delta: 1, // 回退前 delta(默认为1) 页面
+         success: function(res){
+           // success
+         },
+         fail: function() {
+           // fail
+         },
+         complete: function() {
+           // complete
+         }
+       });
     },function(msg){
           wx.showToast({
             title: '登录失败'+msg,

@@ -6,8 +6,6 @@ Page({
 		faultList: [],
 		hasMore: false,
 		showLoading: true,
-		start: 0,
-		bannerList: config.bannerList
 	},
 
 	onLoad: function() {
@@ -20,12 +18,12 @@ Page({
                     faultList: that.data.faultList.concat(data),
                     showLoading: false
                 })
-			},function(mes){
+			},function(msg){
                 that.setData({
                     showLoading: false
                 })
-                message.show.call(that,{
-                    content: mes,
+                wx.showToast({
+                    title: "请求失败" + msg,
                     icon: 'offline',
                     duration: 3000
                 })

@@ -1,19 +1,40 @@
 var config = require('comm/script/config')
+
 App({
   globalData: {
     userInfo: null,//微信api个人信息model
     deviceInfo: null,//微信api机型信息
-    hwxUserInfo: null,
-    hwxDeviceInfo: null
+    hwxUserInfo: null, //hi维修登录用户信息
+    timeDifference: 0, //客户端与服务端的时间差
   },
 
   onLaunch: function() {
+    //初始化缓存
+    this.initStorage();
     //获取用户信息
     this.getUserInfo();
     //设备信息
     this.getDeviceInfo();
-    //初始化缓存
-    this.initStorage();
+  },
+
+
+  setUserInfo:function(data){
+    var that = this
+    that.globalData.hwxUserInfo = data;
+    //异步存储用户信息
+    wx.setStorage({
+      key: config.storageKeys.currentUser,
+      data: data,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
 
   /**
@@ -68,11 +89,30 @@ App({
     })
   },
   
+  /**
+   *  初始化缓存
+   */
   initStorage: function() {
-    wx.getStorageInfo({
-      success: function(res) {
-        
+    var that = this
+    //同步加载当前用户
+    try{
+      var hwxUserInfo = wx.getStorageSync(config.storageKeys.currentUser);
+      if(hwxUserInfo){
+        that.globalData.hwxUserInfo = hwxUserInfo?hwxUserInfo:null;
+      }else{
+        that.globalData.hwxUserInfo = null;
       }
-    })
+    }catch (e) {
+    }
+    //同步加载时间差
+    try{
+      var timeDifference = wx.getStorageSync(config.storageKeys.timeDifference);
+      if(timeDifference){
+        that.globalData.timeDifference = hwxUserInfo;
+      }else{
+        that.globalData.timeDifference = 0;
+      }
+    }catch (e) {
+    }
   }
 })

@@ -1,12 +1,20 @@
 /*
 备注
 baseUrl：用户端userapi域名
+jwtKey: userapi的jwt哈希加密key
 apiList：各接口路径
 apiCodef：接口返回code约定
 stringList：通用字符串，提示语等等
 */
 var baseUrl = "https://userapi.hiweixiu.com/";
 module.exports = {
+    jwtKey:"mipvssjx7sqebrszg2pjprdf9syseecu",
+    storageKeys:{
+        timeDifference:"kTimeDifference", //JWT客户端与服务器的时间差
+        selectedAddress:"kSelectedAddress",//当前选择的地址（地址列表页面->下单页面）
+        selectedDevice:"kSelectedDevice",//当前选择机型
+        currentUser:"kCurrentUser",//当前登录用户信息（hi维修）
+    },
     apiList: {
         faultList: baseUrl + 'fault/mould-fault',
         deviceInfo: baseUrl + 'moiblemould/getids',
@@ -25,7 +33,4 @@ module.exports = {
     strings:{
         requestFail:"请求失败"
     },
-    bannerList: [
-        {type:'banner', id: '', imgUrl: 'https://pic.hiweixiu.com/images/userapi/mould-fault/FreeFilm1.png?v=20161104'},
-    ],
 }

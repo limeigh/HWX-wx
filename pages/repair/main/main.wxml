@@ -1,12 +1,4 @@
-<block wx:if="{{! showLoading}}">
-<swiper class="banner" indicator-dots="true" autoplay="true">
-    <block wx:for="{{bannerList}}" wx:for-item="bannerItem" wx:for-index="bannerIndex" wx:key="banner">
-        <swiper-item data-type="{{bannerItem.type}}" data-id="{{bannerItem.id}}" bindtap="viewBannerDetail">
-            <image src="{{bannerItem.imgUrl}}" class="banner-item"></image>
-        </swiper-item>
-    </block>
-</swiper>
-</block>
+<image style="width:750rpx; background-color: #eeeeee;" mode="aspectFit" src="https://pic.hiweixiu.com/images/userapi/mould-fault/FreeFilm1.png?v=20161104"></image>
 <import src="../../../component/filmList/filmList.wxml"/>
 <template is="filmList" data="{{films: faultList, hasMore: hasMore, showLoading: showLoading}}"/>
 <import src="../../../component/message/message.wxml"/>
