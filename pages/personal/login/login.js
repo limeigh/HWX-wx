@@ -14,14 +14,12 @@ Page({
 
   inputPhone:function(e){
     var that = this;
-    console.log("inputPhone"+e.detail.value);
     this.setData({
       phone: e.detail.value
     })
   },
 
   inputCode:function(e){
-    console.log("inputCode"+e.detail.value);
     this.setData({
       code: e.detail.value
     })
@@ -29,7 +27,6 @@ Page({
 
   sendCode:function(e){
      var that = this;
-     console.log("sendCode " + that.data.phone + that.data.code);
      httpTool.getVerifyCode.call(that,that.data.phone,function(){
        wx.showToast({
         title: '已发送'+that.data.phone,

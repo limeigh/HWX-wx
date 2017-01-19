@@ -1,21 +1,18 @@
 <view class="weapp-about">
     <view class="address">
         <block wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="address">
-            <view data-id="{{addressItem.Id}}">
-                <view class="webapp-intro-content">{{addressItem.name}}</view>
-                <view class="webapp-intro-content">{{addressItem.cityID}}</view>
-                <view class="webapp-intro-content">{{addressItem.areaID}}</view>
-                <view class="webapp-intro-content">{{addressItem.address}}</view>
-                <view class="webapp-intro-content">{{addressItem.detaiAddress}}</view>
+            <view data-id="{{addressItem.Id}}" data-idx="{{addressIndex}}" bindtap="selectAddress">
+                <view class="webapp-intro-content">{{addressItem.contacts}}</view>
+                <view class="webapp-intro-content">{{addressItem.city_name}}{{addressItem.city}}</view>
+                <view class="webapp-intro-content">{{addressItem.district_name}}{{addressItem.district}}</view>
+                <view class="webapp-intro-content">{{addressItem.address_name}}{{addressItem.address_desc}}</view>
                 <view class="webapp-intro-content">{{addressItem.lng}}</view>
                 <view class="webapp-intro-content">{{addressItem.lat}}</view>
-                <view class="webapp-intro-content">{{addressItem.userName}}</view>
+                <view class="webapp-intro-content">{{addressItem.contacts}}</view>
                 <view class="webapp-intro-content">{{addressItem.gender}}</view>
-                <view class="webapp-intro-content">{{addressItem.aid}}</view>
                 <view class="webapp-intro-content">{{addressItem.selected}}?"已选":"未选"</view>
             </view>
         </block>
     </view>
     <button bindtap="addAddress">新增地址</button>
-    
 </view>

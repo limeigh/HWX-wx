@@ -10,9 +10,10 @@ Page({
     currentPage: 1, //默认第一页
     totalPages: 1,  //总页数
     faultId: null,  //故障id
+    faultName: null, //故障大类名
     mouldName: null, //设备名称
     markInfo: null,//故障说明
-    mouldInfo: null, //已选设备
+    mouldInfo: null, //已选设备(hi维修数据)
     selectedColor: null, //已选颜色
     selectedPlan: null, //已选方案
 	},
@@ -20,14 +21,37 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
     that.setData({
-      faultId:options.id
+      faultId:options.id,
+      faultName:options.name
     })
     
     //获取设备信息(hi维修数据)
-    that.getDeviceInfo();
+    this.getDeviceInfo();
     
     //获取用户评论
     that.getComment(that.currentPage);
+  },
+
+  onShow:function(){
+    try{
+      //先检查缓存里是否有已选机型
+      var selectedDevice = wx.getStorageSync(config.storageKeys.selectedDevice);
+      if(selectedDevice!=null){
+        this.setData({
+          mouldInfo:selectedDevice,
+          mouldName:selectedDevice.MouldName,
+        })
+        this.getColors();//获取机型成功，获取颜色选项
+      }else{
+        //如无缓存已选机型，且当前机型为空，则获取本设备数据
+        if(this.data.mouldInfo == null || this.data.mouldName == null){
+          //获取设备信息(hi维修数据)
+          this.getDeviceInfo();
+        }
+      }
+    }catch(e){
+      console.log(e);
+    }
   },
   
   //获取机型信息
@@ -64,7 +88,7 @@ Page({
         that.setData({
           colorList:data
         })
-        if(data.length == 1){
+        if(data.length > 0){
           that.setData({
             selectedColor:data[0]
           })
@@ -88,25 +112,30 @@ Page({
   //获取维修方案 
   getRepairMsg:function(){
     var that = this
-    httpTool.getRepairMsg.call(that,that.data.mouldInfo.Id,that.data.faultId,that.data.mouldInfo.BrandId,that.data.selectedColor.ColorId,that.data.mouldInfo.ProductId,"3x",that.data.mouldInfo.Name,that.data.selectedColor.ColorId,function(data){
-                 that.setData({
-                     planList:data.repair,
-                     markInfo:data.mark_info,
-                     detailUrl:data.detail_url
-                 })
-			      },function(msg){
-                 wx.showModal({
-                   title: "获取维修方案失败，点击重试",
-                   content: msg,
-                   showCancel: false,
-                   confirmText: "重试",
-                   success: function(res) {
-                     if (res.confirm) {
-                        that.getColors();
-                     }
-                   }
-                 })
-            });
+    httpTool.getRepairMsg.call(that,that.data.mouldInfo.Id,that.data.faultId,that.data.mouldInfo.BrandId,that.data.selectedColor.ColorId,that.data.mouldInfo.ProductId,"3x",that.data.faultName,that.data.selectedColor.ColorId,function(data){
+      that.setData({
+        planList:data.repair,
+        markInfo:data.mark_info,
+        detailUrl:data.detail_url
+      })
+      if(data.repair.length > 0){
+        that.setData({
+          selectedPlan:data.repair[0]
+        });
+      }
+  },function(msg){
+    wx.showModal({
+      title: "获取维修方案失败，点击重试",
+      content: msg,
+      showCancel: false,
+      confirmText: "重试",
+      success: function(res) {
+        if (res.confirm) {
+          that.getColors();
+        }
+      }
+    })
+  });
   },
 
   //获取评论列表
@@ -145,6 +174,13 @@ Page({
     that.setData({
       selectedPlan:plan,
     });
+  },
+
+  chooseDevice:function(e){
+    var that = this
+    wx.navigateTo({
+      url: '../chooseDevice/chooseDevice?faultId='+that.data.faultId+'&type=1',
+    })
   },
 
   createOrder:function(e){

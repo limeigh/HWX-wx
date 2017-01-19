@@ -1,0 +1,31 @@
+<scroll-view scroll-y="true">
+    <view class="webapp-intro-title">品牌</view>
+    <view class="brand">
+        <block wx:for="{{brandList}}" wx:for-index="brandIndex" wx:for-item="brandItem" wx:key="brand">
+            <view data-id="{{brandItem.Id}}" data-idx="{{brandIndex}}" bindtap="selectBrand">
+                <view class="webapp-intro-content">{{brandItem.Id}}</view>
+                <view class="webapp-intro-content">{{brandItem.Name}}</view>
+            </view>
+        </block>
+    </view>
+    <view class="webapp-intro-title">手机</view>
+    <view class="phone">
+        <block wx:for="{{phoneList}}" wx:for-index="phoneIndex" wx:for-item="phoneItem" wx:key="phone">
+            <view data-id="{{phoneItem.Id}}" data-idx="{{phoneIndex}}" bindtap="selectPhone">
+                <view class="webapp-intro-content">{{phoneItem.Id}}</view>
+                <view class="webapp-intro-content">{{phoneItem.MouldName}}</view>
+                <image style="background-color: #eeeeee;" mode="aspectFit" src="{{phoneItem.Pic}}"></image>
+            </view>
+        </block>
+    </view>
+    <view class="webapp-intro-title">平板</view>
+    <view class="pad">
+        <block wx:for="{{padList}}" wx:for-index="padIndex" wx:for-item="padItem" wx:key="pad">
+            <view data-id="{{padItem.Id}}" data-idx="{{padIndex}}" bindtap="selectPad">
+                <view class="webapp-intro-content">{{padItem.Id}}</view>
+                <view class="webapp-intro-content">{{padItem.MouldName}}</view>
+                <image style="background-color: #eeeeee;" mode="aspectFit" src="{{padItem.Pic}}"></image>
+            </view>
+        </block>
+    </view>
+</scroll-view>

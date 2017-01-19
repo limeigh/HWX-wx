@@ -10,10 +10,7 @@ Page({
 
 	onLoad: function() {
 		var that = this
-		wx.showNavigationBarLoading()
-		app.getCity(function(){
-			wx.hideNavigationBarLoading()
-			httpTool.getAllFaults.call(that,function(data){
+		httpTool.getAllFaults.call(that,function(data){
                 that.setData({
                     faultList: that.data.faultList.concat(data),
                     showLoading: false
@@ -29,7 +26,7 @@ Page({
                 })
                 wx.stopPullDownRefresh()
 			});
-		})
+			
 	},
 
 	onPullDownRefresh: function() {
@@ -46,7 +43,7 @@ Page({
 	addOrder: function(e) {
 		var data = e.currentTarget.dataset;
 		wx.navigateTo({
-			url: "../faultDetail/faultDetail?id=" + data.id
+			url: "../faultDetail/faultDetail?id=" + data.id + "&name=" + data.Name
 		})
 	},	
 })

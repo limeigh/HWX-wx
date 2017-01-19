@@ -24,6 +24,11 @@ module.exports = {
         sendCode: baseUrl + 'hiuser/verificate-code',
         doLogin: baseUrl + 'hiuser/login',
         addressList: baseUrl + 'user/look-address',
+        createOrder: baseUrl + 'order/new-create-order',
+        orderDetail: baseUrl + 'order/detail',
+        brandList: baseUrl + 'moiblemould/get-brand-list',
+        mouldList: baseUrl + 'moiblemould/get-mould-list-by-bid',
+        orderList: baseUrl + 'order/listnew'
     },
     apiCode:{
         success:200,

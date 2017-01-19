@@ -5,6 +5,7 @@
             <view class="webapp-intro-content">{{markInfo.mark_info}}</view>
             <image style="background-color: #eeeeee;" mode="aspectFit" src="{{markInfo.img_url}}"></image>
             <view class="webapp-intro-title">设备数据</view>
+            <button class="chooseDevice" bindtap="chooseDevice">修改</button>
             <view class="webapp-intro-content">{{mouldInfo.ProductId}}</view>
             <view class="webapp-intro-content">{{mouldInfo.BrandId}}</view>
             <view class="webapp-intro-content">{{mouldInfo.Colors}}</view>

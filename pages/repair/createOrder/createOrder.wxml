@@ -1,5 +1,15 @@
 <view class="weapp-about">
     <button class="select-address" bindtap="selectAddress">选择服务地址</button>
+    <view class="webapp-intro-content">{{selectedAddress.contacts}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.gender}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.city}}{{selectedAddress.city_name}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.district}}{{selectedAddress.district_name}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.address}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.address_name}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.address_desc}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.lng}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.lat}}</view>
+    <view class="webapp-intro-content">{{selectedAddress.userName}}{{addressItem.gender}}</view>
     <input class="input-phone" placeholder="手机号" bindinput="inputPhone" value="{{phone}}" auto-focus/>
     <button class="button-code" bindtap="sendCode">发送验证码</button>
     <input class="input-code" placeholder="验证码" bindinput="inputCode" value="{{code}}" auto-focus/>
