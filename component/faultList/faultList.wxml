@@ -5,14 +5,9 @@
 <block wx:else>
     <view class="fault">
         <block wx:for="{{faults}}" wx:for-index="faultIndex" wx:for-item="faultItem" wx:key="fault">
-             <view data-id="{{faultItem.Id}}" class="fault-item" catchtap="addOrder">
-                 <image src="{{faultItem.imgurl}}" class="fault-icon"></image>
-                 <!--<view class="fault-name">
-                     <text>{{filmItem.Name}}</text>
-                 </view>
-                 <view class="fault-title">
-                     <text>{{filmItem.title}}</text>
-                 </view>-->
+            <view data-id="{{faultItem.Id}}" class="fault-item" catchtap="addOrder">
+                <image style="width: 50px; height: 50px; background-color: #ffffff;" mode="aspectFit" src="{{faultItem.imgurl}}" class="fault-cover-img"></image>
+                <view class="fault-title">{{faultItem.Name}}</view>
             </view>
         </block>
     </view>

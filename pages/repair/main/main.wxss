@@ -1,4 +1,4 @@
-@import "../../../component/filmList/filmList.wxss";
+@import "../../../component/faultList/faultList.wxss";
 @import "../../../component/message/message.wxss";
 
 .banner {

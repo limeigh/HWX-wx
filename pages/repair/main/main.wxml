@@ -1,5 +1,5 @@
 <image style="width:750rpx; background-color: #eeeeee;" mode="aspectFit" src="https://pic.hiweixiu.com/images/userapi/mould-fault/FreeFilm1.png?v=20161104"></image>
-<import src="../../../component/filmList/filmList.wxml"/>
-<template is="filmList" data="{{films: faultList, hasMore: hasMore, showLoading: showLoading}}"/>
+<import src="../../../component/faultList/faultList.wxml"/>
+<template is="faultList" data="{{faults: faultList, hasMore: hasMore, showLoading: showLoading}}"/>
 <import src="../../../component/message/message.wxml"/>
 <template is="message" data="{{message: message}}"/>
