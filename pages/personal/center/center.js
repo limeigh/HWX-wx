@@ -4,39 +4,12 @@ Page({
   data:{
     skin: ''
   },
-  onLoad:function(cb){
+  onLoad:function(){
     var that = this
-    // 检测是否存在用户信息
-    if (app.globalData.userInfo != null) {
-      that.setData({
-          userInfo: app.globalData.userInfo
-      })
-    } else {
-      app.getUserInfo(function(){
-        that.setData({
-          userInfo: app.globalData.userInfo
-        })
-      })
-    }
-    typeof cb == 'function' && cb()
   },
 
   onShow:function(){
-    var that = this
-    // wx.getStorage({
-    //   key: 'skin',
-    //   success: function(res){
-    //     if (res.data == "") {
-    //       that.setData({
-    //         skin: config.skinList[0].imgUrl
-    //       })
-    //     } else {
-    //       that.setData({
-    //         skin: res.data
-    //       })
-    //     }
-    //   }
-    // })
+    this.updateUserInfo();
   },
   onPullDownRefresh: function() {
     this.onLoad(function(){
@@ -48,6 +21,22 @@ Page({
     wx.navigateTo({
 			url: "../addressList/addressList"
 		})
+  },
+
+  updateUserInfo:function(){
+    // 检测是否存在用户信息
+    var that = this;
+    if (app.globalData.userInfo != null) {
+      that.setData({
+          userInfo: app.globalData.userInfo
+      })
+    } else {
+      app.getUserInfo(function(){
+        that.setData({
+          userInfo: app.globalData.userInfo
+        })
+      })
+    }
   },
   
   myOrder: function(e) {
@@ -65,6 +54,12 @@ Page({
         console.log("callPhone"+res);
       }
     });
+  },
+
+  editInfo: function(e){
+    wx.navigateTo({
+			url: "../myInfo/myInfo"
+		});
   },
 
   login:function(e){

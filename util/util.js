@@ -14,6 +14,16 @@ function formatTime(time) {
     return n[1] ? n : '0' + n
   }).join(':')
 }
+
+function formatDate(time) {
+  var year = time.getYear();
+  var month = time.getMonth()+1;
+  var date = time.getDate();
+  var hour = time.getHours();
+  var minute = time.getMinutes();
+  var second = time.getSeconds();
+  return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+} 
  
 function getDate() {
   var time = new Date()

@@ -1,7 +1,7 @@
 <view class="container">
     <view class="user-info">
         <view class="user-skin" bindtap="login"></view>
-        <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+        <image src="{{userInfo.avatarUrl}}" class="user-avatar" bindtap="editInfo"></image>
         <view class="user-nickname">
             {{userInfo.nickName}}
             <block wx:if="{{userInfo.gender == 1}}">

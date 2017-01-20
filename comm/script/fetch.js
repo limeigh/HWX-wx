@@ -202,6 +202,33 @@ function getMyOrders(page,search_type,is_show_shr,cb,fail_cb){
   request(config.apiList.orderList, data, 'GET', cb, fail_cb);
 }
 
+/**
+ * 修改真实姓名
+ */
+function editName(real_name,cb,fail_cb){
+  var data = {
+    real_name:real_name
+  }
+  request(config.apiList.editName, data, 'GET', cb, fail_cb);
+}
+
+/**
+ * 修改生日
+ */
+function editBirthday(birthday_time,cb,fail_cb){
+  var data = {
+    birthday_time:birthday_time
+  }
+  request(config.apiList.editBirthday, data, 'GET', cb, fail_cb);
+}
+
+/**
+ * 退出登录
+ */
+function logout(cb,fail_cb){
+  var data = {};
+  request(config.apiList.logout, data, 'GET', cb, fail_cb);
+}
 
 
 
@@ -282,5 +309,8 @@ module.exports = {
   getAddressList: getAddressList,
   createOrder:createOrder,
   getOrderDetail:getOrderDetail,
-  getMyOrders:getMyOrders
+  getMyOrders:getMyOrders,
+  editName:editName,
+  editBirthday:editBirthday,
+  logout:logout
 }

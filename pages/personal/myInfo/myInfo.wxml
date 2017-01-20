@@ -1,3 +1,17 @@
 <view class="weapp-about">
-    
+    <input class="input-name" placeholder="姓名" bindblur="inputName" value="{{name}}"auto-focus/>
+    <view class="section">
+        <view class="section__title">生日</view>
+        <picker mode="date" value="{{birthday}}" start="1900-09-01" end="2017-09-01" bindchange="inputBirthday">
+            <view class="picker">生日{{birthday}}</view>
+        </picker>  
+    </view>
+    <view class="section">
+        <view class="section__title">性别</view>
+        <picker bindchange="inputGender" value="{{gender}}" range="{{genderList}}">
+             <view class="picker">当前选择：{{genderList[gender]}}</view>
+        </picker>
+    </view>
+    <input class="input-phone" placeholder="手机" bindblur="inputPhone" value="{{phone}}" auto-focus/>
+    <button class="logout" bindtap="logout">退出登录</button>
 </view>

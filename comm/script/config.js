@@ -28,7 +28,10 @@ module.exports = {
         orderDetail: baseUrl + 'order/detail',
         brandList: baseUrl + 'moiblemould/get-brand-list',
         mouldList: baseUrl + 'moiblemould/get-mould-list-by-bid',
-        orderList: baseUrl + 'order/listnew'
+        orderList: baseUrl + 'order/listnew',
+        editName: baseUrl + 'user/edit-name',
+        editBirthday: baseUrl + 'user/edit-birthday',
+        logout: baseUrl + 'hiuser/logout'
     },
     apiCode:{
         success:200,
