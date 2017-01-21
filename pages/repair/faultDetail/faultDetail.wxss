@@ -42,6 +42,10 @@ view {
     color: #ccc;
 }
 
+.webapp-intro-content-selected {
+    color: #ff5000;
+}
+
 .top-tab{
   width: 750rpx;
   height: 100rpx;

@@ -1,45 +1,39 @@
 var httpTool = require('../../../comm/script/fetch')
 var config = require('../../../comm/script/config')
 var app = getApp()
+
 Page({
 	data: {
 		faultList: [],
-		hasMore: false,
-		showLoading: true,
 	},
 
 	onLoad: function() {
-		var that = this
-		httpTool.getAllFaults.call(that,function(data){
-                that.setData({
-                    faultList: that.data.faultList.concat(data),
-                    showLoading: false
-                })
-			},function(msg){
-                that.setData({
-                    showLoading: false
-                })
-                wx.showToast({
-                    title: "请求失败" + msg,
-                    icon: 'offline',
-                    duration: 3000
-                })
-                wx.stopPullDownRefresh()
-			});
-			
+		//获取故障大类列表
+		this.loadAllFaults();
 	},
 
 	onPullDownRefresh: function() {
-		var that = this
-		that.setData({
-			faultList: [],
-		    hasMore: false,
-			showLoading: true,
-			start: 0
-		})
-		this.onLoad()
+		//获取故障大类列表
+		this.loadAllFaults();
 	},
 
+    //获取故障大类列表
+	loadAllFaults:function(){
+		var that = this
+		httpTool.getAllFaults.call(that,function(data){
+                that.setData({
+                    faultList: data,
+                })
+				wx.stopPullDownRefresh();
+			},function(msg){
+                wx.showToast({
+                    title: msg,
+                })
+				wx.stopPullDownRefresh();
+			});
+	},
+    
+	//前往创建订单
 	addOrder: function(e) {
 		var data = e.currentTarget.dataset;
 		wx.navigateTo({

@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "Hi维修"
+  "navigationBarTitleText": "Hi维修",
+  "enablePullDownRefresh": true
 }

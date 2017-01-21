@@ -3,9 +3,10 @@ var config = require('../../../comm/script/config')
 var app = getApp()
 Page({
   data: {
-    planId:null,//维修方案id
     mouldId:null,//机型id
+    mouldName:null,//机型名称
     colorId:null,//颜色id
+    plan:null,//维修方案数据
     hasLogin:false,//用户是否已登录
 		phone:null,
     code:null,
@@ -19,12 +20,19 @@ Page({
 
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var that = this;
-    that.setData({
-      planId:options.plan,
-      mouldId:options.mould,
+    this.setData({
+      mouldId:options.mouldId,
+      mouldName:options.mouldName,
       colorId:options.color,
     }) 
+    //获取选择的维修方案
+    try{
+      var selectedPlan = wx.getStorageSync(config.storageKeys.selectedPlan);
+      this.setData({
+        plan:selectedPlan
+      })
+    }catch(e){
+    }
   },
 
   onShow:function(){
@@ -49,7 +57,7 @@ Page({
      //获取当前选择的地址
      try{
       var selectedAddress = wx.getStorageSync(config.storageKeys.selectedAddress);
-      if(selectedAddress != null){
+      if(selectedAddress != null && selectedAddress!=""){
         that.setData({
           selectedAddress:selectedAddress        
         })
@@ -119,7 +127,7 @@ Page({
     var that = this;
     var timeString = that.data.date + " " + that.data.time;
     var reserveTime = Date.parse(new Date(timeString));
-    httpTool.createOrder.call(that,that.data.planId,that.data.mouldId,that.data.colorId,that.data.phone,that.data.selectedAddress.contacts,that.data.selectedAddress.city,that.data.selectedAddress.district,that.data.selectedAddress.address,reserveTime,that.data.remark,that.data.selectedAddress.lng,that.data.selectedAddress.lat,that.data.couponId,that.data.protectFlag,function(data){
+    httpTool.createOrder.call(that,that.data.plan.Id,that.data.mouldId,that.data.colorId,that.data.phone,that.data.selectedAddress.contacts,that.data.selectedAddress.city,that.data.selectedAddress.district,that.data.selectedAddress.address,reserveTime,that.data.remark,that.data.selectedAddress.lng,that.data.selectedAddress.lat,that.data.couponId,that.data.protectFlag,function(data){
       wx.showToast({
         content:"下单成功,订单："+data
       })

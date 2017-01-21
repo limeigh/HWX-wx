@@ -3,8 +3,9 @@ var config = require('comm/script/config')
 App({
   globalData: {
     userInfo: null,//微信api个人信息model
-    deviceInfo: null,//微信api机型信息
+    deviceInfo: null,//微信api本机机型信息
     hwxUserInfo: null, //hi维修登录用户信息
+    hwxDeviceInfo: null, //hi维修本机机型信息
     timeDifference: 0, //客户端与服务端的时间差
   },
 
@@ -16,24 +17,26 @@ App({
     //设备信息
     this.getDeviceInfo();
   },
-
-
+  
+  /**
+   *  异步存储用户信息(hi维修)
+   */
   setUserInfo:function(data){
-    var that = this
-    that.globalData.hwxUserInfo = data;
-    //异步存储用户信息
+    this.globalData.hwxUserInfo = data;
     wx.setStorage({
       key: config.storageKeys.currentUser,
-      data: data,
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
+      data: data
+    })
+  },
+  
+  /**
+   *  异步存储本机设备数据(hi维修)
+   */
+  setDeviceInfo:function(data){
+    this.globalData.hwxDeviceInfo = data;
+    wx.setStorage({
+      key: config.storageKeys.currentDevice,
+      data: data
     })
   },
 
@@ -62,11 +65,10 @@ App({
    * "language":"zh_CN","version":"6.3.9","platform":"devtools"}
    */
   getDeviceInfo: function(cb){
-     var that = this
      try{
        var res = wx.getSystemInfoSync();
-       that.globalData.deviceInfo = res;
-       typeof cb == "function" && cb(that.globalData.deviceInfo)
+       this.globalData.deviceInfo = res;
+       typeof cb == "function" && cb(this.globalData.deviceInfo)
      }catch(e){
        console.log(JSON.stringify(e));
      }
@@ -94,6 +96,14 @@ App({
    */
   initStorage: function() {
     var that = this
+    //加载hwx本机设备数据
+    wx.getStorage({
+      key: config.storageKeys.currentDevice,
+      success: function(res){
+        console.log("config.storageKeys.currentDevice"+JSON.stringify(res.data))
+        that.globalData.currentDevice = res.data;
+      },
+    })
     //同步加载当前用户
     try{
       var hwxUserInfo = wx.getStorageSync(config.storageKeys.currentUser);
@@ -103,6 +113,7 @@ App({
         that.globalData.hwxUserInfo = null;
       }
     }catch (e) {
+      console.log(JSON.stringify(e));
     }
     //同步加载时间差
     try{
@@ -113,6 +124,7 @@ App({
         that.globalData.timeDifference = 0;
       }
     }catch (e) {
+      console.log(JSON.stringify(e));
     }
   }
 })

@@ -131,6 +131,17 @@ function getRepairMsg(moudleid, faulttype, brandid, colorid, productid,type,name
 }
 
 /**
+ * 保内外信息信息
+ * mid:机型id
+ */
+function getWarrantyOption(mid,cb,fail_cb){
+  var data = {
+    mid:mid
+  }
+  request(config.apiList.warrantyOption, data, 'GET', cb, fail_cb);
+}
+
+/**
  *  故障的评论
  *  faulty_id
  *  cb: 成功回调
@@ -151,6 +162,24 @@ function getFaultComment(faulty_id, type, page, cb, fail_cb){
 function getAddressList(cb,fail_cb){
    var data = {}
    request(config.apiList.addressList, data, 'GET', cb, fail_cb);
+}
+
+/**
+ * 添加地址
+ */
+function addAddress(gender,city,district,address,contacts,lng,lat,address_desc,address_name,cb,fail_cb){
+    var data = {
+      gender:gender,
+      city:city,
+      district:district,
+      address:address,
+      contacts:contacts,
+      lng:lng,
+      lat:lat,
+      address_desc:address_desc,
+      address_name:address_name,
+    }
+    request(config.apiList.addAddress, data, 'GET', cb, fail_cb);
 }
 
 /**
@@ -303,6 +332,7 @@ module.exports = {
   getBrands:getBrands,
   getDevices : getDevices,
   getColors: getColors,
+  getWarrantyOption:getWarrantyOption,
   getRepairMsg: getRepairMsg, 
   getDeviceInfo: getDeviceInfo,
   getAllFaults: getAllFaults,

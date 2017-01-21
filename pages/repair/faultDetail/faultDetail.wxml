@@ -16,20 +16,31 @@
         <view class="color">
             <block wx:for="{{colorList}}" wx:for-index="colorIndex" wx:for-item="colorItem" wx:key="color">
                 <view data-id="{{colorItem.ColorId}}" data-idx="{{colorIndex}}" catchtap="selectColor">
-                    <view class="webapp-intro-content">{{colorItem.ColorName}}</view>
+                    <view class="{{(colorItem.ColorId == selectedColor.ColorId)? 'webapp-intro-content-selected':'webapp-intro-content'}}">{{colorItem.ColorName}}</view>
                 </view>
             </block>
         </view>
+         <view class="webapp-intro-title">保内外</view>
+        <view class="option">
+            <block wx:for="{{optionList}}" wx:for-index="optionIndex" wx:for-item="optionItem" wx:key="option">
+                <view data-id="{{optionItem.Id}}" data-idx="{{optionIndex}}" catchtap="selectOption">
+                    <view class="webapp-intro-content">{{optionItem.Id}}</view>
+                    <view class="{{(optionItem.Id == selectedOption.Id)? 'webapp-intro-content-selected':'webapp-intro-content'}}">{{optionItem.name}}</view>
+                </view>
+            </block>
+        </view>
+
         <view class="webapp-intro-title">维修方案</view>
         <view class="plan">
-            <block wx:for="{{planList}}" wx:for-index="planIndex" wx:for-item="planItem" wx:key="plan">
+            <block wx:for="{{(selectedOption.Id == 2)? protectPlanList :planList}}" wx:for-index="planIndex" wx:for-item="planItem" wx:key="plan">
                 <view data-id="{{planItem.Id}}" data-idx="{{planIndex}}" catchtap="selectPlan">
-                    <view class="webapp-intro-content">{{planItem.RepairType}}</view>
+                    <view class="{{(planItem.Id == selectedPlan.Id)? 'webapp-intro-content-selected':'webapp-intro-content'}}">{{planItem.RepairType}}</view>
                     <view class="webapp-intro-content">{{planItem.faultType}}</view>
                     <view class="webapp-intro-content">{{planItem.Price}}</view>
                 </view>
             </block>
         </view>
+        <view class="webapp-intro-title">价格{{selectedPlan.Price}}</view>
         <view class="flex-wrp" style="flex-direction:row">
             <view class="flex-item bc_green">维修详情</view>
             <view class="flex-item bc_red">用户评论</view>

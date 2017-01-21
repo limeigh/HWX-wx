@@ -26,5 +26,10 @@
         </picker>
     </view>
     <input class="input-detail" placeholder="再描述一下设备问题" bindinput="inputDetail" value="{{detail}}" auto-focus/>
+     <view class="webapp-intro-content">{{mouldId}}{{mouldName}}</view>
+     <view class="webapp-intro-content">{{plan.RepairType}}</view>
+     <view class="webapp-intro-content">price{{plan.Price}}</view>
+     <view class="webapp-intro-content">brand_home_visit_fee{{plan.brand_home_visit_fee}}</view>
+     <view class="webapp-intro-content">brand_manual_fee{{plan.brand_manual_fee}}</view>
     <button class="submit" bindtap="submit">提交订单</button>
 </view>
