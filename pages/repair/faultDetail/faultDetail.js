@@ -1,6 +1,7 @@
 var httpTool = require('../../../comm/script/fetch')
 var config = require('../../../comm/script/config')
 var app = getApp()
+
 Page({
   data: {
     //下单流程
@@ -155,8 +156,7 @@ Page({
             }
           }
         })
-    })
-
+     })
   },
 
   //获取维修方案 
@@ -230,7 +230,6 @@ Page({
       selectedOption:option,
       selectedPlan:null
     });
-
     //切换保/内外对应的维修方案列表
     if(option.Id == 2){//保内
       if(this.data.protectPlanList.length > 0){

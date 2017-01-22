@@ -11,13 +11,15 @@ Page({
   
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var that = this;
     var backOnSelected = options.autoback;
-    that.setData({
+    this.setData({
       backOnSelected:backOnSelected
     })
+  },
+
+  onShow:function(){
     //获取地址列表
-    that.loadAddressList();
+    this.loadAddressList();
   },
 
   //获取地址列表
@@ -47,31 +49,20 @@ Page({
   },
 
   selectAddress:function(e){
-    var that = this
     var index = e.currentTarget.dataset.idx;
-    var selectedAddress = that.data.addressList[index];
-    if(that.data.selectedAddress!=null){
-      that.data.selectedAddress.selected = false;
+    var selectedAddress = this.data.addressList[index];
+    if(this.data.selectedAddress!=null){
+      this.data.selectedAddress.selected = false;
     }
     selectedAddress.selected = true;
-    that.setData({
+    this.setData({
       selectedAddress:selectedAddress
     })
+    //缓存选中的地址
     wx.setStorageSync(config.storageKeys.selectedAddress, selectedAddress);
     //返回前一页
-    if(that.data.backOnSelected == true){
-      wx.navigateBack({
-        delta: 1, // 回退前 delta(默认为1) 页面
-        success: function(res){
-          // success
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-        }
-      })
+    if(this.data.backOnSelected == true){
+      wx.navigateBack();
     }
   },
 

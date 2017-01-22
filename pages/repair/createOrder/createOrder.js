@@ -1,6 +1,7 @@
 var httpTool = require('../../../comm/script/fetch')
 var config = require('../../../comm/script/config')
 var app = getApp()
+
 Page({
   data: {
     mouldId:null,//机型id

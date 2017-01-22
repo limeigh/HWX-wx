@@ -39,6 +39,10 @@ view {
     color: #666;
 }
 
+.webapp-intro-content-selected {
+    color: #ff5000;
+}
+
 .webapp-intro-content {
     color: #ccc;
 }

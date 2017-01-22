@@ -70,6 +70,7 @@ Page({
   logout:function(e){
     wx.clearStorage();
     httpTool.logout.call(that);
+    wx.navigateBack();
   },
 
 

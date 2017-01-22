@@ -165,6 +165,18 @@ function getAddressList(cb,fail_cb){
 }
 
 /**
+ *  根据省市区名获取id
+ */
+function getCityInfo(province,city,area,cb,fail_cb){
+  var data = {
+    province:province,
+    city:city,
+    area:area
+  }
+  request(config.apiList.cityInfo, data, 'GET', cb, fail_cb);
+}
+
+/**
  * 添加地址
  */
 function addAddress(gender,city,district,address,contacts,lng,lat,address_desc,address_name,cb,fail_cb){
@@ -337,6 +349,8 @@ module.exports = {
   getDeviceInfo: getDeviceInfo,
   getAllFaults: getAllFaults,
   getAddressList: getAddressList,
+  addAddress:addAddress,
+  getCityInfo:getCityInfo,
   createOrder:createOrder,
   getOrderDetail:getOrderDetail,
   getMyOrders:getMyOrders,

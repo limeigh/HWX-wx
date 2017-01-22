@@ -29,6 +29,7 @@ module.exports = {
         doLogin: baseUrl + 'hiuser/login',
         addressList: baseUrl + 'user/look-address',
         addAddress: baseUrl + 'user/add-address',
+        cityInfo: baseUrl + 'region/is-open-city',
         createOrder: baseUrl + 'order/new-create-order',
         orderDetail: baseUrl + 'order/detail',
         brandList: baseUrl + 'moiblemould/get-brand-list',
@@ -46,4 +47,8 @@ module.exports = {
     strings:{
         requestFail:"请求失败"
     },
+    amap:{
+        key:"ad6c2c7a01c2fec89289b2234b841584",
+        regeocode:"http://restapi.amap.com/v3/geocode/regeo"
+    }
 }

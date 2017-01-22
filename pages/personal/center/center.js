@@ -1,65 +1,67 @@
 var config = require('../../../comm/script/config')
 var app = getApp();
+
 Page({
   data:{
-    skin: ''
+    hwxUserInfo:null,
+    hwxUserInfo:null,
+    hasLogin:false
   },
+
   onLoad:function(){
-    var that = this
+    
   },
 
   onShow:function(){
+    //更新用户信息
     this.updateUserInfo();
-  },
-  onPullDownRefresh: function() {
-    this.onLoad(function(){
-      wx.stopPullDownRefresh()
-    })
-  },
-
-  addressManage: function(e) {
-    wx.navigateTo({
-			url: "../addressList/addressList"
-		})
   },
 
   updateUserInfo:function(){
-    // 检测是否存在用户信息
-    var that = this;
-    if (app.globalData.userInfo != null) {
-      that.setData({
-          userInfo: app.globalData.userInfo
+    // 检测用户信息信息，登录状态
+    if (app.globalData.hwxUserInfo != null) {
+      this.setData({
+          userInfo: app.globalData.userInfo,
+          hwxUserInfo: app.globalData.hwxUserInfo,
+          hasLogin:true
       })
-    } else {
-      app.getUserInfo(function(){
-        that.setData({
-          userInfo: app.globalData.userInfo
-        })
+    } else{
+      this.setData({
+          userInfo: app.globalData.userInfo,
+          hwxUserInfo: null,
+          hasLogin:false
       })
     }
   },
   
   myOrder: function(e) {
-    console.log("myorder");
-    // var data = e.currentTarget.dataset
-		wx.navigateTo({
-			url: "../myOrders/myOrders"
-		})
+    if(this.data.hasLogin){
+      wx.navigateTo({
+			  url: "../myOrders/myOrders"
+		  })
+    }
+  },
+
+  addressManage: function(e) {
+    if(this.data.hasLogin){
+      wx.navigateTo({
+			  url: "../addressList/addressList"
+		  })
+    }
   },
 
   callPhone: function(e) {
     wx.makePhoneCall({
       phoneNumber: '4000171010',
-      success: function(res) {
-        console.log("callPhone"+res);
-      }
     });
   },
 
   editInfo: function(e){
-    wx.navigateTo({
-			url: "../myInfo/myInfo"
-		});
+    if(this.data.hasLogin){
+      wx.navigateTo({
+			  url: "../myInfo/myInfo"
+		  });
+    }
   },
 
   login:function(e){
@@ -67,5 +69,4 @@ Page({
 			url: "../login/login"
 		});
   }
-
 })

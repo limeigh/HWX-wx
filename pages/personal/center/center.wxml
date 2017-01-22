@@ -1,9 +1,9 @@
 <view class="container">
     <view class="user-info">
-        <view class="user-skin" bindtap="login"></view>
-        <image src="{{userInfo.avatarUrl}}" class="user-avatar" bindtap="editInfo"></image>
+        <view class="user-skin" hidden="{{hasLogin}}" bindtap="login"></view>
+        <image src="{{hwxUserInfo.HeadPic?hwxUserInfo.HeadPic:userInfo.avatarUrl}}" class="user-avatar" bindtap="editInfo"></image>
         <view class="user-nickname">
-            {{userInfo.nickName}}
+            {{hwxUserInfo.RealName?hwxUserInfo.RealName:userInfo.nickName}}
             <block wx:if="{{userInfo.gender == 1}}">
                 <view class="user-sex-male"></view>
             </block>
