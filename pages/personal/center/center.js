@@ -4,8 +4,12 @@ var app = getApp();
 Page({
   data:{
     hwxUserInfo:null,
-    hwxUserInfo:null,
-    hasLogin:false
+    hasLogin:false,
+    placeHolder: {
+      holderUrl: "../../../../images/personCenter/touxiang.png",
+      holderName: "未登录",
+      holderDes: "快乐方式解决手机维修",
+    }
   },
 
   onLoad:function(){
@@ -65,8 +69,10 @@ Page({
   },
 
   login:function(e){
-    wx.navigateTo({
-			url: "../login/login"
-		});
+    if(!app.globalData.hwxUserInfo) {
+      wx.navigateTo({
+            url: "../login/login"
+          });
+    }
   }
 })

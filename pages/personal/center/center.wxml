@@ -1,17 +1,10 @@
 <view class="container">
     <view class="user-info">
-        <view class="user-skin" hidden="{{hasLogin}}" bindtap="login"></view>
-        <image src="{{hwxUserInfo.HeadPic?hwxUserInfo.HeadPic:userInfo.avatarUrl}}" class="user-avatar" bindtap="editInfo"></image>
-        <view class="user-nickname">
-            {{hwxUserInfo.RealName?hwxUserInfo.RealName:userInfo.nickName}}
-            <block wx:if="{{userInfo.gender == 1}}">
-                <view class="user-sex-male"></view>
-            </block>
-            <block wx:elif="{{userInfo.gender == 2}}">
-                <view class="user-sex-female"></view>
-            </block>
+        <image src="{{hwxUserInfo.HeadPic?hwxUserInfo.HeadPic:placeHolder.holderUrl}}" class="user-avatar" bindtap="editInfo"></image>
+        <view class="user-nickname" bindtap="login">
+        {{hwxUserInfo.RealName?hwxUserInfo.RealName:placeHolder.holderName}}
         </view>
-        <view class="user-location">{{userInfo.province}},{{userInfo.city}}</view>
+        <view class="user-description">{{placeHolder.holderDes}}</view>
     </view>
 
     <view class="my">
