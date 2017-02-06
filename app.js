@@ -39,6 +39,18 @@ App({
       data: data
     })
   },
+  
+  /**
+   * 保存时间差
+   */
+  setTimeDifference:function(data){
+    console.log('setTimeDifference '+ data);
+    this.globalData.timeDifference = data;
+    wx.setStorage({
+      key: config.storageKeys.timeDifference,
+      data: data
+    })
+  },
 
   /**
    * 获取用户信息(微信)
@@ -119,7 +131,7 @@ App({
     try{
       var timeDifference = wx.getStorageSync(config.storageKeys.timeDifference);
       if(timeDifference){
-        that.globalData.timeDifference = hwxUserInfo;
+        that.globalData.timeDifference = timeDifference;
       }else{
         that.globalData.timeDifference = 0;
       }

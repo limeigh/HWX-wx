@@ -18,15 +18,16 @@
     border: 1px solid #e4e4e4;
     box-shadow: 0 10rpx 20rpx #eee;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     animation: fadeIn 1s;
     align-content: center;
+    align-items: center;
 }
 
 .fault-cover-img {
     position: relative;
     margin-top: 30rpx;
-    margin-left: 55rpx;
-    align-items: center;
     text-align: center;
     width: 375rpx;
     height: 160rpx;

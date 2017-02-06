@@ -71,7 +71,14 @@ Page({
             mouldInfo:data,
             mouldName:app.globalData.deviceInfo.model
           })
-          app.setDeviceInfo(data);//缓存本机hi维修数据
+          //缓存本机hi维修数据
+          app.setDeviceInfo(data);
+          //保存时间差
+          var locTime = parseInt(new Date().getTime() / 1000);  //当前客户端时间
+          var nowTime = data.now_time;//服务端时间
+          var diff = Number(nowTime) - Number(locTime);
+          app.setTimeDifference(diff);
+          //
           that.onDeviceSelected();
         },function(msg){
           wx.showToast({
