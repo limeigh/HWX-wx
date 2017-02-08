@@ -1,5 +1,128 @@
-<image style="width:750rpx; background-color: #eeeeee;" mode="aspectFit" src="https://pic.hiweixiu.com/images/userapi/mould-fault/FreeFilm1.png?v=20161104"></image>
+<!--<image style="width:750rpx; background-color: #eeeeee;" mode="aspectFit" src="https://pic.hiweixiu.com/images/userapi/mould-fault/FreeFilm1.png?v=20161104"></image>
 <import src="../../../component/faultList/faultList.wxml"/>
 <template is="faultList" data="{{faults: faultList, hasMore: hasMore, showLoading: showLoading}}"/>
 <import src="../../../component/message/message.wxml"/>
-<template is="message" data="{{message: message}}"/>
+<template is="message" data="{{message: message}}"/>-->
+
+<!--index.wxml-->
+<view class="container bgf5 pb100">
+    <!-- 首页banner start -->
+    <view class="w100">
+        <view class="pt30 pl30 pr30"><image class="w100 banner" src="/img/banner.jpg"></image></view>
+    </view>
+    <!-- 首页banner end -->
+    
+    <view class="w100 mt10">
+        <view class="pl30 lh100 ft30 fb col333"><text class="pl25 dianorange">选择故障点</text></view>
+    </view>
+    
+    <!-- 选择故障点 start -->
+    <view class="w100">
+        <view class="p15">
+
+        <block wx:for="{{faultList}}" wx:for-index="faultIndex" wx:for-item="faultItem" wx:key="fault">
+            <view class="fl w33 pb30" data-id="{{faultItem.Id}}" catchtap="addOrder">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">{{faultItem.Name}}</view>
+                    <view class="ft24 col999 lh28 pb24">xxx</view>
+                    <image class="w100 gzdimg" src="/img/screen.jpg"></image>
+                    <!--<image class="w100 gzdimg" src="{{faultItem.imgurl}}"></image>-->
+                </view>
+            </view>
+        </block>
+
+            <!-- 故障点 start -->
+            <!--<view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">屏幕</view>
+                    <view class="ft24 col999 lh28 pb24">Screen</view>
+                    <image class="w100 gzdimg" src="../img/screen.jpg"></image>
+                </view>
+            </view>
+            
+            <view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">按键</view>
+                    <view class="ft24 col999 lh28 pb24">Key</view>
+                    <image class="w100 gzdimg" src="../img/key.jpg"></image>
+                </view>
+            </view>
+
+            <view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">外壳边框</view>
+                    <view class="ft24 col999 lh28 pb24">Case frame</view>
+                    <image class="w100 gzdimg" src="../img/caseframe.jpg"></image>
+                </view>
+            </view>
+
+            <view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">声音</view>
+                    <view class="ft24 col999 lh28 pb24">Voice</view>
+                    <image class="w100 gzdimg" src="../img/voice.jpg"></image>
+                </view>
+            </view>
+
+            <view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">摄像与拍照</view>
+                    <view class="ft24 col999 lh28 pb24">Camera</view>
+                    <image class="w100 gzdimg" src="../img/camera.jpg"></image>
+                </view>
+            </view>
+
+            <view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">电池</view>
+                    <view class="ft24 col999 lh28 pb24">Battery</view>
+                    <image class="w100 gzdimg" src="../img/battery.jpg"></image>
+                </view>
+            </view>
+
+            <view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">电池</view>
+                    <view class="ft24 col999 lh28 pb24">Battery</view>
+                    <image class="w100 gzdimg" src="../img/battery.jpg"></image>
+                </view>
+            </view>
+
+
+            <view class="fl w33 pb30">
+                <view class="bgw m15 gzd pt20">
+                    <view class="ft30 col333 lh34 pt14">电池</view>
+                    <view class="ft24 col999 lh28 pb24">Battery</view>
+                    <image class="w100 gzdimg" src="../img/battery.jpg"></image>
+                </view>
+            </view>-->
+            <!-- 故障点 end -->
+
+        </view>
+    </view>
+    <!-- 选择故障点 end -->
+
+    <!-- 其他 start -->
+    <view class="w100 pb40">
+        <view class="bgw ml30 mr30 other">
+            <text class="ft30 col333">其他</text>
+            <text class="ft24 col999"> Other</text>
+        </view>
+    </view>
+    <!-- 其他 end -->
+
+     <!--底部 start -->
+    <!--<view class="fixedb w100 bgf8 pt10">
+        <view class="fl w50">
+            <image src="../img/iconweixiu.png" class="icon54"></image>
+            <view class="lh34 ft20 txtc colorange">维修</view>-->
+            <!-- 当前页  colgray1 换成 colorange -->
+        <!--</view>
+        <view class="fl w50">
+            <image src="../img/iconwode.png" class="icon54"></image>
+            <view class="lh34 ft20 txtc colgray1">我的</view>
+        </view>
+    </view>-->
+    <!-- 底部 end -->
+
+</view>

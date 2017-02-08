@@ -1,15 +1,7 @@
-@import "../../../component/faultList/faultList.wxss";
-@import "../../../component/message/message.wxss";
-
-.banner {
-    width: 750rpx;
-    height: 300rpx;
-    margin-top: 80rpx;
-    background-color: #eee;
-    animation: fadeIn 1.8s;
-}
-
-.banner-item {
-    width: 750rpx;
-    height: 300rpx;
-}
+/* pages/index/index.wxss */
+.banner{ height: 270rpx;}
+.dianorange{ background: url("/img/dianorange.png") left center no-repeat; background-size: 10rpx 10rpx;}
+.gzd{ text-align: center; border-radius: 10rpx; -webkit-border-radius: 10rpx;}
+.gzdimg{ height: 130rpx; display: block;}
+.other{ height: 94rpx; line-height: 94rpx; text-align: center; border-radius: 10rpx; -webkit-border-radius: 10rpx;}
+.icon54{ display: block; width: 54rpx; height: 54rpx; margin: 0 auto;}

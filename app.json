@@ -13,27 +13,26 @@
     "pages/personal/myOrders/myOrders"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText":  "Hi维修",
-    "backgroundColor": "#ffffff",
-    "backgroundTextStyle": "dark",
-    "enablePullDownRefresh": true
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTitleText": "维修",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f8f8f8"
   },
   "tabBar": {
-    "color": "#686868",
+    "color": "#7f8389",
     "selectedColor": "#ff5000",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [{
       "pagePath": "pages/repair/main/main",
-      "iconPath": "images/tab_hi@3x.png",
-      "selectedIconPath": "images/tab_hi_cur@3x.png",
+      "iconPath": "img/iconweixiu.png",
+      "selectedIconPath": "img/iconweixiu.png",
       "text": "维修"
     }, {
       "pagePath": "pages/personal/center/center",
-      "iconPath": "images/tab_gr@3x.png",
-      "selectedIconPath": "images/tab_gr_cur@3x.png",
+      "iconPath": "img/iconwode.png",
+      "selectedIconPath": "img/iconwode.png",
       "text": "个人中心"
     }]
   },
