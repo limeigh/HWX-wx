@@ -48,7 +48,9 @@ module.exports = {
         requestFail:"请求失败"
     },
     amap:{
+        mapKey:"bdf11297e5ab22f3fca852062e0a94f3",//小程序sdkkey
         key:"ad6c2c7a01c2fec89289b2234b841584",
-        regeocode:"http://restapi.amap.com/v3/geocode/regeo"
+        regeocode:"http://restapi.amap.com/v3/geocode/regeo",
+
     }
 }
