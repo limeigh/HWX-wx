@@ -34,7 +34,7 @@ Page({
 	},
     
 	//前往创建订单
-	addOrder: function(e) {
+	naviAddOrder: function(e) {
 		var data = e.currentTarget.dataset;
 		wx.navigateTo({
 			url: "../faultDetail/faultDetail?id=" + data.id + "&name=" + data.Name
