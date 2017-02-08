@@ -43,6 +43,11 @@ Page({
       wx.navigateTo({
 			  url: "../myOrders/myOrders"
 		  })
+    }else {
+      wx.showToast({
+      title: '请先登录',
+      duration: 1000,
+    })
     }
   },
 
