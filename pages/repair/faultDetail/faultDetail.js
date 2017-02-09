@@ -51,6 +51,7 @@ Page({
       }
     }catch(e){
       console.log(e);
+      this.getDeviceInfo();
     }
   },
   
@@ -312,7 +313,7 @@ Page({
   },
 
   getPriceRange:function(){
-    var plans = this.data.planList;
+    var plans = [].concat(this.data.planList);
     plans.sort(function(obj1,obj2){
          return obj2.Price - obj1.Price;
     })
