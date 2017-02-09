@@ -9,13 +9,13 @@ Page({
     colorId:null,//颜色id
     plan:null,//维修方案数据
     hasLogin:false,//用户是否已登录
-		phone:null,
-    code:null,
+		phone:"",
+    code:"",
     selectedAddress:null,//{"id":38652,"uid":804,"contacts":"damocs","gender":1,"province":310000,"province_name":"上海市","city":310100,"city_name":"上海市","district":310112,"district_name":"闵行区","address":"上海市闵行区看看啦啦\n","address_desc":"看看啦啦\n","address_name":"江柳路200弄","lng":"121.498381","lat":"31.102194","cookie_code":"de1018fd504ca92e5c81d0f880e882e6","create_at":1484651895,"update_at":1484651895,"isdel":0,"selected":true}
-    date:'',
-    time:'',
+    date:"",
+    time:"",
     totalPrice:0,//总金额
-    remark:null,
+    remark:"",
     couponId:null,
     protectFlag:null,
 	},
@@ -36,12 +36,17 @@ Page({
       })
     }catch(e){
     }
+    //设置默认时间
+    var nowDate = new Date();
+    this.setData({
+      date: nowDate.getFullYear()+'-'+nowDate.getMonth()+'-'+nowDate.getDate(),
+      time: nowDate.getHours()+':' + nowDate.getMinutes()
+    })
   },
 
   onShow:function(){
-    var that = this;
     //自动获取地址，手机号等信息
-    that.loadUserData();
+    this.loadUserData();
   },
   
   loadUserData:function(){
@@ -53,7 +58,7 @@ Page({
        })
     }else{
        that.setData({
-          phone:null,
+          phone:"",
           hasLogin:false
         })
     }
@@ -70,15 +75,13 @@ Page({
   },
 
   inputPhone:function(e){
-    var that = this;
-    that.setData({
+    this.setData({
       phone: e.detail.value
     })
   },
 
   inputCode:function(e){
-    var that = this;
-    that.setData({
+    this.setData({
       code: e.detail.value
     })
   },
@@ -96,8 +99,7 @@ Page({
   },
 
   inputDetail:function(e){
-    var that = this;
-    that.setData({
+    this.setData({
       remark: e.detail.value
     })
   },
@@ -109,15 +111,14 @@ Page({
   },
 
   sendCode:function(e){
-    console.log("sendCode");
      var that = this;
      httpTool.getVerifyCode.call(that,that.data.phone,function(){
        wx.showToast({
         title: '已发送' + that.data.phone,
       })
-     },function(){
+     },function(msg){
        wx.showToast({
-        title: '发送失败',
+        title: msg,
        })
      }) 
   },
@@ -126,7 +127,7 @@ Page({
     var that = this;
     if (app.globalData.hwxUserInfo != null) {
       //已登录用户，直接提交
-      that.createOrder();
+      this.createOrder();
     }else{
       //否则先去登录
       httpTool.doLoginWithPhone.call(that,that.data.phone,that.data.code,function(data){
@@ -134,7 +135,7 @@ Page({
         that.createOrder();//提交订单
       },function(msg){
         wx.showToast({
-          content:"请求失败,"+msg
+          content:msg
         })
       });
     }
@@ -151,7 +152,7 @@ Page({
       that.goToOrderDetail(data);
     },function(msg){
       wx.showToast({
-        content:"请求失败,"+msg
+        content:msg
       })
     })
   },
