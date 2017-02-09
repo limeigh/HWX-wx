@@ -2,7 +2,6 @@ function formatTime(time) {
   if (typeof time !== 'number' || time < 0) {
     return time
   }
-
   var hour = parseInt(time / 3600)
   time = time % 3600
   var minute = parseInt(time / 60)
@@ -46,8 +45,14 @@ function getTime() {
   return [hours, minute, second].join(':')
 }
 
+function getLocalTime(nS) {     
+       return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");      
+    }    
+
 module.exports = {
   formatTime: formatTime,
+  formatDate: formatDate,
+  getLocalTime : getLocalTime,
   getDate: getDate,
   getTime: getTime
 }

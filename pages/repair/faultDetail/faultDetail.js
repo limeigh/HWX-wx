@@ -1,5 +1,6 @@
 var httpTool = require('../../../comm/script/fetch')
 var config = require('../../../comm/script/config')
+var util = require('../../../util/util')
 var app = getApp()
 
 Page({
@@ -209,6 +210,10 @@ Page({
           commentList:[]
         }) 
       }
+      //时间戳转格式
+      data.list.forEach(function(val,index,arr){
+        val.formatTime = util.getLocalTime(val.CreateTime);
+      })
       that.setData({
          commentList:that.data.commentList.concat(data.list),
          currentPage:data.info.p,

@@ -105,7 +105,7 @@
           </view>
       </block>
       <!-- 维修服务 end -->
-      <block wx:else>
+      <block wx:if="{{segIndex == 1}}">
           <view class="mt20 bgw w100">
               <view class="bb oh">
                   <view class="w50 fl lh80" catchtap="showRepairService"><text class="wxfwbtn ft28">维修服务</text></view><!-- 当前状体添加 wxfwbb -->
@@ -118,7 +118,7 @@
                           <image src="{{commentItem.HeadPic}}" class="icon100 icon100pl"></image>
                           <view class="lh60 oh">
                               <text class="ft30 col333 fl">{{commentItem.UserName}}</text>
-                              <text class="ft24 col999 fr">{{commentItem.CreateTime}}</text>
+                              <text class="ft24 col999 fr">{{commentItem.formatTime}}</text>
                           </view>
                           <view class="startbg pb14"><view class="start"></view></view>
                           <text class="ft30 col666 lh40">{{commentItem.Content}}</text>
