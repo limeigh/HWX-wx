@@ -29,14 +29,11 @@ Page({
      var that = this;
      httpTool.getVerifyCode.call(that,that.data.phone,function(){
        wx.showToast({
-        title: '已发送'+that.data.phone,
-        icon: 'success',
-        duration: 2000
+        title: '已发送' + that.data.phone,
       })
      },function(){
        wx.showToast({
         title: '发送失败',
-        duration: 100
        })
      }) 
   },

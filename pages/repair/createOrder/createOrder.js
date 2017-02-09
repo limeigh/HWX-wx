@@ -14,6 +14,7 @@ Page({
     selectedAddress:null,//{"id":38652,"uid":804,"contacts":"damocs","gender":1,"province":310000,"province_name":"上海市","city":310100,"city_name":"上海市","district":310112,"district_name":"闵行区","address":"上海市闵行区看看啦啦\n","address_desc":"看看啦啦\n","address_name":"江柳路200弄","lng":"121.498381","lat":"31.102194","cookie_code":"de1018fd504ca92e5c81d0f880e882e6","create_at":1484651895,"update_at":1484651895,"isdel":0,"selected":true}
     date:'',
     time:'',
+    totalPrice:0,//总金额
     remark:null,
     couponId:null,
     protectFlag:null,
@@ -30,7 +31,8 @@ Page({
     try{
       var selectedPlan = wx.getStorageSync(config.storageKeys.selectedPlan);
       this.setData({
-        plan:selectedPlan
+        plan:selectedPlan,
+        totalPrice:Number(selectedPlan.Price)+Number(selectedPlan.brand_home_visit_fee)+Number(selectedPlan.brand_manual_fee)
       })
     }catch(e){
     }
@@ -104,6 +106,20 @@ Page({
      wx.navigateTo({
        url: "../../personal/addressList/addressList?autoback=1",
      })
+  },
+
+  sendCode:function(e){
+    console.log("sendCode");
+     var that = this;
+     httpTool.getVerifyCode.call(that,that.data.phone,function(){
+       wx.showToast({
+        title: '已发送' + that.data.phone,
+      })
+     },function(){
+       wx.showToast({
+        title: '发送失败',
+       })
+     }) 
   },
 
   submit:function(){

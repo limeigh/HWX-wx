@@ -63,18 +63,27 @@
     <!-- 立即下单地址 end -->
     </block>
     
-
-   
-    
     <!-- 预约信息 start -->
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 pb80 ft30">
-            <view class="ht100 bb col999"><input value="请输入手机号" class="ht100" /></view>
-            <view class="ht100 bb col333">
-                <text class="lh100">预约时间</text>
-                <view class="xzfwsj ht100 lh100 col999 pr30 ft28">选择服务时间</view>
+            <view class="ht100 bb col999"><input placeholder="请输入手机号" value="{{phone}}" class="ht100" bindinput="inputPhone"/></view>
+            <view wx:if="{{hasLogin == false}}" class="ht100 bb col999">
+                <input placeholder="请输入验证码" value="{{code}}" class="sryzm" bindinput="inputCode"/>
+                <text class="hqyzm ht100 lh100 colorange pr30 ft28" catchtap="sendCode">获取验证码</text>
             </view>
-            <view class="ht100 col999"><input value="如有其它问题请留言" class="ht100"  /></view>
+            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                <view class="ht100 bb col333">
+                    <text class="lh100">预约日期</text>
+                    <view class="xzfwsj ht100 lh100 col999 pr30 ft28">{{date?date:"选择服务日期"}}</view>
+                </view>
+            </picker>
+            <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+                <view class="ht100 bb col333">
+                    <text class="lh100">预约时间</text>
+                    <view class="xzfwsj ht100 lh100 col999 pr30 ft28">{{time?time:"选择服务时间"}}</view>
+                </view>
+            </picker>
+            <view class="ht100 col999"><input placeholder="如有其它问题请留言" class="ht100" bindinput="inputDetail" value="{{detail}}" /></view>
         </view>
     </view>
     <!-- 预约信息 end -->
@@ -82,22 +91,22 @@
     <!-- 维修价格 start -->
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 ft30">
-            <view class="ht100 bb col333 lh100">iPhone Plus</view>
+            <view class="ht100 bb col333 lh100">{{mouldName}}</view>
             <view class="bb col333 ft28 pt14 pb14">
                 <view class="ht68">
-                    <text class="col333">更换金立原装扬声器（旧件带回）</text>
-                    <text class="colorange fr">¥1080</text>
-                </view>
-                <view class="ht68">
-                    <text class="col333">维修费</text>
-                    <text class="colorange fr">¥54</text>
+                    <text class="col333">{{plan.RepairType}}</text>
+                    <text class="colorange fr">¥{{plan.Price}}</text>
                 </view>
                 <view class="ht68">
                     <text class="col333">上门费</text>
-                    <text class="colorange fr">¥30</text>
+                    <text class="colorange fr">¥{{plan.brand_home_visit_fee}}</text>
+                </view>
+                <view class="ht68">
+                    <text class="col333">手工费</text>
+                    <text class="colorange fr">¥{{plan.brand_manual_fee}}</text>
                 </view>
             </view>
-            <view class="ht100 col666 lh100"><text class="fr">总额：¥280</text></view>
+            <view class="ht100 col666 lh100"><text class="fr">总额：¥{{totalPrice}}</text></view>
         </view>
     </view>
     <!-- 维修价格 end -->
@@ -108,11 +117,11 @@
         <view class="fl pt14">
             <view  class="ft30">
                 <text class="col333 pl30 lh40">总额：</text>
-                <text class="colorange lh40">¥280</text>
+                <text class="colorange lh40">¥{{totalPrice}}</text>
             </view>            
             <view class="ft22 col666 pl30"><text class="">提交订单等同于同意Hi维修服务条款</text></view>
         </view>
-        <button class="xiadanbtn fr lh100 ft30">下一步</button>
+        <button class="xiadanbtn fr lh100 ft30" bindtap="submit">下一步</button>
     </view>
     <!-- 立即下单底部 end -->
 

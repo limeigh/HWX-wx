@@ -8,3 +8,5 @@
 .ht68{ height: 68rpx; line-height: 68rpx;}
 .ht100{ position: relative; height: 100rpx;}
 .xzfwsj{ position: absolute; right: 0; top: 0;  background: url("/img/rightgray1.png") right center no-repeat; background-size: 13rpx 23rpx;}
+.sryzm {position: absolute; height: 100rpx; left: 0; top: 0; bottom: 0; width:375rpx }
+.hqyzm {position: absolute; right: 0; top: 0; bottom: 0;}
