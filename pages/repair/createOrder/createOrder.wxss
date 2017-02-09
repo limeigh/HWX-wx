@@ -1,44 +1,10 @@
-page {
-    width: 100%;
-    height: 100%;
-}
+/* ljxd.wxss */
+.add{ background: url("/img/rightgray1.png") 708rpx center no-repeat; background-size: 13rpx 23rpx;}
 
-view {
-    width: 100%;
-}
+.h45{ height: 45rpx;}
+.ljxdbg{ padding: 48rpx 0 44rpx; background: url("/img/ljxdbg.png") left bottom no-repeat #fff; background-size: 100% 6rpx;}
+.tianjia{ height: 85rpx; line-height: 85rpx; text-align: center; background: url("/img/tianjia.png") 232rpx center no-repeat; background-size: 36rpx 36rpx;}
 
-.weapp-about {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-around;
-    align-items: center;
-}
-
-.weapp-name {
-    font-size: 60rpx;
-    text-align: center;
-    color: #555;
-}
-
-.webapp-intro {
-    box-sizing: border-box;
-    padding: 60rpx;
-    height: 900rpx;
-}
-
-.webapp-intro-item {
-    margin-bottom: 40rpx;
-}
-
-.webapp-intro-title {
-    margin-bottom: 10rpx;
-    font-size: 32rpx;
-    color: #666;
-}
-
-.webapp-intro-content {
-    color: #ccc;
-}
+.ht68{ height: 68rpx; line-height: 68rpx;}
+.ht100{ position: relative; height: 100rpx;}
+.xzfwsj{ position: absolute; right: 0; top: 0;  background: url("/img/rightgray1.png") right center no-repeat; background-size: 13rpx 23rpx;}

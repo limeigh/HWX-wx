@@ -309,7 +309,7 @@ function request(url,data,method,cb,fail_cb){
           //无权限，直接跳往登录页面
            typeof fail_cb == 'function' && fail_cb(res.data.mes);
            wx.redirectTo({
-             url: '../../pages/personal/login/login',
+             url: '/pages/personal/login/login',
              success: function(res){
                // success
              },
