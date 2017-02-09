@@ -17,10 +17,9 @@ Page({
   },
 
   loadUserInfo:function(){
-    var that = this;
     var hwxUserInfo = app.globalData.hwxUserInfo;
     if (hwxUserInfo != null) {
-      that.setData({
+      this.setData({
           name: hwxUserInfo.RealName,
           birthday:hwxUserInfo.birthday,
           phone: hwxUserInfo.UserName
@@ -29,7 +28,7 @@ Page({
     //从微信取性别（hi维修没有这个字段）
     var userInfo = app.globalData.userInfo;
     if (userInfo!=null){
-      that.setData({
+      this.setData({
         gender:userInfo.gender
       })
     }
@@ -69,7 +68,7 @@ Page({
 
   logout:function(e){
     wx.clearStorage();
-    httpTool.logout.call(that);
+    httpTool.logout.call(this);
     wx.navigateBack();
   },
 
