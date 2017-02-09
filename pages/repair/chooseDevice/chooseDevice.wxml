@@ -1,31 +1,59 @@
-<scroll-view scroll-y="true">
-    <view class="webapp-intro-title">品牌</view>
-    <view class="brand">
-        <block wx:for="{{brandList}}" wx:for-index="brandIndex" wx:for-item="brandItem" wx:key="brand">
-            <view data-id="{{brandItem.Id}}" data-idx="{{brandIndex}}" bindtap="selectBrand">
-                <view class="webapp-intro-content">{{brandItem.Id}}</view>
-                <view class="webapp-intro-content">{{brandItem.Name}}</view>
+
+<block wx:if="{{myMouldInfo!=null}}">
+    <view class="wodeshebei" catchtap="selectMyDevice">
+        我的设备：{{myMouldName}}
+    </view>
+</block>
+
+
+<view class="content">
+  <view class="sidebar">
+    <block wx:for="{{brandList}}" wx:for-index="brandIndex" wx:for-item="brandItem" wx:key="brand">
+        <block wx:if="{{selectedBrand.Id == brandItem.Id}}">
+            <view class="menu on" data-id="{{brandItem.Id}}" data-idx="{{brandIndex}}" bindtap="selectBrand">
+                <view class="txt">{{brandItem.BrandName}}
+                    <view class="yuan"></view>
+                </view>
             </view>
         </block>
-    </view>
-    <view class="webapp-intro-title">手机</view>
-    <view class="phone">
-        <block wx:for="{{phoneList}}" wx:for-index="phoneIndex" wx:for-item="phoneItem" wx:key="phone">
-            <view data-id="{{phoneItem.Id}}" data-idx="{{phoneIndex}}" bindtap="selectPhone">
-                <view class="webapp-intro-content">{{phoneItem.Id}}</view>
-                <view class="webapp-intro-content">{{phoneItem.MouldName}}</view>
-                <image style="background-color: #eeeeee;" mode="aspectFit" src="{{phoneItem.Pic}}"></image>
+        <block wx:else>
+            <view class="menu" data-id="{{brandItem.Id}}" data-idx="{{brandIndex}}" bindtap="selectBrand">
+                <view class="txt">{{brandItem.BrandName}}
+                    <view class="yuan"></view>
+                </view>
             </view>
         </block>
-    </view>
-    <view class="webapp-intro-title">平板</view>
-    <view class="pad">
-        <block wx:for="{{padList}}" wx:for-index="padIndex" wx:for-item="padItem" wx:key="pad">
-            <view data-id="{{padItem.Id}}" data-idx="{{padIndex}}" bindtap="selectPad">
-                <view class="webapp-intro-content">{{padItem.Id}}</view>
-                <view class="webapp-intro-content">{{padItem.MouldName}}</view>
-                <image style="background-color: #eeeeee;" mode="aspectFit" src="{{padItem.Pic}}"></image>
-            </view>
-        </block>
-    </view>
-</scroll-view>
+    </block>
+  </view>
+
+  <view class="right">
+    <block wx:if="{{segIndex == 0}}">
+        <view class="tabs">
+            <view class="nav on">手机</view>
+            <view class="nav" catchtap="showPadList">平板</view>
+        </view>
+        <view class="list">
+            <block wx:for="{{phoneList}}" wx:for-index="phoneIndex" wx:for-item="phoneItem" wx:key="phone">
+                <view class="item" data-id="{{phoneItem.Id}}" data-idx="{{phoneIndex}}" bindtap="selectPhone">
+                    <image src="{{phoneItem.Pic}}" class="img"></image>
+                    <view class="con">{{phoneItem.MouldName}}</view>
+                </view>
+            </block>
+        </view>
+    </block>
+    <block wx:if="{{segIndex == 1}}">
+       <view class="tabs">
+            <view class="nav" catchtap="showPhoneList">手机</view>
+            <view class="nav on">平板</view>
+        </view>
+        <view class="list">
+            <block wx:for="{{padList}}" wx:for-index="padIndex" wx:for-item="padItem" wx:key="pad">
+                <view class="item" data-id="{{padItem.Id}}" data-idx="{{padIndex}}" bindtap="selectPad">
+                    <image src="{{padItem.Pic}}" class="img"></image>
+                    <view class="con">{{padItem.MouldName}}</view>
+                </view>
+            </block>
+        </view>
+    </block>
+  </view>
+</view>

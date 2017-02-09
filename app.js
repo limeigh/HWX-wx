@@ -33,6 +33,7 @@ App({
    *  异步存储本机设备数据(hi维修)
    */
   setDeviceInfo:function(data){
+    data.MouldName = this.globalData.deviceInfo.model;
     this.globalData.hwxDeviceInfo = data;
     wx.setStorage({
       key: config.storageKeys.currentDevice,
@@ -112,18 +113,19 @@ App({
     wx.getStorage({
       key: config.storageKeys.currentDevice,
       success: function(res){
-        console.log("config.storageKeys.currentDevice"+JSON.stringify(res.data))
-        that.globalData.currentDevice = res.data;
+        console.log("globalData.hwxDeviceInfo"+JSON.stringify(res.data))
+        that.globalData.hwxDeviceInfo = res.data;
       },
     })
     //同步加载当前用户
     try{
       var hwxUserInfo = wx.getStorageSync(config.storageKeys.currentUser);
       if(hwxUserInfo){
-        that.globalData.hwxUserInfo = hwxUserInfo?hwxUserInfo:null;
+        that.globalData.hwxUserInfo = hwxUserInfo;
       }else{
         that.globalData.hwxUserInfo = null;
       }
+      console.log("globalData.hwxUserInfo"+JSON.stringify(hwxUserInfo))
     }catch (e) {
       console.log(JSON.stringify(e));
     }
