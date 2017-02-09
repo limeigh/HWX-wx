@@ -14,7 +14,7 @@
     <view class="w100">
         <view class="p15">
         <block wx:for="{{faultList}}" wx:for-index="faultIndex" wx:for-item="faultItem" wx:key="fault">
-            <view class="fl w33 pb30" data-id="{{faultItem.Id}}" catchtap="naviAddOrder">
+            <view class="fl w33 pb30" data-id="{{faultItem.Id}}" catchtap="bindTapFault">
                 <view class="bgw m15 gzd pt20">
                     <view class="ft30 col333 lh34 pt14">{{faultItem.Name}}</view>
                     <view class="ft24 col999 lh28 pb24">xxx</view>

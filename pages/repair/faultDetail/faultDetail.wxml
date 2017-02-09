@@ -1,64 +1,158 @@
-<scroll-view scroll-y="true">
-    <view class="weapp-name">{{mouldName}}</view>
-    <view class="webapp-intro">
-        <view class="webapp-intro-item">
-            <view class="webapp-intro-content">{{markInfo.mark_info}}</view>
-            <image style="background-color: #eeeeee;" mode="aspectFit" src="{{markInfo.img_url}}"></image>
-            <view class="webapp-intro-title">设备数据</view>
-            <button class="chooseDevice" bindtap="chooseDevice">修改</button>
-            <view class="webapp-intro-content">{{mouldInfo.ProductId}}</view>
-            <view class="webapp-intro-content">{{mouldInfo.BrandId}}</view>
-            <view class="webapp-intro-content">{{mouldInfo.Colors}}</view>
-            <view class="webapp-intro-content">{{mouldInfo.Pic}}</view>
-            <view class="webapp-intro-content">{{mouldInfo.BrandName}}</view>
-        </view>
-        <view class="webapp-intro-title">颜色数据</view>
-        <view class="color">
-            <block wx:for="{{colorList}}" wx:for-index="colorIndex" wx:for-item="colorItem" wx:key="color">
-                <view data-id="{{colorItem.ColorId}}" data-idx="{{colorIndex}}" catchtap="selectColor">
-                    <view class="{{(colorItem.ColorId == selectedColor.ColorId)? 'webapp-intro-content-selected':'webapp-intro-content'}}">{{colorItem.ColorName}}</view>
-                </view>
-            </block>
-        </view>
-         <view class="webapp-intro-title">保内外</view>
-        <view class="option">
-            <block wx:for="{{optionList}}" wx:for-index="optionIndex" wx:for-item="optionItem" wx:key="option">
-                <view data-id="{{optionItem.Id}}" data-idx="{{optionIndex}}" catchtap="selectOption">
-                    <view class="webapp-intro-content">{{optionItem.Id}}</view>
-                    <view class="{{(optionItem.Id == selectedOption.Id)? 'webapp-intro-content-selected':'webapp-intro-content'}}">{{optionItem.name}}</view>
-                </view>
-            </block>
-        </view>
-
-        <view class="webapp-intro-title">维修方案</view>
-        <view class="plan">
-            <block wx:for="{{(selectedOption.Id == 2)? protectPlanList :planList}}" wx:for-index="planIndex" wx:for-item="planItem" wx:key="plan">
-                <view data-id="{{planItem.Id}}" data-idx="{{planIndex}}" catchtap="selectPlan">
-                    <view class="{{(planItem.Id == selectedPlan.Id)? 'webapp-intro-content-selected':'webapp-intro-content'}}">{{planItem.RepairType}}</view>
-                    <view class="webapp-intro-content">{{planItem.faultType}}</view>
-                    <view class="webapp-intro-content">{{planItem.Price}}</view>
-                </view>
-            </block>
-        </view>
-        <view class="webapp-intro-title">价格{{selectedPlan.Price}}</view>
-        <view class="flex-wrp" style="flex-direction:row">
-            <view class="flex-item bc_green">维修详情</view>
-            <view class="flex-item bc_red">用户评论</view>
-        </view>
-        <view class="webapp-intro-title">维修详情</view>
-        <view class="webapp-intro-content">{{detailUrl}}</view>
-        <view class="webapp-intro-title">用户评论</view>
-        <view class="comment">
-            <block wx:for="{{commentList}}" wx:for-index="commentIndex" wx:for-item="commentItem" wx:key="comment">
-                <view data-id="{{commentItem.Id}}">
-                    <view class="webapp-intro-content">{{commentItem.UserName}}</view>
-                    <view class="webapp-intro-content">{{commentItem.grade}}星</view>
-                    <view class="webapp-intro-content">{{commentItem.Content}}</view>
-                    <view class="webapp-intro-content">{{commentItem.OrderId}}</view>
-                    <view class="webapp-intro-content">{{commentItem.Tags}}</view>
-                </view>
-            </block>
-        </view>
+<!--wxfa.wxml-->
+<view class="container bgf5 pb100">
+  <!-- 维修方案头部 start -->
+  <view class="top w100 bgw">
+    <image class="topimg" src="{{markInfo.img_url}}"></image>
+    <view class="toptxt">
+      <text class="ft32 fb col333 lh22">{{markInfo.mark_info}}</text>
+      <view class="topjiage bt bb">
+        <text class="ft26 col666">维修报价：</text>
+        <text class="ft26 colorange">¥</text>
+        <text class="ft36 colorange">{{priceRange}}</text> <!-- ??? -->
+      </view>
     </view>
-    <button class="next" bindtap="createOrder">下一步</button>
-</scroll-view>
+  </view>
+  <!-- 维修方案头部 end -->
+
+  <!-- 维修方案内容 start -->
+  <view class="mt20 bgw w100">
+
+    <view class="main">
+
+      <!-- 维修机型 start -->
+      <view class="mainjixing mb10 bb" bindtap="chooseDevice">
+        <text class="ft26 pr25 col666">维修机型</text>
+        <text class="ft30 col333">{{mouldName}}</text>
+        <text class="ft26 fr colblue mainjixingxiugai ">修改</text>
+      </view>
+      <!-- 维修机型 end -->
+
+      <!-- 选择颜色 start -->
+      <view class="title"><text class="ft26 col666">选择颜色</text></view>
+      <view class="oh mb10">
+        <block wx:for="{{colorList}}" wx:for-index="colorIndex" wx:for-item="colorItem" wx:key="color">
+            <block wx:if="{{colorItem.ColorId == selectedColor.ColorId}}">
+                <view class="maincolbtn mr30 borderred" data-id="{{colorItem.ColorId}}" data-idx="{{colorIndex}}" catchtap="selectColor">
+                    <text class="ft28 colorange">{{colorItem.ColorName}}</text>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="maincolbtn mr30 bordergray" data-id="{{colorItem.ColorId}}" data-idx="{{colorIndex}}" catchtap="selectColor">
+                    <text class="ft28 col333">{{colorItem.ColorName}}</text>
+                </view>
+            </block>
+        </block>
+      </view>
+      <!-- 选择颜色 end -->
+
+      <!-- 保内保外 start -->
+      <block wx:if="{{optionList.length > 0}}">
+          <view class="title cl">
+            <text class="ft26 col666">保修情况</text>
+          </view>
+          <block wx:for="{{optionList}}" wx:for-index="optionIndex" wx:for-item="optionItem" wx:key="option">
+              <block wx:if="{{optionItem.Id == selectedOption.Id}}">
+                  <view class="maincolbtn mr30 borderred" data-id="{{optionItem.Id}}" data-idx="{{optionIndex}}" catchtap="selectOption">
+                      <text class="ft28 colorange">{{optionItem.name}}</text>
+                  </view>
+              </block>
+              <block wx:else>
+                  <view class="maincolbtn mr30 bordergray" data-id="{{optionItem.Id}}" data-idx="{{optionIndex}}" catchtap="selectOption">
+                      <text class="ft28 col333">{{optionItem.name}}</text>
+                  </view>
+              </block>
+          </block>
+      </block>      
+      <!-- 保内保外 end -->
+
+      <!-- 选择故障 start -->
+      <view class="title cl">
+        <text class="ft26 col666">选择故障</text>
+        <text class="ft24 col999 maintitlebtn fr">维修说明</text>
+      </view>
+
+      <block wx:for="{{(selectedOption.Id == 2)? protectPlanList :planList}}" wx:for-index="planIndex" wx:for-item="planItem" wx:key="plan">
+          <block wx:if="{{planItem.Id == selectedPlan.Id}}">
+              <view class="mainguzhang w100 borderred mb20" data-id="{{planItem.Id}}" data-idx="{{planIndex}}" catchtap="selectPlan">
+                  <text class="ft28 pl25 colorange">{{planItem.RepairType}}</text>
+                  <text class="ft28 pr25 colorange fr">{{planItem.Price}}</text>
+              </view>
+          </block>
+          <block wx:else>
+              <view class="mainguzhang w100 bordergray mb20" data-id="{{planItem.Id}}" data-idx="{{planIndex}}" catchtap="selectPlan">
+                  <text class="ft28 pl25 col333">{{planItem.RepairType}}</text>
+                  <text class="ft28 pr25 col666 fr">{{planItem.Price}}</text>
+              </view>
+          </block>
+      </block>
+    <!-- 选择故障 end -->
+  </view>
+  <!-- 维修方案内容 end -->
+</view>
+  
+
+      <!-- 维修服务 start -->
+      <block wx:if="{{segIndex == 0}}">
+          <view class="mt20 bgw w100">
+              <view class="bb oh">
+                  <view class="w50 fl lh80"><text class="wxfwbtn ft28 wxfwbb">维修服务</text></view><!-- 当前状体添加 wxfwbb -->
+                  <view class="w50 fl lh80" catchtap="showUserComment"><text class="wxfwbtn ft28">用户评论</text></view>
+              </view>
+              <view>
+                  <image src="/img/wxfw.jpg" mode="widthFix" class="w100"></image>
+                  <!--<image src="{{detailUrl}}" mode="widthFix" class="w100"></image> 需改为图片链接-->
+              </view>
+          </view>
+      </block>
+      <!-- 维修服务 end -->
+      <block wx:else>
+          <view class="mt20 bgw w100">
+              <view class="bb oh">
+                  <view class="w50 fl lh80" catchtap="showRepairService"><text class="wxfwbtn ft28">维修服务</text></view><!-- 当前状体添加 wxfwbb -->
+                  <view class="w50 fl lh80"><text class="wxfwbtn ft28 wxfwbb">用户评论</text></view>
+              </view>
+              <!-- 用户评论内容 start -->
+              <block wx:for="{{commentList}}" wx:for-index="commentIndex" wx:for-item="commentItem" wx:key="comment">
+                  <view class="pl30 pr30 pt40 bb" data-id="{{commentItem.Id}}">
+                      <view class="yhpl pl120">
+                          <image src="{{commentItem.HeadPic}}" class="icon100 icon100pl"></image>
+                          <view class="lh60 oh">
+                              <text class="ft30 col333 fl">{{commentItem.UserName}}</text>
+                              <text class="ft24 col999 fr">{{commentItem.CreateTime}}</text>
+                          </view>
+                          <view class="startbg pb14"><view class="start"></view></view>
+                          <text class="ft30 col666 lh40">{{commentItem.Content}}</text>
+                          <view class="oh pt14 pb6">
+                              <block wx:for="{{commentItem.img_msg}}" wx:for-index="imgIndex" wx:for-item="imgItem" wx:key="img">
+                                  <image src="{{imgItem.small_img}}" class="img160 fl mr12"></image>
+                              </block>
+                          </view>
+                          <view class="oh pb34 pt8">
+                              <block wx:for="{{commentItem.Tags}}" wx:for-index="tagIndex" wx:for-item="tagItem" wx:key="tag">
+                                  <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">{{tagItem}}</text></view>
+                              </block>
+                          </view>
+                      </view>
+                  </view>
+             </block>
+        </view>
+        <block wx:if="{{totalPages <= currentPage}}">
+            <view class="ft24 lh100 colccc">已经到底啦~</view>
+        </block>
+        <block wx:else>
+            <view class="ft24 lh100 colccc" catchtap="getComment">加载更多</view>
+        </block>
+    </block>
+    
+  <!-- 去下单 end -->
+  <view class="fixedb w100  bgf8">
+    <view class="fl ft30">
+      <text class="col333 pl30 lh100">总额：</text>
+      <text class="colorange lh100">{{selectedPlan.Price}}</text>
+    </view>
+    <button class="xiadanbtn fr lh100 ft30" bindtap="createOrder">去下单</button>
+  </view>
+  <!-- 去下单 end -->
+  
+</view>
+

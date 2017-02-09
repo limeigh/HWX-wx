@@ -1,0 +1,2 @@
+1.首页https://userapi.hiweixiu.com/fault/mould-fault 需要增加故障的英文名，替换图片url（并独立“其它”选项？）
+2.https://userapi.hiweixiu.com/moiblemould/getids?mouldName=iPhone6  这个接口必须保证传入的mouldName与hi维修表中的设备数据正确映射（目前存在各种因为有空格/无空格而查不到数据的情况，比如iPhone 6S和iPhone6。。。）

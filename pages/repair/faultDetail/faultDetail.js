@@ -4,7 +4,7 @@ var app = getApp()
 
 Page({
   data: {
-    //下单流程
+    //选择方案流程
     faultId: null,  //故障id
     faultName: null, //故障大类名
     colorList:[],//颜色选项
@@ -13,15 +13,17 @@ Page({
     optionList:[],//保内保外选项
     mouldName: null, //设备名称
     markInfo: null, //故障说明
+    priceRange: "", //价格范围 如：280~360
     mouldInfo: null, //已选设备(hi维修数据)
     selectedColor: null, //已选颜色
     selectedPlan: null, //已选方案
     selectedOption:null, //已选保障状态
-    //详情+评论
-    detailUrl: null, //详情链接
+    //维修详情+评论
+    segIndex : 0, // 切换 0维修详情 1用户评论
+    detailUrl: null, //详情图片链接
     commentList: [],//评论列表
-    currentPage: 1, //默认第一页
-    totalPages: 1,  //总页数
+    currentPage: 0, //默认第一页
+    totalPages: 0,  //总页数
 	},
 
   onLoad:function(options){
@@ -29,8 +31,6 @@ Page({
       faultId:options.id,
       faultName:options.name
     })
-    //获取用户评论
-    this.getComment();
   },
 
   onShow:function(){
@@ -96,15 +96,15 @@ Page({
   
   //切换机型时，需要重置的数据
   onDeviceSelected:function(){
-    console.log("onDeviceSelected");
     this.setData({
       colorList:[],
       planList: [],
       protectPlanList:[],
       optionList:[],
+      priceRange:"",
       selectedColor: null, 
       selectedPlan: null, 
-      selectedOption:null, 
+      selectedOption:null
     })
     this.getColors();//重新获取颜色
     this.getOptions();//重新获取选项
@@ -181,6 +181,8 @@ Page({
           selectedPlan:data.repair[0] //默认选中第一个方案
         });
       }
+      //计算价格范围
+      that.getPriceRange();
   },function(msg){
     wx.showModal({
       title: "获取维修方案失败，点击重试",
@@ -199,8 +201,9 @@ Page({
   //获取评论列表
   getComment:function(){
     var that = this
-    httpTool.getFaultComment.call(that,that.data.faultId,"all",that.data.currentPage,function(data){
-      if(that.data.currentPage <= 1){//如果是刷新,要先将原列表清空
+    var nextPage = Number(that.data.currentPage) + 1;
+    httpTool.getFaultComment.call(that,that.data.faultId,"all",nextPage,function(data){
+      if(that.data.currentPage <= 0){//如果是刷新,要先将原列表清空
         that.setData({
           commentList:[]
         }) 
@@ -220,14 +223,13 @@ Page({
   },
   
   selectColor: function(e){
-    var that = this
     var index = e.currentTarget.dataset.idx;
-    var color = that.data.colorList[index];
-    that.setData({
+    var color = this.data.colorList[index];
+    this.setData({
       selectedColor:color,
     });
     //重新获取维修方案
-    that.getRepairMsg();
+    this.getRepairMsg();
   },
 
   selectOption:function(e){
@@ -283,11 +285,49 @@ Page({
     })
   },
 
+  showRepairService:function(e){
+    this.setData({
+      segIndex:0
+    })
+  },
+
+  showUserComment:function(e){
+    this.setData({
+      segIndex:1,
+      currentPage:0 //刷新评论列表
+    })
+    this.getComment();
+  },
+
+  loadMoreComment:function(e){
+    this.getComment();//加载更多
+  },
+
   onShareAppMessage: function () {
     return {
       title: '自定义分享标题',
       desc: '自定义分享描述',
       path: '/page/user?id=123'
     }
+  },
+
+  getPriceRange:function(){
+    var plans = this.data.planList;
+    plans.sort(function(obj1,obj2){
+         return obj2.Price - obj1.Price;
+    })
+    var priceRange = "";
+    switch(plans.length){
+      case 0: break;
+      case 1:
+         priceRange = parseFloat(plans[0].Price);
+         break;
+      default:
+         priceRange = parseFloat(plans[0].Price) + "~" + parseFloat(plans[plans.length-1].Price);
+    }
+    this.setData({
+      priceRange:priceRange
+    })
   }
+
 })

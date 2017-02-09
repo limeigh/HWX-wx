@@ -1,70 +1,22 @@
-page {
-    width: 100%;
-    height: 100%;
-}
+/**wxfa.wxss**/
+/** top start **/
+.top{ position: relative; min-height: 140rpx; padding: 40rpx 0; }
+.topimg{ position: absolute; left:30rpx; width: 234rpx; height: 140rpx;}
+.toptxt{ padding: 0 30rpx 0 294rpx;}
+.topjiage{ height: 70rpx; line-height: 70rpx; margin-top: 24rpx;}
+/** top end **/
 
-view {
-    width: 100%;
-}
+/** main start **/
+.main{ padding:0 30rpx;}
+.mainjixing{ height: 90rpx; line-height: 90rpx;}
+.mainjixingxiugai{ padding-right: 30rpx; background: url(/img/rightblue.png) right center no-repeat; background-size: 12rpx 20rpx;}
+.title{ line-height: 90rpx;}
+.maintitlebtn{ padding-right: 35rpx; background: url(/img/query.png) right center no-repeat; background-size: 24rpx 24rpx;}
+.maincolbtn{ float: left; width: 148rpx; text-align: center; height: 68rpx; line-height: 68rpx; border-radius: 5rpx; -webkit-border-radius:5rpx;}
+.mainguzhang{ height: 72rpx; line-height: 68rpx; border-radius: 5rpx; -webkit-border-radius:5rpx;}
+/** main end **/
+.wxfwbtn{ display: block; margin: 0 auto; height: 80rpx; text-align: center; width: 140rpx;}
+.wxfwbb{ border-bottom: 3rpx solid #ff5000;}
 
-.weapp-about {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-around;
-    align-items: center;
-}
-
-.weapp-name {
-    font-size: 60rpx;
-    text-align: center;
-    color: #555;
-}
-
-.webapp-intro {
-    box-sizing: border-box;
-    padding: 60rpx;
-}
-
-.webapp-intro-item {
-    margin-bottom: 40rpx;
-}
-
-.webapp-intro-title {
-    margin-bottom: 10rpx;
-    font-size: 32rpx;
-    color: #666;
-}
-
-.webapp-intro-content {
-    color: #ccc;
-}
-
-.webapp-intro-content-selected {
-    color: #ff5000;
-}
-
-.top-tab{
-  width: 750rpx;
-  height: 100rpx;
-  background: #298DE5;
-  color: #8CCEFD;
-  font-size: 28rpx;
-  line-height: 100rpx;
-  box-shadow: 0 2px 2px #bebebe;
-  margin: 0 0 8rpx 0;
-  z-index: 9999;
-}
-
-.toptab.active{
-  color: #ffffff;
-  border-bottom: solid 2px #ffffff;
-}
-
-.flex-wrp{
-    height: 100px;
-    display:flex;
-    background-color: #FFFFFF;
- }
+.yhpl{ position: relative;}
+.icon100pl{ position: absolute; left: 0; top: 0;}
