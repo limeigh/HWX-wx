@@ -6,7 +6,7 @@ Page({
     hwxUserInfo:null,
     hasLogin:false,
     placeHolder: {
-      holderUrl: "../../../../images/personCenter/touxiang.png",
+      holderUrl: "/img/touxiang.png",
       holderName: "未登录",
       holderDes: "快乐方式解决手机维修",
     }

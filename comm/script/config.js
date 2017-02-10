@@ -32,6 +32,7 @@ module.exports = {
         cityInfo: baseUrl + 'region/is-open-city',
         createOrder: baseUrl + 'order/new-create-order',
         orderDetail: baseUrl + 'order/detail',
+        workerLocation: baseUrl + 'order/get-engineer-position',
         brandList: baseUrl + 'moiblemould/get-brand-list',
         mouldList: baseUrl + 'moiblemould/get-mould-list-by-bid',
         orderList: baseUrl + 'order/listnew',

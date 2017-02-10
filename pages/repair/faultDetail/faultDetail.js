@@ -316,7 +316,8 @@ Page({
       path: '/page/user?id=123'
     }
   },
-
+  
+  //维修方案价格范围
   getPriceRange:function(){
     var plans = [].concat(this.data.planList);
     plans.sort(function(obj1,obj2){

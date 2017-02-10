@@ -229,6 +229,17 @@ function getOrderDetail(id,cb,fail_cb){
 }
 
 /**
+ *  工程师当前位置
+ *  engineer_id：工程师Id
+ */
+function getWorkerLocation(engineer_id,cb,fail_cb){
+  var data = {
+    engineer_id:engineer_id
+  }
+  request(config.apiList.workerLocation, data, 'GET', cb, fail_cb)
+}
+
+/**
  *  订单列表
  *  page 页码
  *  search_type 0:全部订单, 1:维修订单, 2:保险订单, 3:回收订单
@@ -353,6 +364,7 @@ module.exports = {
   getCityInfo:getCityInfo,
   createOrder:createOrder,
   getOrderDetail:getOrderDetail,
+  getWorkerLocation:getWorkerLocation,
   getMyOrders:getMyOrders,
   editName:editName,
   editBirthday:editBirthday,
