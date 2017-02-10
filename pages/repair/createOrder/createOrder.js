@@ -144,7 +144,7 @@ Page({
   createOrder:function(){
     var that = this;
     var timeString = that.data.date + " " + that.data.time;
-    var reserveTime = Date.parse(new Date(timeString));
+    var reserveTime = Date.parse(new Date(timeString)) / 1000; //时间戳
     httpTool.createOrder.call(that,that.data.plan.Id,that.data.mouldId,that.data.colorId,that.data.phone,that.data.selectedAddress.contacts,that.data.selectedAddress.city,that.data.selectedAddress.district,that.data.selectedAddress.address,reserveTime,that.data.remark,that.data.selectedAddress.lng,that.data.selectedAddress.lat,that.data.couponId,that.data.protectFlag,function(data){
       wx.showToast({
         content:"下单成功,订单："+data
