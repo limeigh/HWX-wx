@@ -37,7 +37,7 @@ Page({
   myOrder: function(e) {
     if(this.data.hasLogin){
       wx.navigateTo({
-			  url: "../myOrders/myOrders"
+			  url: "../myOrder/myOrder"
 		  })
     }
   },

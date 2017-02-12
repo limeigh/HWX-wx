@@ -12,7 +12,8 @@
     "pages/personal/myInfo/myInfo",
     "pages/personal/myOrders/myOrders",
     "pages/personal/selfCenter/selfCenter",
-    "pages/personal/selfInfo/selfInfo"
+    "pages/personal/selfInfo/selfInfo",
+    "pages/personal/myOrder/myOrder"
   ],
   "window": {
     "backgroundTextStyle":"light",

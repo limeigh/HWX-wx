@@ -1,0 +1,98 @@
+page{
+  background: #efeff4;
+}
+
+.order-item {
+  height: 340rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+
+.order-line {
+  padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.order-center {
+  padding: 30rpx;
+  height: 120rpx;
+  background: #f5f5f5;
+}
+
+.wx-img{
+    float: left;
+    width: 120rpx;
+    height: 120rpx;
+    background: #fff;
+    overflow: hidden;
+}
+
+.wx-txt{
+    float: left;
+    width: 500rpx;
+    margin-left: 30rpx;
+    padding-top: 20rpx;
+    font-size: 26rpx;
+    color: #666;
+    line-height: 40rpx;
+    max-height:80rpx;
+    overflow:hidden;
+    text-overflow: ellipsis;      
+}
+
+.icon{
+    width:26rpx;
+    height: 28rpx; 
+    position: relative;
+    margin-right: 22rpx;
+    margin-top: 28rpx;
+    float: left;
+    background: url(../../../../img/17020402.png) no-repeat center center;
+    background-size: contain;
+}
+
+.wx-fw{
+    float: left;
+    font-size: 26rpx;
+    color: #666;
+}
+
+.wx-type{
+    float: right;
+    width: 50%;
+    font-size: 26rpx;
+    color: #ff5000;
+    text-align: right;
+}
+
+.price{
+    float: left;
+    color: #666;
+    font-size: 24rpx;
+}
+
+.price-txt{
+    color: #ff5000;
+}
+
+.button{
+    float: right;
+    width: 50%; 
+    margin-top: 13rpx;   
+}
+.button-btn{
+    width: 148rpx;
+    height: 52rpx;   
+    line-height: 54rpx; 
+    font-size: 24rpx;
+    color: #666;
+    background-color: #fff;  
+    float: right; 
+    border: 1rpx solid #ccc;
+    border-radius: 6rpx; 
+    text-align: center;    
+}
+
+
+
