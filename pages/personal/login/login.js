@@ -5,11 +5,20 @@ var app = getApp()
 Page({
   data:{
     phone:"",
-    code:""
+    code:"",
+    phoneImgUrl:"",
+    codeImgUrl:"",
+    getAuthCodeTextColor:"",
   },
 
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    this.setData({
+      phoneImgUrl:"../../../../img/17020409.png",
+      codeImgUrl:"../../../../img/17020410.png",
+      getAuthCodeTextColor:"#999",
+      loginBackgroundColor:"#ccc",
+    })
   },
 
   inputPhone:function(e){
@@ -17,16 +26,42 @@ Page({
     this.setData({
       phone: e.detail.value
     })
+    if (e.detail.value) {
+      this.setData({
+        phoneImgUrl:"../../../../img/17020409-2.png",
+        getAuthCodeTextColor:"#ff5000",
+      })
+    }else {
+       this.setData({
+        phoneImgUrl:"../../../../img/17020409.png",
+        getAuthCodeTextColor:"#999",
+      })
+    }
   },
 
   inputCode:function(e){
     this.setData({
       code: e.detail.value
     })
+
+    if (e.detail.value) {
+      this.setData({
+        codeImgUrl:"../../../../img/17020410.png",
+        loginBackgroundColor:"#ff5000",
+      })
+    }else {
+       this.setData({
+        codeImgUrl:"../../../../img/17020410.png",
+        loginBackgroundColor:"#ccc",
+      })
+    }
   },
 
   sendCode:function(e){
      var that = this;
+     if (!that.bindCheckMobile(that.data.phone)) { 
+      return 
+    };
      httpTool.getVerifyCode.call(that,that.data.phone,function(){
        wx.showToast({
         title: '已发送' + that.data.phone,
@@ -34,12 +69,16 @@ Page({
      },function(){
        wx.showToast({
         title: '发送失败',
+        duration: 1000
        })
      }) 
   },
 
   submit:function(e){
     var that = this;
+    if (!that.bindCheckMobile(that.data.phone)) { 
+      return 
+    };
     console.log("submit " + that.data.phone + that.data.code);
     httpTool.doLoginWithPhone.call(that,that.data.phone,that.data.code,function(data){
        app.setUserInfo(data);
@@ -66,5 +105,21 @@ Page({
             duration: 1000
           })
     })
+  },
+
+  bindCheckMobile:function(mobile) {
+    if (!mobile.match(/^1[3-9][0-9]\d{8}$/)) {
+      wx.showToast({
+            title: '手机号格式不正确',
+            duration: 1000
+      })
+      return false;
+    }
+    return true;
+  },
+
+  goToUserTerms:function(e){
+    console.log("hahah888");
   }
 })
+

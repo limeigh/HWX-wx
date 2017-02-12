@@ -10,7 +10,7 @@
     <view class="my">
       <view class="my-item flex-wrp" bindtap="myOrder">
         <view class="myitem-icon flex-item" >
-          <!--<image src="../../images/eye.png"></image>-->
+          <image src="../../images/eye.png"></image>
         </view>
         <view class="myitem-name flex-item">
           <text>我的订单</text>
@@ -19,7 +19,7 @@
       
       <view class="my-item flex-wrp" bindtap="addressManage">
         <view class="myitem-icon flex-item" >
-          <!--<image src="../../images/star.png"></image>-->
+          <image src="../../images/star.png"></image>
         </view>
         <view class="myitem-name flex-item">
           <text>地址管理</text>
@@ -28,11 +28,40 @@
     
       <view class="my-item flex-wrp" bindtap="callPhone">
         <view class="myitem-icon flex-item" >
-          <!--<image src="../../images/draft.png"></image>-->
+          <image src="../../images/draft.png"></image>-->
         </view>
         <view class="myitem-name flex-item">
           <text>联系电话</text>
         </view>
       </view>
-    </view>
+    </view>-->
 </view>
+
+
+<!--<view class="userinfo">
+  <view class="userhead">
+    <image src="../img/17020405.png" class="head-img"></image>
+  </view>
+  <view class="username">名字名字</view>
+  <view class="usertips">快乐方式解决手机维修难</view>
+</view>
+<view class="caozuo">
+  <view class="caozuo-inner">
+    <view class="icon"><image src="../img/17020406.png" class="icon-img"></image></view>
+    <view class="lianxi">我的订单</view>
+  </view>
+  <view class="caozuo-inner">
+    <view class="icon"><image src="../img/17020407.png" class="icon-img"></image></view>
+    <view class="lianxi">联系客服</view>
+  </view>
+</view>
+<view class="botinfo">
+  <view class="column">
+    <image src="../img/170204011.png" class="column-img"></image>
+    <view class="column-con">维修</view>
+  </view>
+  <view class="column">
+    <image src="../img/170204011.png" class="column-img"></image>
+    <view class="column-con column-wode">我的</view>
+  </view>
+</view>-->

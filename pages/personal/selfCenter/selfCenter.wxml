@@ -1,0 +1,24 @@
+<!--未登陆 start-->
+<view class="userinfo">
+  <view class="userhead">
+    <image src="{{hwxUserInfo.HeadPic?hwxUserInfo.HeadPic:placeHolder.holderUrl}}" class="head-img" bindtap="editInfo"></image>
+  </view>
+  <view class="username" bindtap="login">
+          {{hwxUserInfo.RealName?hwxUserInfo.RealName:placeHolder.holderName}}
+  </view>
+  <view class="usertips">{{placeHolder.holderDes}}</view>
+</view>
+<view class="caozuo">
+  <view class="caozuo-inner" bindtap="myOrder">
+    <view class="icon"><image src="../../../../img/17020406.png" class="icon-img"></image></view>
+    <view class="lianxi">我的订单</view>
+  </view>
+  <view class="caozuo-inner" bindtap="callPhone">
+    <view class="icon"><image src="../../../../img/17020407.png" class="icon-img"></image></view>
+    <view class="lianxi">联系客服</view>
+  </view>
+</view>
+
+<!--未登陆 end-->
+
+

@@ -1,8 +1,58 @@
-<view class="weapp-about">
+<!--<view class="weapp-about">
     <input class="input-phone" placeholder="手机号" bindinput="inputPhone" auto-focus/>
     <button class="button-code" bindtap="sendCode">发送验证码</button>
     <input class="input-address" placeholder="验证码" bindinput="inputCode" value="{{addressDetail}}" auto-focus/>
     <button class="submit" bindtap="submit">登录</button>
 
     <contact-button type="default-light" size="20" session-from="weapp">客服</contact-button>
+</view>-->
+
+
+<view class="login">
+  <view class="logo">
+    <image src="../../../../img/17020403.png" class="logo-img"></image>
+  </view>
+  <view class="inps-wrap">
+    <view class="inps-inner">
+      <image src="{{phoneImgUrl}}" class="icon-sjh"></image>
+      <input class="inp-sjh" maxlength="10"type="text" maxlength="11" placeholder="手机号" placeholder-class="moren" bindinput="inputPhone" auto-focus/>
+    </view>
+    <view class="inps-inner">
+      <image src="{{codeImgUrl}}" class="icon-yzm"></image>
+      <input class="inp-yzm" type="text" placeholder="验证码" placeholder-class="moren" bindinput="inputCode"/>
+      	<!--<view class="topbar-item {{ index == activeIndex ? 'active' : '' }}">{{ item.name }}</view>-->
+      <!--<view class="topbar-item {{'active'}}"></view>-->
+      <view class="hqyzm" bindtap="sendCode" >
+          <text style="color:{{getAuthCodeTextColor}}">获取验证码</text>
+      </view>
+    </view>
+  </view>
+  <view class="btnlogin" style="background:{{loginBackgroundColor}}" bindtap="submit">无需注册，验证码登录</view>
+  <view class="tipslogin" bindtap="goToUserTerms">
+    <image src="../../../../img/17020408.png" class="icon-xy"></image>
+    <text class="tips">登录即表示您同意《用户协议》</text>
+  </view>
 </view>
+
+<!--第二状态 begin
+<view class="login">
+  <view class="logo">
+    <image src="../../../../img/17020403.png" class="logo-img"></image>
+  </view>
+  <view class="inps-wrap">
+    <view class="inps-inner">
+      <view class="icon-sjh on-icon-sjh"></view>
+      <input class="inp-sjh" type="text" placeholder="123456789" placeholder-class="moren" placeholder-style="color:#333;"/>
+    </view>
+    <view class="inps-inner">
+      <view class="icon-yzm"></view>
+      <input class="inp-yzm" type="text" placeholder="验证码" placeholder-class="moren" />
+      <view class="hqyzm on-yzm">获取验证码</view>
+    </view>
+  </view>
+  <view class="btnlogin on-login">无需注册，验证码登录</view>
+  <view class="tipslogin">
+    <image src="../../../../img/17020408.png" class="icon-xy"></image>
+    <text class="tips">登录即表示您同意《用户协议》</text>
+  </view>
+</view>-->
