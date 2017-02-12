@@ -3,24 +3,20 @@ var app = getApp();
 
 Page({
   data:{
-    // hwxUserInfo:null,
-    // hasLogin:false,
-    // placeHolder: {
-    //   holderUrl: "../../../../images/personCenter/touxiang.png",
-    //   holderName: "未登录",
-    //   holderDes: "快乐方式解决手机维修",
-    // }
+    hwxUserInfo:null,
+    hasLogin:false,
+    placeHolder: {
+      holderUrl: "../../../../img/17020405.png",
+      holderName: "未登录",
+      holderDes: "快乐方式解决手机维修",
+    }
   },
-
-  onLoad:function(){
-    
-  },
-
+  
   onShow:function(){
     //更新用户信息
     this.updateUserInfo();
   },
-
+  
   updateUserInfo:function(){
     // 检测用户信息信息，登录状态
     if (app.globalData.hwxUserInfo != null) {
@@ -69,10 +65,11 @@ Page({
   },
 
   login:function(e){
+    console.log("login");
     if(!app.globalData.hwxUserInfo) {
       wx.navigateTo({
             url: "../login/login"
-          });
+      });
     }
   }
 })

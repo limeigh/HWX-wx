@@ -10,12 +10,14 @@
     "pages/personal/addressList/addressList",
     "pages/personal/login/login",
     "pages/personal/myInfo/myInfo",
-    "pages/personal/myOrders/myOrders"
+    "pages/personal/myOrders/myOrders",
+    "pages/personal/selfCenter/selfCenter",
+    "pages/personal/selfInfo/selfInfo"
   ],
   "window": {
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTitleText": "维修",
+    "navigationBarTitleText": "Hi维修",
     "navigationBarTextStyle":"black",
     "backgroundColor": "#f8f8f8"
   },
@@ -30,7 +32,7 @@
       "selectedIconPath": "img/iconweixiu.png",
       "text": "维修"
     }, {
-      "pagePath": "pages/personal/center/center",
+      "pagePath": "pages/personal/selfCenter/selfCenter",
       "iconPath": "img/iconwode.png",
       "selectedIconPath": "img/iconwode.png",
       "text": "个人中心"

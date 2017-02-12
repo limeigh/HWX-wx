@@ -1,3 +1,4 @@
+
 page {
   padding-bottom: 100rpx;
   background: #f5f5f5;
@@ -64,7 +65,7 @@ page {
   height: 100rpx;
   border-bottom: 1rpx solid #e8e8e8;
   line-height: 100rpx;
-  background: url("../img/17020404.png") no-repeat 603rpx center;
+  background: url("../../../../img/17020404.png") no-repeat 603rpx center;
   background-size: 20rpx 20rpx;
 }
 
@@ -103,5 +104,3 @@ page {
 .column-wode{
     color: #ff5000;
 }
-
-

@@ -1,0 +1,21 @@
+<view class="gerenxinxi">
+  <view class="xinxi">
+    <view class="line">
+      <view class="left">名字</view>
+      <input class="inp"  bindblur="inputName" value="{{name}}" placeholder-style="color:#333;" auto-focus/>
+    </view>
+    <view class="line">
+      <view class="left">生日</view>
+      <picker class="txt" mode="date" value="{{birthday}}" start="1900-09-01" end="2100-09-01" bindchange="inputBirthday">
+            <view class="picker">
+              {{birthday}}
+            </view>
+      </picker>
+    </view>
+    <view class="line">
+      <view class="left" >电话</view>
+      <view class="txt1">{{phone}}</view>
+    </view>
+  </view>
+</view>
+<view class="btnexit" bindtap="callPhone">退出登陆</view>

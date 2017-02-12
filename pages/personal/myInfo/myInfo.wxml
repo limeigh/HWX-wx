@@ -15,3 +15,31 @@
     <input class="input-phone" placeholder="手机" bindblur="inputPhone" value="{{phone}}" auto-focus/>
     <button class="logout" bindtap="logout">退出登录</button>
 </view>
+
+<!--<view class="userinfo">
+  <view class="userhead">
+    <image src="../img/17020405.png" class="head-img"></image>
+  </view>
+  <view class="username">名字名字</view>
+  <view class="usertips">快乐方式解决手机维修难</view>
+</view>
+<view class="caozuo">
+  <view class="caozuo-inner">
+    <view class="icon"><image src="../img/17020406.png" class="icon-img"></image></view>
+    <view class="lianxi">我的订单</view>
+  </view>
+  <view class="caozuo-inner">
+    <view class="icon"><image src="../img/17020407.png" class="icon-img"></image></view>
+    <view class="lianxi">联系客服</view>
+  </view>
+</view>
+<view class="botinfo">
+  <view class="column">
+    <image src="../img/170204011.png" class="column-img"></image>
+    <view class="column-con">维修</view>
+  </view>
+  <view class="column">
+    <image src="../img/170204011.png" class="column-img"></image>
+    <view class="column-con column-wode">我的</view>
+  </view>
+</view>-->

@@ -1,44 +1,116 @@
 page {
-    width: 100%;
-    height: 100%;
+  padding-bottom: 50rpx;
+  background: #f5f5f5;
 }
 
-view {
-    width: 100%;
+.logo {
+  width: 110rpx;
+  height: 110rpx;
+  margin: 100rpx auto 50rpx;
 }
 
-.weapp-about {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-around;
-    align-items: center;
+.logo-img {
+  width: 110rpx;
+  height: 110rpx;
 }
 
-.weapp-name {
-    font-size: 60rpx;
-    text-align: center;
-    color: #555;
+.inps-wrap {
+  width: 590rpx;
+  margin: 0 auto;
 }
 
-.webapp-intro {
-    box-sizing: border-box;
-    padding: 60rpx;
-    height: 900rpx;
+.inps-inner {
+  padding-top: 40rpx;
+  height: 80rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+  display: flex;
 }
 
-.webapp-intro-item {
-    margin-bottom: 40rpx;
+.icon-sjh {
+  width: 35rpx;
+  height: 40rpx;
+  /*background:  no-repeat center center;
+  background: url("../../../../img/17020409.png");*/
+  background-size: contain;
+  margin: 6rpx 35rpx 0 13rpx;
+  position: relative;
 }
 
-.webapp-intro-title {
-    margin-bottom: 10rpx;
-    font-size: 32rpx;
-    color: #666;
+.icon-yzm {
+  width: 35rpx;
+  height: 40rpx;
+  background: url("../../../../img/17020410.png") no-repeat center center;
+  background-size: contain;
+  float: left;
+  margin: 5rpx 35rpx 0 13rpx;
+  position: relative;
 }
 
-.webapp-intro-content {
-    color: #ccc;
+input {
+  float: left;
+  width: 320rpx;
+  height: 40rpx;
+  font-size: 32rpx;
+  color: #333;
 }
+
+.moren {
+  color: #999;
+}
+
+.hqyzm {
+  width: 190rpx;
+  float: right;
+  text-align: right;
+  font-size: 32rpx;
+  line-height: 55rpx;
+  color: #999;
+}
+
+.btnlogin {
+  width: 590rpx;
+  height: 90rpx;
+  margin: 80rpx auto 80rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  color: #fff;
+}
+
+.tipslogin {
+  margin: 20rpx auto 0;
+  height: 26rpx;
+  line-height: 26rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+}
+
+.icon-xy {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 14rpx;
+  vertical-align: middle;
+  position: relative;
+  margin-top: -6rpx;
+}
+
+.on-yzm {
+  color: #ff5000;
+}
+
+.on-login {
+  background: #ff5000;
+}
+
+.on-icon-sjh {
+  background: url("../../../../img/17020409-2.png") no-repeat center center;
+  background-size: contain;
+}
+
+.on-icon-yzm {
+  background: url("../../../../img/17020410-2.png") no-repeat center center;
+  background-size: contain;
+}
+
