@@ -45,36 +45,36 @@
     <!-- 订单 start -->
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 ft30">
-            <view class="ht100 bb col333 lh100 pl30 diangreen">订单：21564</view>
+            <view class="ht100 bb col333 lh100 pl30 diangreen">订单：{{order.id}}</view>
             <view class="bb col333 ft28 pt14 pb14">
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">设备型号</text>
-                    <text class="col333">iPhone5s</text>
+                    <text class="col333">{{order.MouldName}}</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">设备颜色</text>
-                    <text class="col333">黑色</text>
+                    <text class="col333">{{order.color}}</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">故障详细</text>
-                    <text class="col333">屏幕-外屏碎</text>
+                    <text class="col333">{{order.FaultTypeDetail}}</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">维修方案</text>
-                    <text class="col333">更换原装屏幕总成 旧屏收回巴拉巴巴拉我是第二行内容</text>
+                    <text class="col333">{{order.RepairType}}</text>
                     <text class="colorange dingdanr">¥1280</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">其他费用</text>
                     <text class="col333">上门费</text>
-                    <text class="colorange dingdanr">¥60</text>
+                    <text class="colorange dingdanr">¥{{order.brand_home_visit_fee}}</text>
                 </view>
                  <view class="lh34 dingdan">
                     <text class="col333">维修费</text>
-                    <text class="colorange dingdanr">¥80</text>
+                    <text class="colorange dingdanr">¥{{order.brand_manual_fee}}</text>
                  </view>
             </view>
-            <view class="ht100 lh100"><text class="fr ft32 fb colorange">¥260</text><text class="fr ft28 pr25 colgreen">待支付</text></view>
+            <view class="ht100 lh100"><text class="fr ft32 fb colorange">¥{{order.TotalAccount}}</text><text class="fr ft28 pr25 colgreen">待支付</text></view>
         </view>
     </view>
     <!-- 订单 end -->
@@ -84,10 +84,10 @@
         <view class="pl30 pr30 ft30">
             <view class="ht100 bb col333 lh100 pl30 diangreen">工程师信息</view>
             <view class="pt40 pb40 oh">
-                <image src="../img/touxiang.png" class="icon100 fl"></image>
+                <image src="{{order.r_price}}" class="icon100 fl"></image>
                 <view class="fl pl30">
-                    <view class="ft32 col333 lh60">张洁明</view>
-                    <view class="ft24 col999 lh28">400-010-1010转178</view>
+                    <view class="ft32 col333 lh60">{{order.rRealName?order.rRealName:order.rName}}</view>
+                    <view class="ft24 col999 lh28">{{order.rMobile}}</view>
                 </view>
                 <image src="../img/xinxi.png" class="fr mt10 icon80"></image>
                 <image src="../img/phone.png" class="fr mt10 mr20 icon80"></image>
@@ -103,27 +103,27 @@
             <view class="col333 ft28 pt14 pb14">
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">联系人</text>
-                    <text class="col333">熊梨钧</text>
+                    <text class="col333">{{order.uName}}</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">联系电话</text>
-                    <text class="col333">15900709412</text>
+                    <text class="col333">{{order.uMobile}}</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">服务地址</text>
-                    <text class="col333">金桥花园</text>
+                    <text class="col333">{{order.address}}</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">下单时间</text>
-                    <text class="col333">2016-04-10 18:30</text>
+                    <text class="col333">{{order.createTime}}</text>
                 </view>
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">预约时间</text>
-                    <text class="col333">2016-04-10 18:30</text>
+                    <text class="col333">{{order.reserveTime}}</text>
                 </view>
                  <view class="lh34 dingdan">
                     <text class="col999 dingdanl">设备号</text>
-                    <text class="col333">SHLOJJLJLJL</text>
+                    <text class="col333">{{order.RepairNumber}}</text>
                  </view>
             </view>
         </view>
@@ -134,8 +134,8 @@
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 pb34 ft30">
             <view class="ht100 bb col333 lh100 pl30 diangreen">售后保障</view>
-            <view class="lh baozhangtxt col333 ">本订单由Hi维修和中国人保提供售后保障服务。维修完成后针对故障点质保180天。</view>
-            <view class="baozhangtime colorange ft24 lh60">保修截止日期：2016-04-10</view>
+            <view class="lh baozhangtxt col333 ">{{order.WarrantyPeriodMsg}}</view>
+            <view class="baozhangtime colorange ft24 lh60">保修截止日期：{{order.time}}</view>
         </view>
     </view>
     <!-- 售后保障 end -->
