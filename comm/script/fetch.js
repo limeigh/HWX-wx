@@ -251,7 +251,8 @@ function getMyOrders(page,search_type,is_show_shr,cb,fail_cb){
     search_type:search_type,
     is_show_shr:is_show_shr
   }
-  request(config.apiList.orderList, data, 'GET', cb, fail_cb);
+  var isMyOrder = true;
+  request(config.apiList.orderList, data, 'GET', cb, fail_cb,isMyOrder);
 }
 
 /**
@@ -294,7 +295,7 @@ function logout(cb,fail_cb){
  *  cb:成功回调
  *  
  */
-function request(url,data,method,cb,fail_cb){
+function request(url,data,method,cb,fail_cb,isMyOrder){
     var that = this
     var header = {};
     if(jwt.jwtToken()){ //如果存在token（用户已登录）
@@ -314,8 +315,14 @@ function request(url,data,method,cb,fail_cb){
       header: header,
       success: function(res){
         if(res.data.code == config.apiCode.success){
-          //请求成功，回调数据
-           typeof cb == 'function' && cb(res.data.data)
+          //如果是myorder接口，默认正常
+          if(isMyOrder) {
+            //请求成功，回调数据
+            typeof cb == 'function' && cb(res.data)
+          } else {
+            //请求成功，回调数据
+            typeof cb == 'function' && cb(res.data.data)
+          }
         }else if(res.data.code == config.apiCode.unauthorized){
           //无权限，直接跳往登录页面
            typeof fail_cb == 'function' && fail_cb(res.data.mes);

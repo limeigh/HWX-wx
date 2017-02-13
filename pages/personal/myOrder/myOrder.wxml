@@ -3,29 +3,45 @@
     <view class="order-item" data-id="{{orderItem.id}}" data-idx="{{orderIndex}}" bindtap="selectOrder">
       <view class="order-line">
         <view class="icon"></view>
-        <text class="wx-fw">维修服务</text>
-        <text class="wx-type">已预约</text>
+        
+        <block wx:if="{{orderItem.type == '1'}}">
+          <text class="wx-fw">维修服务</text>
+        </block>
+        <block  wx:if="{{orderItem.type == '2'}}">
+          <text class="wx-fw">保险服务</text>
+        </block>
+        <block  wx:if="{{orderItem.type == '3'}}">
+          <text class="wx-fw">回收服务</text>
+        </block>
+        
+        <text class="wx-type">{{orderItem.key}}</text>
       </view>
       <view class="order-center">
-        <image src="../../../../img/170204120.jpg" class="wx-img"></image>
-        <text class="wx-txt">苹果 iPhone6s 更换总成对换（质保半年）旧屏幕回收</text>
+        <image src="{{orderItem.img}}" class="wx-img"></image>
+        <text class="wx-txt">{{orderItem.desc}}</text>
       </view>
       <view class="order-line">
         <view class="price">价格：
-          <text class="price-txt">￥180</text>
+          <block wx:if="{{orderItem.type == '3'}}">
+            <text class="price-txt">{{orderItem.show_price}}</text>
+          </block>
+          <block wx:else>
+            <text class="price-txt">{{orderItem.TotalAccount}}</text>
+          </block>
+          <!--<text class="price-txt">{{orderItem.TotalAccount}}</text>-->
         </view>
-        <view class="button">
+        <!--<view class="button">
           <view class="button-btn">操作按钮</view>
-        </view>
+        </view>-->
       </view>
     </view>
   </block>
-  <block wx:if="{{totalPages <= currentPage}}">
-            <view class="ft24 lh100 colccc">已经到底啦~</view>
-        </block>
+  <block wx:if="{{hasMore}}">
+    <view class="ft24 lh100 colccc" catchtap="loadOrderList" style="text-align:center">加载更多</view>
+  </block>
   <block wx:else>
-            <view class="ft24 lh100 colccc" catchtap="loadOrderList">加载更多</view>
-        </block>
+    <view class="ft24 lh100 colccc" style="text-align:center">已经到底啦~</view>
+  </block>
   <!--<view class="order-item">
     <view class="order-line">
       <view class="icon"></view>
