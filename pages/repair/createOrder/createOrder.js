@@ -106,7 +106,8 @@ Page({
        
   selectAddress:function(){
      wx.navigateTo({
-       url: "../../personal/addressList/addressList?autoback=1",
+      //  url: "../../personal/addressList/addressList?autoback=1",
+       url: "../../personal/addAddress/addAddress?autoback=1",
      })
   },
 

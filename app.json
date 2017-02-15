@@ -13,7 +13,8 @@
     "pages/personal/myOrders/myOrders",
     "pages/personal/selfCenter/selfCenter",
     "pages/personal/selfInfo/selfInfo",
-    "pages/personal/myOrder/myOrder"
+    "pages/personal/myOrder/myOrder",
+    "pages/personal/selectAddress/selectAddress"
   ],
   "window": {
     "backgroundTextStyle":"light",
