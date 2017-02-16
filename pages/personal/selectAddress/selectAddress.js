@@ -5,7 +5,8 @@ Page({
   data: {
     markers: [],
     latitude: "",
-    longitude: "",    
+    longitude: "", 
+    addressList: []   
   },
   
   onLoad: function() {
@@ -70,13 +71,20 @@ Page({
   searchAddress:function() {
     var that = this;
     qqmapsdk.search({
-            keyword: "全部",
+            keyword: "酒店",
             location:{
               latitude: that.data.latitude,
               longitude: that.data.longitude
             },
             success: function (res) {
-                console.log("vvS"+res);
+                console.log("vvS"+res.data);
+                
+                that.setData({
+                  addressList:res.data,
+                  // currentPage:data.info.p,
+                  // totalCount:data.info.sum
+                })
+                console.log("vvcount"+that.data.addressList.length);
             },
             fail: function (res) {
                 console.log("vvF"+res);

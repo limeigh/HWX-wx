@@ -78,7 +78,7 @@ page {
   border-bottom: 2rpx solid #ff5000;
 }
 
-.result {
+.address-item {
   width: 92%;
   margin: 0 auto;
 }

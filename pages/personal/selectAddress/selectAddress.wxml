@@ -20,16 +20,20 @@
     <view class="tab"><text>小区</text></view>
     <view class="tab"><text>学校</text></view>
   </view>
-  <view class="result">
-    <view class="info">
+  
+  <block wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="order">
+    <view class="address-item" data-id="{{addressItem.id}}" data-idx="{{addressIndex}}" bindtap="selectOrder">
+    <!--<view class="info">
       <text class="name">
         <text class="curr">[当前]</text>星巴克咖啡
       </text>
       <text class="area">上海市闵行区XX路XX号XX楼楼101室</text>
-    </view>
+    </view>-->
     <view class="info">
-      <text class="name">上海漕河泾开发区浦江高科技园区</text>
-      <text class="area">上海市闵行区XX路XX号XX楼楼101室</text>
+      <text class="name">{{addressItem.title}}</text>
+      <text class="area">{{addressItem.address}}</text>
     </view>
   </view>
+</block>
+
 </view>
