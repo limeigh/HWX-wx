@@ -1,4 +1,4 @@
-var amapFile = require('../../libs/amap-wx.js')
+var amapFile = require('../../../comm/script/amap-wx.js');
 var markersData = [];
 Page({
   data: {
@@ -15,11 +15,12 @@ Page({
   },
   onLoad: function() {
     var that = this;
-    var myAmapFun = new amapFile.AMapWX({key:'e7266a3a4df23f2b774ed50048159412'});
+    var myAmapFun = new amapFile.AMapWX({key:'fb1469e4083fd8ef79a6de45b37db90d'});
     myAmapFun.getPoiAround({
       iconPathSelected: '../../img/marker_checked.png',
       iconPath: '../../img/marker.png',
       success: function(data){
+        console.log("lisidi123"+data);
         markersData = data.markers;
         that.setData({
           markers: markersData

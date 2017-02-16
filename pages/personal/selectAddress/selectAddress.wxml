@@ -1,12 +1,18 @@
 <view class="map-box">
+  
+  <view class="map_container">
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true"  bindregionchange="regionchange" bindmarkertap="makertap" markers="{{markers}}"></map>
+    <!--<map
+        style="width: 100%; height: 300px;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        markers="{{markers}}"
+        covers="{{covers}}"
+        >
+      </map>-->
+  </view>
   <view class="search">
     <input type="text" class="search-inp" placeholder="输入服务地址" placeholder-class="moren" />
-  </view>
-  <view class="map">
-    <image src="../../../../img/170204015.png"></image>
-  </view>
-  <view class="map_container">
-    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
   </view>
   <view class="tabs">
     <view class="tab on"><text>全部</text></view>

@@ -37,8 +37,8 @@ Page({
   selectAddress:function(e){
     console.log("li3333")
     wx.navigateTo({
-      //  url: "../../personal/addressList/addressList?autoback=1",
        url: "../../personal/selectAddress/selectAddress?autoback=1",
+      //  url: "../../personal/selectAddress/selectAddress?autoback=1",
      })
   },
   

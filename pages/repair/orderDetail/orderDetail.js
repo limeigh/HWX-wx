@@ -1,7 +1,7 @@
 var httpTool = require('../../../comm/script/fetch')
 var config = require('../../../comm/script/config')
 var util = require('../../../util/util')
-var amap = require('../../../libs/amap-wx.js')
+// var amap = require('../../../libs/amap-wx.js')
 var app = getApp()
 
 Page({
