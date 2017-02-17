@@ -9,8 +9,8 @@ Page({
     longitude: "", 
     addressList: [],
     section: [
-            {name : '全部',id : '0'},{name : '写字楼',id : '1'},
-            {name : '小区',id : '2'},{name : '学校',id : '3'},
+            {name : '全部', id : '0', keyword:'公司企业'},{name : '写字楼', id : '1', keyword:'写字楼'},
+            {name : '小区', id : '2', keyword:'小区'},{name : '学校', id : '3', keyword:'学校'},
         ]
   },
   
@@ -77,7 +77,8 @@ Page({
   searchAddress:function() {
     var that = this;
     qqmapsdk.search({
-            keyword: that.data.section[that.data.currentId].name,
+
+            keyword: that.data.section[that.data.currentId].keyword,
             location:{
               latitude: that.data.latitude,
               longitude: that.data.longitude

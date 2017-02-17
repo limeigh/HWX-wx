@@ -16,7 +16,8 @@ module.exports = {
         //页面间传值
         selectedAddress:"kSelectedAddress",//当前选择的地址（地址列表页面->下单页面）
         selectedDevice:"kSelectedDevice",//创建订单订单->当前选择机型
-        selectedPlan:"kSelectedPlan",//创建订单->当前选择维修方案
+        selectedPlan:"kSelectedPlan",//创建订单->当前选择维修方案,
+        selectedAddress:"kSelectedAddress",//选中地址
     },
     apiList: {
         faultList: baseUrl + 'fault/mould-fault',   //首页故障列表
