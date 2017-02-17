@@ -4,6 +4,7 @@ var qqmapsdk;
 Page({
   data:{
     addressList: [],
+    keyword: ""
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -16,10 +17,11 @@ Page({
     this.searchAddress();
   },
   
-  searchAddress:function() {
+  searchAddress:function(keyword) {
     var that = this;
-    qqmapsdk.search({
-            keyword: "学校",
+    console.log("地址"+that.data.keyword);
+    qqmapsdk.getSuggestion({
+            keyword: that.data.keyword,
             // location:{
             //   latitude: that.data.latitude,
             //   longitude: that.data.longitude
@@ -43,4 +45,10 @@ Page({
         }
     });
   },
+  setKeyword:function(e){
+    var that = this;
+    that.setData({
+      keyword:e.detail.value
+    })
+  }
 })
