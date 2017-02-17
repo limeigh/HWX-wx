@@ -12,8 +12,10 @@
       </map>-->
   </view>
   <view class="search">
-    <input type="text" class="search-inp" placeholder="输入服务地址" placeholder-class="moren" />
+    <view class="searchTap" bindtap="goToSearchAddress">搜索</view>
   </view>
+
+  
   <!--<view class="tabs">
     <view class="tab on"><text>全部</text></view>
     <view class="tab"><text>写字楼</text></view>
@@ -27,7 +29,7 @@
         </scroll-view>
     </view>
   
-  <block wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="order">
+  <block wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="address">
     <view class="address-item" data-id="{{addressItem.id}}" data-idx="{{addressIndex}}" bindtap="selectOrder">
     <!--<view class="info">
       <text class="name">

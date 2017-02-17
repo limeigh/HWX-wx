@@ -1,0 +1,76 @@
+<view class="search-box">
+  <input type="text" class="search-inp" placeholder="输入服务地址" />
+  <view class="search-btn">搜索</view>
+</view>
+
+<!--搜索到地址 begin-->
+<!--<view class="search-result">
+  <view class="info">
+    <text class="name">上海漕河泾开发区浦江高科技园区</text>
+    <text class="area">上海市闵行区XX路XX号XX楼楼101室</text>
+  </view>
+  <view class="info">
+    <text class="name">上海漕河泾开发区浦江高科技园区</text>
+    <text class="area">上海市闵行区XX路XX号XX楼楼101室</text>
+  </view>
+  <view class="info">
+    <text class="name">上海漕河泾开发区浦江高科技园区</text>
+    <text class="area">上海市闵行区XX路XX号XX楼楼101室</text>
+  </view>
+</view>-->
+<!--<view class="address-item" data-id="{{addressItem.id}}" data-idx="{{addressIndex}}" bindtap="selectAddress">
+    <block wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="address">
+        <view class="info">
+          <text class="name">{{addressItem.title}}</text>
+          <text class="area">{{addressItem.address}}</text>
+        </view>
+    </block>
+  </view>-->
+
+<block wx:if="{{addressList.length}}">
+  <view class="address-item" data-id="{{addressItem.id}}" data-idx="{{addressIndex}}" bindtap="selectAddress">
+    <block wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="address">
+        <view class="info">
+          <text class="name">{{addressItem.title}}</text>
+          <text class="area">{{addressItem.address}}</text>
+        </view>
+    </block>
+  </view>
+</block>
+<block wx:else>
+  <view class="address-item">
+    <view class="error">
+      <image src="../../../../img/170204018.png"></image>
+      <view class="tips">
+        找不到地址？
+      </view>
+      <view class="tips">
+        请尝试输入小区、写字楼学校名字
+      </view>
+      <view class="tips">
+        详细地址（如门牌号）可稍后输入哦
+      </view>
+    </view>
+  </view>
+</block>
+
+<!--搜索到地址 end-->
+
+<!--找不到地址 begin-->
+<!--<view class="search-result">
+  <view class="error">
+    <image src="../img/170204018.png"></image>
+    <view class="tips">
+      找不到地址？
+    </view>
+    <view class="tips">
+      请尝试输入小区、写字楼学校名字
+    </view>
+    <view class="tips">
+      详细地址（如门牌号）可稍后输入哦
+    </view>
+  </view>
+</view>-->
+
+<!--找不到地址 end-->
+

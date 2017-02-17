@@ -94,10 +94,10 @@ Page({
                 console.log("vvcount"+that.data.addressList.length);
             },
             fail: function (res) {
-                // console.log("vvF"+res);
+                console.log("vvF"+res);
             },
         complete: function (res) {
-            // console.log("vvC"+res);
+            console.log("vvC"+res);
         }
     });
   },
@@ -110,7 +110,15 @@ Page({
             this.setData({ currentId: id })
             this.onLoad();
         }
-
+  },
+  goToSearchAddress:function(e){
+    console.log("aaaaaa");
+     wx.navigateTo({
+      //  url: "../../personal/liandong/liandong?autoback=1",
+       url: "../../personal/searchAddress/searchAddress",
+    })
   }
+  
+
 
 })

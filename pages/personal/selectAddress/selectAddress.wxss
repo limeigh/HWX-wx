@@ -2,6 +2,17 @@ page {
   background: #fff;
 }
 
+.searchTap{ 
+  line-height: 70rpx; 
+  text-align: center; 
+  background: url("../../../../img/170204016.png") 275rpx center no-repeat; 
+  background-size: 30rpx 30rpx;
+  font-size: 30rpx;
+  color: #333;
+  height: 70rpx;  
+  /*padding-right: 10rpx;*/
+}
+
 .map-box {
   height: 410rpx;
   position: relative;
@@ -18,7 +29,7 @@ page {
   background: #fff;
 }
 
-.search-inp {
+/*.search-inp {
   font-size: 28rpx;
   color: #333;
   height: 70rpx;  
@@ -29,7 +40,7 @@ page {
   padding-left: 282rpx;
   background: url("../../../../img/170204016.png") no-repeat 242rpx center;
   background-size: 30rpx 30rpx;
-}
+}*/
 
 .map_container {
   width: 100%;
