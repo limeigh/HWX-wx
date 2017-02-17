@@ -1,79 +1,19 @@
-var config = require('../../../comm/script/config')
-var app = getApp();
-
+// pages/personal/center/center.js
 Page({
-  data:{
-
-    // hwxUserInfo:null,
-    // hasLogin:false,
-    // placeHolder: {
-    //   holderUrl: "../../../../images/personCenter/touxiang.png",
-    //   holderName: "未登录",
-    //   holderDes: "快乐方式解决手机维修",
-    // }
+  data:{},
+  onLoad:function(options){
+    // 页面初始化 options为页面跳转所带来的参数
   },
-
-  onLoad:function(){
-    
+  onReady:function(){
+    // 页面渲染完成
   },
-
   onShow:function(){
-    //更新用户信息
-    this.updateUserInfo();
+    // 页面显示
   },
-
-  updateUserInfo:function(){
-    // 检测用户信息信息，登录状态
-    if (app.globalData.hwxUserInfo != null) {
-      this.setData({
-          userInfo: app.globalData.userInfo,
-          hwxUserInfo: app.globalData.hwxUserInfo,
-          hasLogin:true
-      })
-    } else{
-      this.setData({
-          userInfo: app.globalData.userInfo,
-          hwxUserInfo: null,
-          hasLogin:false
-      })
-    }
+  onHide:function(){
+    // 页面隐藏
   },
-  
-  myOrder: function(e) {
-    if(this.data.hasLogin){
-      wx.navigateTo({
-			  url: "../myOrders/myOrders"
-		  })
-    }
-  },
-
-  addressManage: function(e) {
-    if(this.data.hasLogin){
-      wx.navigateTo({
-			  url: "../addressList/addressList"
-		  })
-    }
-  },
-
-  callPhone: function(e) {
-    wx.makePhoneCall({
-      phoneNumber: '4000171010',
-    });
-  },
-
-  editInfo: function(e){
-    if(this.data.hasLogin){
-      wx.navigateTo({
-			  url: "../selfInfo/selfInfo"
-		  });
-    }
-  },
-
-  login:function(e){
-    if(!app.globalData.hwxUserInfo) {
-      wx.navigateTo({
-            url: "../login/login"
-          });
-    }
+  onUnload:function(){
+    // 页面关闭
   }
 })

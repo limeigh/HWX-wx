@@ -39,5 +39,6 @@ Page({
 		wx.navigateTo({
 			url: "../faultDetail/faultDetail?id=" + data.id + "&name=" + data.Name
 		})
+		
 	},	
 })

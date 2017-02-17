@@ -10,14 +10,10 @@
     "pages/personal/addressList/addressList",
     "pages/personal/login/login",
     "pages/personal/myInfo/myInfo",
-    "pages/personal/myOrders/myOrders",
     "pages/personal/selfCenter/selfCenter",
     "pages/personal/selfInfo/selfInfo",
     "pages/personal/myOrder/myOrder",
-    "pages/personal/selectAddress/selectAddress",
-    "pages/personal/poi/poi",
-    "pages/personal/regeo/regeo",
-    "pages/personal/map/map"
+    "pages/personal/selectAddress/selectAddress"
   ],
   "window": {
     "backgroundTextStyle":"light",

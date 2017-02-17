@@ -111,3 +111,43 @@ page {
     padding-right: 13rpx;
     color: #ff5000;
 }
+
+
+
+/*.nav-name{
+    display:inline-block;
+    height: 80rpx;
+    width: 25%;
+    box-sizing: border-box;
+    background-clip: content-box;
+    text-align: center;
+    font-size: 28rpx;
+    color: #333;
+    border-bottom: 2px solid transparent;
+    position: relative;
+}*/
+
+
+
+.scroll-view_H{
+    white-space:nowrap;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-name{
+    display:inline-block;
+    width: 25%;
+    font-size: 28rpx;
+    color: #333;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.nav-hover{
+    color: #f06000;
+    border-bottom: 2px solid #f06000;
+}

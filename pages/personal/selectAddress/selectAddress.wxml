@@ -14,12 +14,18 @@
   <view class="search">
     <input type="text" class="search-inp" placeholder="输入服务地址" placeholder-class="moren" />
   </view>
-  <view class="tabs">
+  <!--<view class="tabs">
     <view class="tab on"><text>全部</text></view>
     <view class="tab"><text>写字楼</text></view>
     <view class="tab"><text>小区</text></view>
     <view class="tab"><text>学校</text></view>
-  </view>
+  </view>-->
+
+  <view class="nav-scroll">
+        <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+            <text  wx:for="{{section}}" wx:key="id" id="{{item.id}}" catchtap="handleTap" class="nav-name {{item.id == currentId ? 'nav-hover' : ''}}">{{item.name}}</text>
+        </scroll-view>
+    </view>
   
   <block wx:for="{{addressList}}" wx:for-index="addressIndex" wx:for-item="addressItem" wx:key="order">
     <view class="address-item" data-id="{{addressItem.id}}" data-idx="{{addressIndex}}" bindtap="selectOrder">

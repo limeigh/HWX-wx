@@ -4,9 +4,14 @@ var markersData = [];
 Page({
   data: {
     markers: [],
+    currentId: '0',
     latitude: "",
     longitude: "", 
-    addressList: []   
+    addressList: [],
+    section: [
+            {name : '全部',id : '0'},{name : '写字楼',id : '1'},
+            {name : '小区',id : '2'},{name : '学校',id : '3'},
+        ]
   },
   
   onLoad: function() {
@@ -31,8 +36,9 @@ Page({
       }
     })
   },
+  
   getLngLat:function(){
-    console.log("ZOU了");
+
     
       var that = this;
       this.mapCtx = wx.createMapContext("map");
@@ -60,7 +66,7 @@ Page({
   },
   regionchange:function(e) {
     // 地图发生变化的时候，获取中间点，也就是用户选择的位置
-    console.log("变了");
+
     this.getLngLat();
     
       // if(e.type == 'end'){
@@ -71,13 +77,14 @@ Page({
   searchAddress:function() {
     var that = this;
     qqmapsdk.search({
-            keyword: "酒店",
+            keyword: that.data.section[that.data.currentId].name,
             location:{
               latitude: that.data.latitude,
               longitude: that.data.longitude
             },
+            page_size:20,
             success: function (res) {
-                console.log("vvS"+res.data);
+                // console.log("vvS"+res.data);
                 
                 that.setData({
                   addressList:res.data,
@@ -87,12 +94,23 @@ Page({
                 console.log("vvcount"+that.data.addressList.length);
             },
             fail: function (res) {
-                console.log("vvF"+res);
+                // console.log("vvF"+res);
             },
         complete: function (res) {
-            console.log("vvC"+res);
+            // console.log("vvC"+res);
         }
     });
+  },
+  handleTap: function(e){
+
+        console.log(e);
+        let id = e.currentTarget.id;
+
+        if(id){
+            this.setData({ currentId: id })
+            this.onLoad();
+        }
+
   }
 
 })
