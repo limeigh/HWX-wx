@@ -218,7 +218,7 @@ function createOrder(planid,moudleid,color,mobile,name,cityid,areaid,address,res
 }
 
 /**
- * 订单详情
+ * 维修订单详情
  * id：订单号
  */
 function getOrderDetail(id,cb,fail_cb){
@@ -226,6 +226,18 @@ function getOrderDetail(id,cb,fail_cb){
     id:id
   }
   request(config.apiList.orderDetail, data, 'GET', cb, fail_cb);
+}
+
+/**
+ * 回收订单详情
+ * id：订单号
+ */
+function getShrOrderDetail(id,sign,cb,fail_cb){
+  var data = {
+    id:id,
+    sign:sign
+  }
+  request(config.apiList.shrOrderDetail, data, 'GET', cb, fail_cb);
 }
 
 /**
@@ -371,6 +383,7 @@ module.exports = {
   getCityInfo:getCityInfo,
   createOrder:createOrder,
   getOrderDetail:getOrderDetail,
+  getShrOrderDetail:getShrOrderDetail,
   getWorkerLocation:getWorkerLocation,
   getMyOrders:getMyOrders,
   editName:editName,

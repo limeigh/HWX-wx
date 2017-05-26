@@ -67,7 +67,7 @@ Page({
     var order = that.data.orderList[index];
     console.log('orderID'+ order.id);
     wx.navigateTo({
-      url: '../../repair/orderDetail/orderDetail?id='+order.id,
+      url: '../../repair/orderDetail/orderDetail?id='+order.id+'&key='+order.type
     })
   },
 

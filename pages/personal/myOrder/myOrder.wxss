@@ -75,24 +75,3 @@ page{
 .price-txt{
     color: #ff5000;
 }
-
-.button{
-    float: right;
-    width: 50%; 
-    margin-top: 13rpx;   
-}
-.button-btn{
-    width: 148rpx;
-    height: 52rpx;   
-    line-height: 54rpx; 
-    font-size: 24rpx;
-    color: #666;
-    background-color: #fff;  
-    float: right; 
-    border: 1rpx solid #ccc;
-    border-radius: 6rpx; 
-    text-align: center;    
-}
-
-
-

@@ -6,7 +6,7 @@ apiList：各接口路径
 apiCodef：接口返回code约定
 stringList：通用字符串，提示语等等
 */
-var baseUrl = "https://userapi.hiweixiu.com/";
+var baseUrl = "http://userapi.hiweixiu.com/";
 module.exports = {
     jwtKey:"mipvssjx7sqebrszg2pjprdf9syseecu",
     storageKeys:{
@@ -33,6 +33,7 @@ module.exports = {
         cityInfo: baseUrl + 'region/is-open-city',
         createOrder: baseUrl + 'order/new-create-order',
         orderDetail: baseUrl + 'order/detail',
+        shrOrderDetail: baseUrl + 'shr/get-shr-order-info-by-id',
         workerLocation: baseUrl + 'order/get-engineer-position',
         brandList: baseUrl + 'moiblemould/get-brand-list',
         mouldList: baseUrl + 'moiblemould/get-mould-list-by-bid',

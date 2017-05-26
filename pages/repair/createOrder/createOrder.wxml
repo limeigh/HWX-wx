@@ -83,7 +83,7 @@
                     <view class="xzfwsj ht100 lh100 col999 pr30 ft28">{{time?time:"选择服务时间"}}</view>
                 </view>
             </picker>
-            <view class="ht100 col999"><input placeholder="如有其它问题请留言" class="ht100" bindinput="inputDetail" value="{{detail}}" /></view>
+            <view class="ht100 col999"><input placeholder="如有其它问题请留言" class="ht100" bindinput="inputDetail" value="{{remark}}" /></view>
         </view>
     </view>
     <!-- 预约信息 end -->
@@ -106,7 +106,6 @@
                     <text class="colorange fr">¥{{plan.brand_manual_fee}}</text>
                 </view>
             </view>
-            <view class="ht100 col666 lh100"><text class="fr">总额：¥{{totalPrice}}</text></view>
         </view>
     </view>
     <!-- 维修价格 end -->
@@ -121,7 +120,7 @@
             </view>            
             <view class="ft22 col666 pl30"><text class="">提交订单等同于同意Hi维修服务条款</text></view>
         </view>
-        <button class="xiadanbtn fr lh100 ft30" bindtap="submit">下一步</button>
+        <button class="xiadanbtn fr lh100 ft30" bindtap="submit">立即下单</button>
     </view>
     <!-- 立即下单底部 end -->
 

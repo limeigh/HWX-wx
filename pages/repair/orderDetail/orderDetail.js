@@ -1,12 +1,14 @@
 var httpTool = require('../../../comm/script/fetch')
 var config = require('../../../comm/script/config')
 var util = require('../../../util/util')
+var md5=require('../../../util/md5')
 // var amap = require('../../../libs/amap-wx.js')
 var app = getApp()
 
 Page({
   data:{
     orderId:null,
+    orderType:null,
     order:null,
     map:{
       lat:0, //地图中心点的lat
@@ -34,6 +36,7 @@ Page({
   onLoad:function(options){
     this.setData({
       orderId:options.id,
+      orderType:options.key
     })
   },
 
@@ -45,16 +48,32 @@ Page({
   //获取订单详情
   getOrderDetail:function(){
     var that = this;
-    httpTool.getOrderDetail.call(that,that.data.orderId,function(data){
-      //生成页面展示相关数据
-      that.processOrderData(data);
-      //更新工程师/用户位置
-      that.updateLocations(data.status,data.RepairPerson);
-    },function(msg){
-      wx.showToast({
-        title:msg
-      })
-    });
+    if(that.data.orderType == '1'){
+      httpTool.getOrderDetail.call(that,that.data.orderId,function(data){
+        //生成页面展示相关数据
+        that.processOrderData(data);
+        //更新工程师/用户位置
+        that.updateLocations(data.status,data.RepairPerson);
+      },function(msg){
+        wx.showToast({
+          title:msg
+        })
+      });
+    }
+    if(that.data.orderType == '3'){
+      var params_str = md5.md5('id'+that.data.orderId)
+      var sign=md5.md5(params_str+'5b46fc265b786a1b5edcf59d6ee06786')
+      httpTool.getShrOrderDetail.call(that,that.data.orderId,sign,function(data){
+        //生成页面展示相关数据
+        that.processOrderData(data);
+        //更新工程师/用户位置
+        that.updateLocations(data.status,data.RepairPerson);
+      },function(msg){
+        wx.showToast({
+          title:msg
+        })
+      });
+    }
   },
 
   //更新工程师/用户位置

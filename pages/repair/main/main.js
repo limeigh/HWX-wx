@@ -37,7 +37,7 @@ Page({
 	bindTapFault: function(e) {
 		var data = e.currentTarget.dataset;
 		wx.navigateTo({
-			url: "../faultDetail/faultDetail?id=" + data.id + "&name=" + data.Name
+			url: "../faultDetail/faultDetail?id=" + data.id
 		})
 		
 	},	

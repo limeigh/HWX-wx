@@ -35,7 +35,6 @@ function jwtToken(){
   var token = jwtHeader+"."+jwtPayload+"."+jwtHash;
 
   console.log("jwtHeader:"+JSON.stringify(header)+"\njwtPayload:"+JSON.stringify(payload)+"\nhash:"+jwtHash);
-
   return token;
 }
 

@@ -80,7 +80,6 @@ Page({
           var nowTime = data.now_time;//服务端时间
           var diff = Number(nowTime) - Number(locTime);
           app.setTimeDifference(diff);
-          //
           that.onDeviceSelected();
         },function(msg){
           wx.showToast({

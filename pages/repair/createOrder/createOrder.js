@@ -39,7 +39,7 @@ Page({
     //设置默认时间
     var nowDate = new Date();
     this.setData({
-      date: nowDate.getFullYear()+'-'+nowDate.getMonth()+'-'+nowDate.getDate(),
+      date: nowDate.getFullYear()+'-'+(nowDate.getMonth()+1)+'-'+nowDate.getDate(),
       time: nowDate.getHours()+':' + nowDate.getMinutes()
     })
   },
@@ -113,7 +113,7 @@ Page({
 
   sendCode:function(e){
      var that = this;
-     httpTool.getVerifyCode.call(that,that.data.phone,function(){
+     httpTool.getVerifyCode(that.data.phone,function(){
        wx.showToast({
         title: '已发送' + that.data.phone,
       })
@@ -136,7 +136,8 @@ Page({
         that.createOrder();//提交订单
       },function(msg){
         wx.showToast({
-          content:msg
+          title:msg,
+          duration:2000
         })
       });
     }
@@ -146,14 +147,16 @@ Page({
     var that = this;
     var timeString = that.data.date + " " + that.data.time;
     var reserveTime = Date.parse(new Date(timeString)) / 1000; //时间戳
-    httpTool.createOrder.call(that,that.data.plan.Id,that.data.mouldId,that.data.colorId,that.data.phone,that.data.selectedAddress.contacts,that.data.selectedAddress.city,that.data.selectedAddress.district,that.data.selectedAddress.address,reserveTime,that.data.remark,that.data.selectedAddress.lng,that.data.selectedAddress.lat,that.data.couponId,that.data.protectFlag,function(data){
+    httpTool.createOrder.call(that,that.data.plan.Id,that.data.mouldId,that.data.colorId,that.data.phone,that.data.selectedAddress.contacts,that.data.selectedAddress.cityId,that.data.selectedAddress.district,that.data.selectedAddress.address,reserveTime,that.data.remark,that.data.selectedAddress.lng,that.data.selectedAddress.lat,that.data.couponId,that.data.protectFlag,function(data){
       wx.showToast({
-        content:"下单成功,订单："+data
+        title:"下单成功,订单："+data,
+        icon:"success",
+        duration:2000
       })
-      that.goToOrderDetail(data);
+      // that.goToOrderDetail(data);
     },function(msg){
       wx.showToast({
-        content:msg
+        title:msg
       })
     })
   },
@@ -161,7 +164,7 @@ Page({
   //前往订单详情页面
   goToOrderDetail:function(id){
     wx.redirectTo({
-      url: "../orderDetail/orderDetail?id="+id,
+      url: "../orderDetail/orderDetail?id="+id+"&key=1",
     })
   }
 

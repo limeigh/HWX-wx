@@ -15,16 +15,23 @@
   <view class="inps-wrap">
     <view class="inps-inner">
       <image src="{{phoneImgUrl}}" class="icon-sjh"></image>
-      <input class="inp-sjh" maxlength="10"type="text" maxlength="11" placeholder="手机号" placeholder-class="moren" bindinput="inputPhone" auto-focus/>
+      <input class="inp-sjh" type="text" maxlength="11" placeholder="手机号" placeholder-class="moren" bindinput="inputPhone" auto-focus/>
     </view>
     <view class="inps-inner">
       <image src="{{codeImgUrl}}" class="icon-yzm"></image>
       <input class="inp-yzm" type="text" placeholder="验证码" placeholder-class="moren" bindinput="inputCode"/>
       	<!--<view class="topbar-item {{ index == activeIndex ? 'active' : '' }}">{{ item.name }}</view>-->
       <!--<view class="topbar-item {{'active'}}"></view>-->
-      <view class="hqyzm" bindtap="sendCode" >
-          <text style="color:{{getAuthCodeTextColor}}">获取验证码</text>
-      </view>
+      <block wx:if="{{codeId}}">
+        <view class="hqyzm" bindtap="sendCode">
+            <text style="color:{{getAuthCodeTextColor}}">获取验证码</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="hqyzm">
+            <text style="color:#ccc">{{second}}s后重发</text>
+        </view>
+      </block>
     </view>
   </view>
   <view class="btnlogin" style="background:{{loginBackgroundColor}}" bindtap="submit">无需注册，验证码登录</view>

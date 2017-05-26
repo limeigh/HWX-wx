@@ -9,6 +9,8 @@ Page({
     phoneImgUrl:"",
     codeImgUrl:"",
     getAuthCodeTextColor:"",
+    codeId:true,
+    second:""
   },
 
   onLoad:function(options){
@@ -17,7 +19,7 @@ Page({
       phoneImgUrl:"../../../../img/17020409.png",
       codeImgUrl:"../../../../img/17020410.png",
       getAuthCodeTextColor:"#999",
-      loginBackgroundColor:"#ccc",
+      loginBackgroundColor:"#ccc"
     })
   },
 
@@ -63,15 +65,37 @@ Page({
       return 
     };
      httpTool.getVerifyCode.call(that,that.data.phone,function(){
-       wx.showToast({
+      wx.showToast({
         title: '已发送' + that.data.phone,
       })
+      that.setData({
+        codeId:false
+      })
+      that.daojishi();
      },function(){
        wx.showToast({
         title: '发送失败',
         duration: 1000
        })
      }) 
+  },
+
+  daojishi:function(){
+    var that=this
+    var s=60
+    var timer =setInterval(function(){
+      if(s<=0){
+        that.setData({
+          codeId:true
+        })
+        clearInterval(timer)
+        return false
+      }
+      s -= 1
+      that.setData({
+        second:s
+      })
+    },1000)
   },
 
   submit:function(e){
@@ -82,6 +106,8 @@ Page({
     console.log("submit " + that.data.phone + that.data.code);
     httpTool.doLoginWithPhone.call(that,that.data.phone,that.data.code,function(data){
        app.setUserInfo(data);
+       //设置时间差
+        app.setTimeDifference(-149)
        wx.showToast({
          title: '登录成功',
          icon: 'success',

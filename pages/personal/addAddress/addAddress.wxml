@@ -4,28 +4,28 @@
     <view class="right">
       <view class="name">
         <!--<input type="text" class="txt" placeholder="您的姓名" />-->
-        <input class="txt"  bindblur="inputName" value="{{name}}" placeholder="您的姓名"  auto-focus/>
+        <input class="txt"  bindblur="inputName" placeholder="您的姓名"  auto-focus/>
       </view>
       <view class="sex">
-        <view class="radio checked"></view>
-        <text>先生</text>
-        <view class="radio ml"></view>
-        <text>女士</text>
+        <radio-group class="radio-group" bindchange="selectGender">
+            <radio value="1" checked="{{gender==1}}" />先生
+            <radio value="2" checked="{{gender==2}}" class="ml"/>女士
+        </radio-group>
       </view>
     </view>
   </view>
   <view class="row">
     <view class="left">地址</view>
     <view class="right">
-      <view class="address" style="color:#999;" bindtap="selectAddress">小区/写字楼/学校等</view>
-      <picker-view>
+      <view class="address" style="color:#999;" bindtap="selectAddress">{{addressDetail?addressDetail:"小区/写字楼/学校等"}}</view>
+      <!-- <picker-view>
         <picker-view-column>
           <view>市</view>
         </picker-view-column>
         <picker-view-column>
           <view>区</view>
         </picker-view-column>
-      </picker-view>
+      </picker-view> -->
     </view>
   </view>
   <view class="row">
@@ -33,7 +33,7 @@
     <view class="right">
       <view class="detail-address-box">
         <!--<textarea class="detail-address" placeholder="详细地址（如门牌号） " />-->
-        <input class="detail-address"  bindblur="inputName" value="{{name}}" placeholder="详细地址（如门牌号） "  auto-focus/>
+        <input class="detail-address"  bindblur="inputAddress" value="{{addressDetailMore}}" placeholder="详细地址（如门牌号） "  auto-focus/>
         <!--<view class="address-tips">
           <view class="address-tips-arr">请补充详细地址</view>
         </view>-->
@@ -41,7 +41,7 @@
     </view>
   </view>
 </view>
-<view class="btnsure">确定</view>
+<view class="btnsure" bindtap="submit">确定</view>
 
 <!--弹层 begin-->
 <!--<view class="full"></view>

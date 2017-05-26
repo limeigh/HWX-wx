@@ -13,6 +13,10 @@
     <view class="icon"><image src="../../../../img/17020406.png" class="icon-img"></image></view>
     <view class="lianxi">我的订单</view>
   </view>
+  <view class="caozuo-inner" bindtap="addressManage">
+    <view class="icon"><image src="../../../../img/17020406.png" class="icon-img"></image></view>
+    <view class="lianxi">地址管理</view>
+  </view>
   <view class="caozuo-inner" bindtap="callPhone">
     <view class="icon"><image src="../../../../img/17020407.png" class="icon-img"></image></view>
     <view class="lianxi">联系客服</view>

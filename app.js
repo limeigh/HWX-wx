@@ -65,7 +65,7 @@ App({
         wx.getUserInfo({
           success: function (res) {
             that.globalData.userInfo = res.userInfo;
-            typeof cb == "function" && cb(that.globalData.userInfo)
+            // typeof cb == "function" && cb(that.globalData.userInfo)
           }
         })
       }
@@ -81,7 +81,7 @@ App({
      try{
        var res = wx.getSystemInfoSync();
        this.globalData.deviceInfo = res;
-       typeof cb == "function" && cb(this.globalData.deviceInfo)
+       // typeof cb == "function" && cb(this.globalData.deviceInfo)
      }catch(e){
        console.log(JSON.stringify(e));
      }

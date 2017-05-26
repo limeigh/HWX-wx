@@ -2,7 +2,7 @@
   <view class="xinxi">
     <view class="line">
       <view class="left">名字</view>
-      <input class="inp"  bindblur="inputName" value="{{name}}" placeholder-style="color:#333;" auto-focus/>
+      <input class="inp"  catchblur="inputName" value="{{name}}" placeholder-style="color:#333;"/>
     </view>
     <view class="line">
       <view class="left">生日</view>
@@ -18,4 +18,4 @@
     </view>
   </view>
 </view>
-<view class="btnexit" bindtap="callPhone">退出登陆</view>
+<view class="btnexit" bindtap="logout">退出登陆</view>

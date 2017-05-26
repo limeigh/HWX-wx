@@ -29,9 +29,12 @@ Page({
   },
   
   logout:function(e){
+    var that=this
     wx.clearStorage();
     httpTool.logout.call(that);
-    wx.navigateBack();
+    wx.redirectTo({
+      url:"../login/login"
+    });
   },
 
   formatDate1: function(timestamp) {
@@ -43,9 +46,6 @@ Page({
     var that = this;
     var name = e.detail.value;
     httpTool.editName.call(that,name,function(data){
-      that.setData({
-        name: name
-      })
       app.globalData.hwxUserInfo.RealName = name;
       app.setUserInfo(app.globalData.hwxUserInfo);
     },function(msg){
