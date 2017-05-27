@@ -1,0 +1,99 @@
+<view class="wodeshebei">
+  我的设备：iPhone6S
+</view>
+<view class="content">
+  <view class="sidebar">
+    <view class="menu on">
+      <view class="txt">苹果
+        <view class="yuan"></view>
+      </view>
+    </view>
+    <view class="menu">
+      <view class="txt">三星
+        <view class="yuan"></view>
+      </view>
+    </view>
+    <view class="menu">
+      <view class="txt">小米
+        <view class="yuan"></view>
+      </view>
+    </view>
+    <view class="menu">
+      <view class="txt">华为
+        <view class="yuan"></view>
+      </view>
+    </view>
+    <view class="menu">
+      <view class="txt">OPPO
+        <view class="yuan"></view>
+      </view>
+    </view>
+    <view class="menu">
+      <view class="txt">步步高
+        <view class="yuan"></view>
+      </view>
+    </view>
+    <view class="menu">
+      <view class="txt">诺基亚
+        <view class="yuan"></view>
+      </view>
+    </view>
+    <view class="menu">
+      <view class="txt">魅族
+        <view class="yuan"></view>
+      </view>
+    </view>
+  </view>
+  <view class="right">
+    <view class="tabs">
+      <view class="nav on">手机</view>
+      <view class="nav">平板</view>
+    </view>
+    <view class="list">
+
+      <!--item begin-->
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+      <view class="item">
+        <image src="../img/170204180.jpg" class="img"></image>
+        <view class="con">iPhone 6S</view>
+      </view>
+
+      <!--item end-->
+    </view>
+  </view>
+</view>

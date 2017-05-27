@@ -40,7 +40,7 @@ page {
   display: flex;
 }
 
-.radio {
+/*.radio {
   width: 38rpx;
   height: 38rpx;
   position: relative;
@@ -51,12 +51,12 @@ page {
   cursor: pointer;
   border-radius: 50%;
   outline: none;
-}
+}*/
 
-.radio.checked {
+/*.radio.checked {
   background: url("../../../../img/170204013.png") no-repeat center center;
   background-size: contain;
-}
+}*/
 
 .ml {
   margin-left: 60rpx;
@@ -65,7 +65,6 @@ page {
 .address {
   height: 100rpx;
   line-height: 100rpx;
-  background: url("../../../../img/17020404.png") no-repeat right center;
   background-size: 20rpx 20rpx;
 }
 
@@ -100,7 +99,6 @@ page {
   margin-left: -10rpx;
   width: 20rpx;
   height: 10rpx;
-  background: url("../../../../img/170204014.png") no-repeat 0 0;
   background-size: contain;
   z-index: 5;
 }

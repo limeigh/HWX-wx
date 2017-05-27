@@ -1,6 +1,5 @@
 /* pages/index/index.wxss */
 .banner{ height: 270rpx;}
-.dianorange{ background: url("/img/dianorange.png") left center no-repeat; background-size: 10rpx 10rpx;}
 .gzd{ text-align: center; border-radius: 10rpx; -webkit-border-radius: 10rpx;}
 .gzdimg{ height: 130rpx; display: block;}
 .other{ height: 94rpx; line-height: 94rpx; text-align: center; border-radius: 10rpx; -webkit-border-radius: 10rpx;}

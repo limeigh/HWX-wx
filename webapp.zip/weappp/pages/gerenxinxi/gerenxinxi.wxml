@@ -1,0 +1,40 @@
+<view class="gerenxinxi">
+  <view class="xinxi">
+    <view class="line">
+      <view class="left">名字</view>
+      <input type="text" class="inp" placeholder="张洁明" placeholder-style="color:#333;" />
+    </view>
+    <view class="line">
+      <view class="left">生日</view>
+      <view class="txt">1995-09-14</view>
+      <picker-view>
+        <picker-view-column>
+          <view>年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view>月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view>日</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <view class="line">
+      <view class="left">性别</view>
+      <view class="txt">男</view>
+      <picker-view>
+        <picker-view-column>
+          <view>男</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view>女</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <view class="line">
+      <view class="left">电话</view>
+      <input type="text" class="inp" placeholder="18221693966" placeholder-style="color:#333;" />
+    </view>
+  </view>
+</view>
+<view class="btnexit">退出登陆</view>

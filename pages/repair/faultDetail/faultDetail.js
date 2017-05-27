@@ -32,6 +32,7 @@ Page({
       faultId:options.id,
       faultName:options.name
     })
+    // console.log(options.id,options.name)
   },
 
   onShow:function(){

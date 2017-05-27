@@ -1,0 +1,56 @@
+<view class="tianxiedizhi">
+  <view class="row">
+    <view class="left">联系人</view>
+    <view class="right">
+      <view class="name">
+        <input type="text" class="txt" placeholder="您的姓名" />
+      </view>
+      <view class="sex">
+        <view class="radio checked"></view>
+        <text>先生</text>
+        <view class="radio ml"></view>
+        <text>女士</text>
+      </view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="left">地址</view>
+    <view class="right">
+      <view class="address" style="color:#999;">小区/写字楼/学校等</view>
+      <picker-view>
+        <picker-view-column>
+          <view>市</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view>区</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="left"></view>
+    <view class="right">
+      <view class="detail-address-box">
+        <textarea class="detail-address" placeholder="详细地址（如门牌号） " />
+        <view class="address-tips">
+          <view class="address-tips-arr"></view>请补充详细地址</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btnsure">确定</view>
+
+<!--弹层 begin-->
+<view class="full"></view>
+<view class="tanchuang">
+  <view class="tips">
+    <view class="tips1">当前地址暂未开通上门服务</view>
+    <view class="tips2">建议您咨询Hi维修客服</view>
+  </view>
+  <view class="btns">
+    <view class="phone">拨打电话</view>
+    <view class="dizhi">换个地址</view>
+  </view>
+</view>
+
+<!--弹层 end-->

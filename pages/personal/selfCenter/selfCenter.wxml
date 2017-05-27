@@ -11,15 +11,15 @@
 <view class="caozuo">
   <view class="caozuo-inner" bindtap="myOrder">
     <view class="icon"><image src="../../../../img/17020406.png" class="icon-img"></image></view>
-    <view class="lianxi">我的订单</view>
+    <view class="lianxi" style="background:url(../../../../img/17020404.png) no-repeat 603rpx center;background-size:20rpx 20rpx">我的订单</view>
   </view>
   <view class="caozuo-inner" bindtap="addressManage">
     <view class="icon"><image src="../../../../img/17020406.png" class="icon-img"></image></view>
-    <view class="lianxi">地址管理</view>
+    <view class="lianxi" style="background: url(../../../../img/17020404.png) no-repeat 603rpx center;background-size:20rpx 20rpx">地址管理</view>
   </view>
   <view class="caozuo-inner" bindtap="callPhone">
     <view class="icon"><image src="../../../../img/17020407.png" class="icon-img"></image></view>
-    <view class="lianxi">联系客服</view>
+    <view class="lianxi" style="background: url(../../../../img/17020404.png) no-repeat 603rpx center;background-size:20rpx 20rpx">联系客服</view>
   </view>
 </view>
 

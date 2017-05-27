@@ -23,7 +23,7 @@
       <view class="mainjixing mb10 bb" bindtap="chooseDevice">
         <text class="ft26 pr25 col666">维修机型</text>
         <text class="ft30 col333">{{mouldName}}</text>
-        <text class="ft26 fr colblue mainjixingxiugai ">修改</text>
+        <text class="ft26 fr colblue mainjixingxiugai " style="background: url(/img/rightblue.png) right center no-repeat; background-size: 12rpx 20rpx;">修改</text>
       </view>
       <!-- 维修机型 end -->
 
@@ -68,7 +68,7 @@
       <!-- 选择故障 start -->
       <view class="title cl">
         <text class="ft26 col666">选择故障</text>
-        <text class="ft24 col999 maintitlebtn fr">维修说明</text>
+        <text class="ft24 col999 maintitlebtn fr" style="background: url(/img/query.png) right center no-repeat; background-size: 24rpx 24rpx;">维修说明</text>
       </view>
 
       <block wx:for="{{(selectedOption.Id == 2)? protectPlanList :planList}}" wx:for-index="planIndex" wx:for-item="planItem" wx:key="plan">
@@ -142,7 +142,7 @@
         <block wx:else>
             <view class="ft24 lh100 colccc" catchtap="getComment">加载更多</view>
         </block>
-    </block>
+      </block>
     
   <!-- 去下单 end -->
   <view class="fixedb w100  bgf8">

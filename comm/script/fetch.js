@@ -43,7 +43,7 @@ function getVerifyCode(telephone, cb, fail_cb){
  *  fail_cb：失败回调
  */
 function getAllFaults(cb, fail_cb){
-   var that = this
+   // var that = this
    var data = {};
    request(config.apiList.faultList, data, 'GET', cb, fail_cb);
 }
@@ -352,7 +352,7 @@ function request(url,data,method,cb,fail_cb,isMyOrder){
            })
         }else{
            //请求失败
-           typeof fail_cb == 'function' && fail_cb(res.data.mes)
+           typeof fail_cb == 'function' && fail_cb(res.data.message)
         }
       },
       fail: function() {

@@ -1,0 +1,53 @@
+page {
+  background: #f5f5f5;
+}
+
+.gerenxinxi {
+  background: #fff;
+}
+
+.xinxi {
+  width: 92%;
+  margin: 0 auto;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.line {
+  height: 100rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+  display: flex;
+  line-height: 100rpx;  
+}
+
+.line:last-child {
+  border-bottom: none;
+}
+
+.left {
+  flex: 1;
+}
+
+.txt {
+  flex: 6;
+  background: url("../img/17020404.png") no-repeat right center;
+  background-size: 20rpx 20rpx;
+}
+
+.inp{
+    flex: 6;
+    position: relative;
+    margin-top: 24rpx;
+}
+
+.btnexit {
+  width: 92%;
+  height: 90rpx;
+  margin: 50rpx auto 0;
+  border-radius: 10rpx;
+  background: #ccc;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 30rpx;
+}

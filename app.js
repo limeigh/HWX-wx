@@ -66,6 +66,7 @@ App({
           success: function (res) {
             that.globalData.userInfo = res.userInfo;
             // typeof cb == "function" && cb(that.globalData.userInfo)
+            console.log(res.userInfo)
           }
         })
       }
@@ -134,6 +135,7 @@ App({
       var timeDifference = wx.getStorageSync(config.storageKeys.timeDifference);
       if(timeDifference){
         that.globalData.timeDifference = timeDifference;
+        console.log(timeDifference)
       }else{
         that.globalData.timeDifference = 0;
       }

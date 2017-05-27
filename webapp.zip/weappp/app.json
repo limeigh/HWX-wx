@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/ddxq/ddxq",
+    "pages/ljxd/ljxd",
+    "pages/wxfa/wxfa",
+
+    "pages/xiugaijixing/xiugaijixing",  
+    "pages/sosuodizhi/sosuodizhi",  
+    "pages/xuanzedizhi/xuanzedizhi",
+    "pages/tianxiedizhi/tianxiedizhi",
+    "pages/wode/wode",
+    "pages/gerenxinxi/gerenxinxi",
+    "pages/login/login",
+    "pages/quanbudingdan/quanbudingdan",
+    "pages/zanwudingdan/zanwudingdan",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTitleText": "维修",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text":"首页"
+      }, 
+      {
+        "pagePath":"pages/ddxq/ddxq",
+        "text":"订单详情"
+      }, 
+      {
+        "pagePath":"pages/ljxd/ljxd",
+        "text":"立即下单"
+      }, 
+      {
+        "pagePath":"pages/wxfa/wxfa",
+        "text":"维修方案"
+      }, {
+        "pagePath":"pages/logs/logs",
+        "text":"日志"
+      }]
+  }
+}
+

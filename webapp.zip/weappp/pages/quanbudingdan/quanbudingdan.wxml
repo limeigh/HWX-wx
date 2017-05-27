@@ -1,0 +1,40 @@
+<view class="order-list">
+  <view class="order-item">
+    <view class="order-line">
+      <view class="icon"></view>
+      <text class="wx-fw">维修服务</text>
+      <text class="wx-type">已预约</text>
+    </view>
+    <view class="order-center">
+      <image src="../img/170204120.jpg" class="wx-img"></image>
+      <text class="wx-txt">苹果 iPhone6s 更换总成对换（质保半年）旧屏幕回收</text>
+    </view>
+    <view class="order-line">
+      <view class="price">价格：
+        <text class="price-txt">￥180</text>
+      </view>
+      <view class="button">
+        <view class="button-btn">操作按钮</view>
+      </view>
+    </view>
+  </view>
+  <view class="order-item">
+    <view class="order-line">
+      <view class="icon"></view>
+      <text class="wx-fw">维修服务</text>
+      <text class="wx-type">已预约</text>
+    </view>
+    <view class="order-center">
+      <image src="../img/170204120.jpg" class="wx-img"></image>
+      <text class="wx-txt">苹果 iPhone6s 更换总成对换（质保半年）旧屏幕回收</text>
+    </view>
+    <view class="order-line">
+      <view class="price">价格：
+        <text class="price-txt">￥180</text>
+      </view>
+      <view class="button">
+        <view class="button-btn">操作按钮</view>
+      </view>
+    </view>
+  </view>
+</view>

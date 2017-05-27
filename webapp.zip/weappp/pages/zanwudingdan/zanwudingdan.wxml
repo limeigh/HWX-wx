@@ -1,0 +1,11 @@
+
+<!--pages/zanwudingdan/zanwudingdan.wxml-->
+<view class="wrap">
+  <view class="tips-img">
+    <image src="../img/17020401.png" class="img"></image>
+  </view>
+  <view class="tips-con">
+    <text class="txt">还没有订单，立即去下个单吧</text>
+  </view>
+  <view class="lijixiadan">立即下单</view>
+</view>

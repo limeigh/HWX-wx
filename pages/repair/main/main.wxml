@@ -7,7 +7,7 @@
     <!-- 首页banner end -->
     
     <view class="w100 mt10">
-        <view class="pl30 lh100 ft30 fb col333"><text class="pl25 dianorange">选择故障点</text></view>
+        <view class="pl30 lh100 ft30 fb col333"><text class="pl25" style="background:url(/img/dianorange.png) left center no-repeat;background-size:10rpx 10rpx">选择故障点</text></view>
     </view>
     
     <!-- 选择故障点 start -->

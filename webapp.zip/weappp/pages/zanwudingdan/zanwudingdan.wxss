@@ -1,0 +1,39 @@
+/* pages/zanwudingdan/zanwudingdan.wxss */
+page{
+  background: #efeff4;
+}
+
+.wrap {
+  text-align: center;
+}
+
+.tips-img {
+  width: 280rpx;
+  height: 280rpx;
+  margin: 0 auto;
+  padding: 285rpx 0 50rpx 0;
+}
+
+.img {
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.tips-con {
+  line-height: 28rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.lijixiadan {
+  width: 260rpx;
+  margin: 60rpx auto 0;
+  height: 90rpx;
+  border: none;
+  border-radius: 10rpx;
+  background: #ff5000;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+}

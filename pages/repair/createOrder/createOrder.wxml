@@ -41,25 +41,25 @@
     <block wx:if="{{selectedAddress == null}}">
         <!-- 立即下单添加服务地址 start -->
         <view class="bgw w100 col333 ljxdbg" bindtap="selectAddress">
-            <view class="pl30 pr30 add">
-                <view class="ft30 pl50 tianjia">添加服务地址</view>
+            <view class="pl30 pr30" style="background: url(/img/rightgray1.png) 708rpx center no-repeat; background-size: 13rpx 23rpx;">
+                <view class="ft30 pl50 tianjia" style="background: url(/img/tianjia.png) 232rpx center no-repeat; background-size: 36rpx 36rpx;">添加服务地址</view>
             </view>
         </view>
         <!-- 立即下单添加服务地址 end -->
     </block>
     <block wx:else>
         <!-- 立即下单地址 start -->
-        <view class="bgw w100 col333 ljxdbg" bindtap="selectAddress">
+        <view class="bgw w100 col333 ljxdbg" bindtap="selectAddress" style=" background: url(/img/ljxdbg.png) left bottom no-repeat #fff; background-size: 100% 6rpx;">
             <view class="pl30 pr30 add">
                 <view class="ft32 h45">
-                <text class="fb pr20">{{selectedAddress.contacts}}</text>
-                <text>{{(selectedAddress.gender == 2) ? "女士":"先生"}}</text>
-            </view>
-            <view class="ft26 lh40">
-                <text>{{selectedAddress.address_desc}}</text>
+                    <text class="fb pr20">{{selectedAddress.contacts}}</text>
+                    <text>{{(selectedAddress.gender == 2) ? "女士":"先生"}}</text>
+                </view>
+                <view class="ft26 lh40">
+                    <text>{{selectedAddress.address_desc}}</text>
+                </view>
             </view>
         </view>
-    </view>
     <!-- 立即下单地址 end -->
     </block>
     
@@ -74,13 +74,13 @@
             <picker mode="date" value="{{date}}" bindchange="bindDateChange">
                 <view class="ht100 bb col333">
                     <text class="lh100">预约日期</text>
-                    <view class="xzfwsj ht100 lh100 col999 pr30 ft28">{{date?date:"选择服务日期"}}</view>
+                    <view class="xzfwsj ht100 lh100 col999 pr30 ft28" style="background: url(/img/rightgray1.png) right center no-repeat; background-size: 13rpx 23rpx;">{{date?date:"选择服务日期"}}</view>
                 </view>
             </picker>
             <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
                 <view class="ht100 bb col333">
                     <text class="lh100">预约时间</text>
-                    <view class="xzfwsj ht100 lh100 col999 pr30 ft28">{{time?time:"选择服务时间"}}</view>
+                    <view class="xzfwsj ht100 lh100 col999 pr30 ft28" style="background: url(/img/rightgray1.png) right center no-repeat; background-size: 13rpx 23rpx;">{{time?time:"选择服务时间"}}</view>
                 </view>
             </picker>
             <view class="ht100 col999"><input placeholder="如有其它问题请留言" class="ht100" bindinput="inputDetail" value="{{remark}}" /></view>

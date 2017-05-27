@@ -17,7 +17,7 @@
   <view class="row">
     <view class="left">地址</view>
     <view class="right">
-      <view class="address" style="color:#999;" bindtap="selectAddress">{{addressDetail?addressDetail:"小区/写字楼/学校等"}}</view>
+      <view class="address" style="color:#999; background: url(../../../../img/17020404.png) no-repeat right center;" bindtap="selectAddress">{{addressDetail?addressDetail:"小区/写字楼/学校等"}}</view>
       <!-- <picker-view>
         <picker-view-column>
           <view>市</view>

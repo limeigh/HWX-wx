@@ -113,7 +113,10 @@ Page({
 
   sendCode:function(e){
      var that = this;
-     httpTool.getVerifyCode(that.data.phone,function(){
+    if(!that.phoneCheck()){
+      return
+    }
+     httpTool.getVerifyCode(that.data.phone,function(data){
        wx.showToast({
         title: '已发送' + that.data.phone,
       })
@@ -126,6 +129,15 @@ Page({
 
   submit:function(){
     var that = this;
+    if(!that.data.selectedAddress){
+      wx.showToast({
+        title:'请填入地址'
+      })
+      return 
+    }
+    if(!that.phoneCheck()){
+      return
+    }
     if (app.globalData.hwxUserInfo != null) {
       //已登录用户，直接提交
       this.createOrder();
@@ -141,6 +153,19 @@ Page({
         })
       });
     }
+  },
+
+  phoneCheck:function(){
+   var that =this
+   var phone = Number(that.data.phone)
+   var reg=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+   if(!reg.test(phone)){
+    wx.showToast({
+      title:'请输入正确的手机号'
+    })
+    return false
+   }
+   return true
   },
 
   createOrder:function(){

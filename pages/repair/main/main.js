@@ -20,10 +20,11 @@ Page({
     //获取故障大类列表
 	loadAllFaults:function(){
 		var that = this
-		httpTool.getAllFaults.call(that,function(data){
+		httpTool.getAllFaults(function(data){
                 that.setData({
                     faultList: data,
                 })
+                // that.faultList=data
 				wx.stopPullDownRefresh();
 			},function(msg){
                 wx.showToast({

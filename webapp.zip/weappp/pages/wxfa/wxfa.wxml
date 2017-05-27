@@ -1,0 +1,139 @@
+<!--wxfa.wxml-->
+<view class="container bgf5 pb100">
+  <!-- 维修方案头部 start -->
+  <view  class="top w100 bgw">
+    <image class="topimg" src="../img/topimg.jpg"></image>
+    <view class="toptxt">
+      <text class="ft32 fb col333 lh22">外壳边框变形，磨损</text>
+      <view class="topjiage bt bb">
+        <text class="ft26 col666">维修报价：</text>
+        <text class="ft26 colorange">¥</text>
+        <text class="ft36 colorange">280~360</text>
+      </view>
+    </view>
+  </view>
+  <!-- 维修方案头部 end -->
+
+  <!-- 维修方案内容 start -->
+  <view class="mt20 bgw w100">
+
+    <view class="main">
+
+      <!-- 维修机型 start -->
+      <view class="mainjixing mb10 bb">
+        <text class="ft26 pr25 col666">维修机型</text>
+        <text class="ft30 col333">iPhone6S Plus</text>
+        <text class="ft26 fr colblue mainjixingxiugai">修改</text>
+      </view>
+      <!-- 维修机型 end -->
+
+      <!-- 选择颜色 start -->
+      <view class="title"><text class="ft26 col666">选择颜色</text></view>
+      <view class="oh mb10">
+        <view class="maincolbtn borderred mr30"><text class="ft28 colorange">金色</text></view><!-- 当前颜色  bordergray 换成 borderred -->
+        <view class="maincolbtn bordergray mr30"><text class="ft28 col333">黑色</text></view>
+        <view class="maincolbtn bordergray mr30"><text class="ft28 col333">白色</text></view>
+        <view class="maincolbtn bordergray"><text class="ft28 col333">玫瑰金</text></view><!-- 最后一个不需要添加 mr30 -->
+      </view>
+      <!-- 选择颜色 end -->
+
+      <!-- 选择故障 start -->
+      <view class="title cl">
+        <text class="ft26 col666">选择故障</text>
+        <text class="ft24 col999 maintitlebtn fr">维修说明</text>
+      </view>
+      <view class="mainguzhang w100 bordergray mb20">
+        <text  class="ft28 pl25 col333">外屏碎（显示正常）</text>
+        <text class="ft28 pr25 col666 fr">¥280</text>
+      </view>
+      <view class="mainguzhang w100 bordergray mb40">
+        <text  class="ft28 pl25 col333">外屏碎（显示正常）</text>
+        <text class="ft28 pr25 col666 fr">¥280</text>
+      </view>
+    </view>
+    <!-- 选择故障 end -->
+
+  </view>
+  <!-- 维修方案内容 end -->
+
+  <!-- 维修服务 start -->
+  <view class="mt20 bgw w100">
+
+    <view class="bb oh">
+      <view class="w50 fl lh80"><text class="wxfwbtn ft28 wxfwbb">维修服务</text></view><!-- 当前状体添加 wxfwbb -->
+      <view class="w50 fl lh80"><text class="wxfwbtn ft28">用户评论</text></view>
+    </view>
+
+    <view>
+      <image src="../img/wxfw.jpg" mode="widthFix" class="w100"></image>
+    </view>
+
+  </view>
+  <!-- 维修服务 end -->
+  <!-- 用户评论 start -->
+  <view class="mt20 bgw w100">
+
+    <view class="bb oh">
+      <view class="w50 fl lh80"><text class="wxfwbtn ft28">维修服务</text></view>
+      <view class="w50 fl lh80"><text class="wxfwbtn ft28 wxfwbb">用户评论</text></view>
+    </view>
+
+    <!-- 用户评论内容 start -->
+    <view class="pl30 pr30 pt40 bb">
+      <view class="yhpl pl120">
+        <image src="../img/icon.jpg" class="icon100 icon100pl"></image>
+        <view class="lh60 oh">
+          <text class="ft30 col333 fl">182****3853</text>
+          <text class="ft24 col999 fr">8月11日</text>
+        </view>
+        <view class="startbg pb14"><view class="start"></view></view>
+        <text class="ft30 col666 lh40">让我怎么评价好呢，手机电池用的很快，然后看着了这个维修，看着价格合适 就预约上门维修了，一切都进行的很好。</text>
+        <view class="oh pt14 pb6">
+          <image src="../img/pinglun1.jpg" class="img160 fl mr12"></image>
+          <image src="../img/pinglun2.jpg" class="img160 fl mr12"></image>
+          <image src="../img/pinglun3.jpg" class="img160 fl"></image>
+        </view>
+        <view class="oh pb34 pt8">
+          <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">颜值爆表</text></view>
+          <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">帮忙带垃圾</text></view>
+        </view>
+      </view>
+    </view>
+    <!-- 用户评论内容 end -->
+
+    <!-- 用户评论内容 start -->
+    <view class="pl30 pr30 pt40">
+      <view class="yhpl pl120">
+        <image src="../img/icon.jpg" class="icon100 icon100pl"></image>
+        <view class="lh60 oh">
+          <text class="ft30 col333 fl">182****3853</text>
+          <text class="ft24 col999 fr">8月11日</text>
+        </view>
+        <view class="startbg pb14"><view class="start"></view></view>
+        <text class="ft30 col666 lh40">让我怎么评价好呢，手机电池用的很快，然后看着了这个维修，看着价格合适 就预约上门维修了，一切都进行的很好。</text>
+        <view class="oh pb34 pt8">
+          <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">帮忙带垃圾</text></view>
+          <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">颜值爆表</text></view>
+          <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">服务态度特别好</text></view>
+          <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">全程录像</text></view>
+          <view class="lh40 bgf5 fl mr20 mt20 p15 lh40"><text class="ft20 col999">帮忙带垃圾</text></view>
+        </view>
+      </view>
+    </view>
+    <!-- 用户评论内容 end -->
+
+  </view>
+  <view class="ft24 lh100 colccc">已经到底啦~</view>
+  <!-- 用户评论 end -->
+
+  <!-- 去下单 end -->
+  <view class="fixedb w100  bgf8">
+    <view class="fl ft30">
+      <text class="col333 pl30 lh100">总额：</text>
+      <text class="colorange lh100">¥280</text>
+    </view>
+    <button class="xiadanbtn fr lh100 ft30">去下单</button>
+  </view>
+  <!-- 去下单 end -->
+  
+</view>

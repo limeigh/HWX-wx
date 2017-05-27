@@ -9,9 +9,9 @@
 /** main start **/
 .main{ padding:0 30rpx;}
 .mainjixing{ height: 90rpx; line-height: 90rpx;}
-.mainjixingxiugai{ padding-right: 30rpx; background: url(/img/rightblue.png) right center no-repeat; background-size: 12rpx 20rpx;}
+.mainjixingxiugai{ padding-right: 30rpx;}
 .title{ line-height: 90rpx;}
-.maintitlebtn{ padding-right: 35rpx; background: url(/img/query.png) right center no-repeat; background-size: 24rpx 24rpx;}
+.maintitlebtn{ padding-right: 35rpx;}
 .maincolbtn{ float: left; width: 148rpx; text-align: center; height: 68rpx; line-height: 68rpx; border-radius: 5rpx; -webkit-border-radius:5rpx;}
 .mainguzhang{ height: 72rpx; line-height: 68rpx; border-radius: 5rpx; -webkit-border-radius:5rpx;}
 /** main end **/

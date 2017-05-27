@@ -1,0 +1,74 @@
+<!-- ljxd.wxml-->
+<view class="container bgf5 pb100">
+    <!-- 立即下单地址 start -->
+    <view class="bgw w100 col333 ljxdbg">
+        <view class="pl30 pr30 add">
+            <view class="ft32 h45">
+                <text class="fb pr20">张洁明</text>
+                <text>先生</text>
+            </view>
+            <view class="ft26 lh40">
+                <text>上海市闵行区陈行路2388号浦江科技广场3号3楼</text>
+            </view>
+        </view>
+    </view>
+    <!-- 立即下单地址 end -->
+    <!-- 立即下单添加服务地址 start -->
+    <view class="bgw w100 col333 ljxdbg">
+        <view class="pl30 pr30 add">
+            <view class="ft30 pl50 tianjia">添加服务地址</view>
+        </view>
+    </view>
+    <!-- 立即下单添加服务地址 end -->
+    
+    <!-- 预约信息 start -->
+    <view class="mt20 bgw w100">
+        <view class="pl30 pr30 pb80 ft30">
+            <view class="ht100 bb col999"><input value="请输入手机号" class="ht100" /></view>
+            <view class="ht100 bb col333">
+                <text class="lh100">预约时间</text>
+                <view class="xzfwsj ht100 lh100 col999 pr30 ft28">选择服务时间</view>
+            </view>
+            <view class="ht100 col999"><input value="如有其它问题请留言" class="ht100"  /></view>
+        </view>
+    </view>
+    <!-- 预约信息 end -->
+
+    <!-- 维修价格 start -->
+    <view class="mt20 bgw w100">
+        <view class="pl30 pr30 ft30">
+            <view class="ht100 bb col333 lh100">iPhone Plus</view>
+            <view class="bb col333 ft28 pt14 pb14">
+                <view class="ht68">
+                    <text class="col333">更换金立原装扬声器（旧件带回）</text>
+                    <text class="colorange fr">¥1080</text>
+                </view>
+                <view class="ht68">
+                    <text class="col333">维修费</text>
+                    <text class="colorange fr">¥54</text>
+                </view>
+                <view class="ht68">
+                    <text class="col333">上门费</text>
+                    <text class="colorange fr">¥30</text>
+                </view>
+            </view>
+            <view class="ht100 col666 lh100"><text class="fr">总额：¥280</text></view>
+        </view>
+    </view>
+    <!-- 维修价格 end -->
+
+
+    <!-- 立即下单底部 start -->
+    <view class="fixedb w100  bgf8">
+        <view class="fl pt14">
+            <view  class="ft30">
+                <text class="col333 pl30 lh40">总额：</text>
+                <text class="colorange lh40">¥280</text>
+            </view>            
+            <view class="ft22 col666 pl30"><text class="">提交订单等同于同意Hi维修服务条款</text></view>
+        </view>
+        <button class="xiadanbtn fr lh100 ft30">下一步</button>
+    </view>
+    <!-- 立即下单底部 end -->
+
+</view>
