@@ -107,7 +107,7 @@ Page({
     httpTool.doLoginWithPhone.call(that,that.data.phone,that.data.code,function(data){
        app.setUserInfo(data);
        //设置时间差
-        app.setTimeDifference(-149)
+        app.setTimeDifference(-10)
        wx.showToast({
          title: '登录成功',
          icon: 'success',

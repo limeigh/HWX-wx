@@ -6,7 +6,7 @@
     </view>
     <view class="line">
       <view class="left">生日</view>
-      <picker class="txt" mode="date" value="{{birthday}}" start="1900-09-01" end="2100-09-01" bindchange="inputBirthday">
+      <picker class="txt" mode="date" value="{{birthday}}" start="1900-09-01" end="2100-09-01" bindchange="inputBirthday" style="background: url(../../../../img/17020404.png) no-repeat right center;background-size: 20rpx 20rpx;">
             <view class="picker">
               {{birthday}}
             </view>

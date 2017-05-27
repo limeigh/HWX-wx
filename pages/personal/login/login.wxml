@@ -18,7 +18,7 @@
       <input class="inp-sjh" type="text" maxlength="11" placeholder="手机号" placeholder-class="moren" bindinput="inputPhone" auto-focus/>
     </view>
     <view class="inps-inner">
-      <image src="{{codeImgUrl}}" class="icon-yzm"></image>
+      <image src="{{codeImgUrl}}" class="icon-yzm" style="background: url(../../../../img/17020410.png) no-repeat center center;background-size: contain;"></image>
       <input class="inp-yzm" type="text" placeholder="验证码" placeholder-class="moren" bindinput="inputCode"/>
       	<!--<view class="topbar-item {{ index == activeIndex ? 'active' : '' }}">{{ item.name }}</view>-->
       <!--<view class="topbar-item {{'active'}}"></view>-->

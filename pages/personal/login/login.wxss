@@ -39,8 +39,6 @@ page {
 .icon-yzm {
   width: 35rpx;
   height: 40rpx;
-  background: url("../../../../img/17020410.png") no-repeat center center;
-  background-size: contain;
   float: left;
   margin: 5rpx 35rpx 0 13rpx;
   position: relative;

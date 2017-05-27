@@ -30,8 +30,6 @@ page {
 
 .txt {
   flex: 6;
-  background: url("../../../../img/17020404.png") no-repeat right center;
-  background-size: 20rpx 20rpx;
 }
 
 .txt1 {
