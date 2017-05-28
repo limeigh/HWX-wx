@@ -28,7 +28,7 @@ Page({
       
       for (var i=0;i<data.data.length;i++){
         if (data.data[i].type == '1') {
-          console.log("mmm" + data.data[i].status);
+          // console.log("mmm" + data.data[i].status);
           var status = data.data[i].status;
           data.data[i].key = that.data.repairStatusTitles[status]?that.data.repairStatusTitles[status]:"订单状态未知";
         }else if (data.data[i].type == '3') {
@@ -42,9 +42,9 @@ Page({
         totalCount:data.info.sum
       })
 
-      console.log('lisidi'+ that.data.orderList.length);
+      // console.log('lisidi'+ that.data.orderList.length);
       // console.log('cur'+ that.data.currentCount);
-      var count = Number(that.orderList.length);
+      var count = Number(that.data.orderList.length);
       if(count==that.data.totalCount) {
         that.setData({
           hasMore:false

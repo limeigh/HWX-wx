@@ -45,7 +45,7 @@
     <!-- 订单 start -->
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 ft30">
-            <view class="ht100 bb col333 lh100 pl30 diangreen">订单：{{order.id}}</view>
+            <view class="ht100 bb col333 lh100 pl30 diangreen" style="background: url(/img/diangreen.png) left center no-repeat; background-size: 12rpx 12rpx;">订单：{{order.id}}</view>
             <view class="bb col333 ft28 pt14 pb14">
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">设备型号</text>
@@ -82,7 +82,7 @@
     <!-- 工程师信息 start -->
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 ft30">
-            <view class="ht100 bb col333 lh100 pl30 diangreen">工程师信息</view>
+            <view class="ht100 bb col333 lh100 pl30 diangreen" style="background: url(/img/diangreen.png) left center no-repeat; background-size: 12rpx 12rpx;">工程师信息</view>
             <view class="pt40 pb40 oh">
                 <image src="{{order.r_price}}" class="icon100 fl"></image>
                 <view class="fl pl30">
@@ -99,7 +99,7 @@
     <!-- 维修信息 start -->
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 ft30">
-            <view class="ht100 bb col333 lh100 pl30 diangreen">维修信息</view>
+            <view class="ht100 bb col333 lh100 pl30 diangreen" style="background: url(/img/diangreen.png) left center no-repeat; background-size: 12rpx 12rpx;">维修信息</view>
             <view class="col333 ft28 pt14 pb14">
                 <view class="lh34 dingdan">
                     <text class="col999 dingdanl">联系人</text>
@@ -133,7 +133,7 @@
     <!-- 售后保障 start -->
     <view class="mt20 bgw w100">
         <view class="pl30 pr30 pb34 ft30">
-            <view class="ht100 bb col333 lh100 pl30 diangreen">售后保障</view>
+            <view class="ht100 bb col333 lh100 pl30 diangreen" style="background: url(/img/diangreen.png) left center no-repeat; background-size: 12rpx 12rpx;">售后保障</view>
             <view class="lh baozhangtxt col333 ">{{order.WarrantyPeriodMsg}}</view>
             <view class="baozhangtime colorange ft24 lh60">保修截止日期：{{order.time}}</view>
         </view>

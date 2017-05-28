@@ -48,8 +48,6 @@ page{
     margin-right: 22rpx;
     margin-top: 28rpx;
     float: left;
-    background: url(../../../../img/17020402.png) no-repeat center center;
-    background-size: contain;
 }
 
 .wx-fw{

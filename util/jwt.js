@@ -11,7 +11,7 @@ function jwtToken(){
   if(app.globalData.hwxUserInfo == null){
       return null;
   }
-  console.log("user = " + JSON.stringify(app.globalData.hwxUserInfo));
+  // console.log("user = " + JSON.stringify(app.globalData.hwxUserInfo));
   var header = {
     "typ": "JWT",
     "alg": "HS256"
@@ -34,7 +34,7 @@ function jwtToken(){
   var jwtHash = sha256.b64_hmac_sha256(config.jwtKey,jwtHeader+"."+jwtPayload);
   var token = jwtHeader+"."+jwtPayload+"."+jwtHash;
 
-  console.log("jwtHeader:"+JSON.stringify(header)+"\njwtPayload:"+JSON.stringify(payload)+"\nhash:"+jwtHash);
+  // console.log("jwtHeader:"+JSON.stringify(header)+"\njwtPayload:"+JSON.stringify(payload)+"\nhash:"+jwtHash);
   return token;
 }
 

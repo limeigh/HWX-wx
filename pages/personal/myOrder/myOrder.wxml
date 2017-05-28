@@ -2,8 +2,7 @@
   <block wx:for="{{orderList}}" wx:for-index="orderIndex" wx:for-item="orderItem" wx:key="order">
     <view class="order-item" data-id="{{orderItem.id}}" data-idx="{{orderIndex}}" bindtap="selectOrder">
       <view class="order-line">
-        <view class="icon"></view>
-        
+        <view class="icon" style="background: url(../../../../img/17020402.png) no-repeat center center;background-size: contain;"></view>
         <block wx:if="{{orderItem.type == '1'}}">
           <text class="wx-fw">维修服务</text>
         </block>
